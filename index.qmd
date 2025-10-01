@@ -1,5 +1,19 @@
 ---
-title: "sofiiir.github.io"
+title: "Sofia Rodas"
+image: sofia-cropped.JPEG
+about: 
+  template: jolla
+  image-shape: round
+  image-width: 17em
+  links: 
+    - text: LinkedIn
+      href: https://www.linkedin.com/in/sofia-rodas/
+      target: _blank
+    - text: GitHub
+      href: https://github.com/sofiiir
+      target: _blank
+    - text: Email
+      href: sofiarodas@bren.ucsb.edu
 ---
 
-Hi this is Sofia!
+Hi this is Sofia! I'm working towards a Masters of Environmental Data Science at the Bren School of Environmental Science & Management. 

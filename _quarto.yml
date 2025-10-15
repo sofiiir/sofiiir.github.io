@@ -8,13 +8,20 @@ website:
     right:
       - href: index.qmd
         text: Home
-      # - about.qmd
-      # - href: resources.qmd
-      #   text: Resources
+      - about.qmd
+      - href: resources.qmd
+        text: Resources
+      - icon: square-github
+        href: https://github.com/sofiiir
+  page-footer: 
+     left: Copyright 2025, Sofia Rodas
+     right: 
+      - icon: squares-github
+        href: https://github.com/sofiiir
 
 format:
   html:
-    theme:
+    theme: styles.scss
       - journal
       - brand
     css: styles.css

@@ -7,9 +7,11 @@ about:
   image-width: 17em
   links: 
     - text: LinkedIn
+      icon: square-linkedin
       href: https://www.linkedin.com/in/sofia-rodas/
       target: _blank
     - text: GitHub
+      icon: square-github
       href: https://github.com/sofiiir
       target: _blank
     - text: Email

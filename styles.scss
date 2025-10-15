@@ -1,5 +1,11 @@
 /*-- scss:defaults --*/
 
+// import google font-size
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Dosis:wght@200..800&display=swap');
+
+// fonts
+$bebas: "Bebas Neue", sans-serif;
+
 //colors
 $linen : #FFEDDF
 $rose : #C17C74
@@ -10,3 +16,32 @@ $rosewood : #640D14
 // define quarto variables
 $body-bg: $moss;
 $navbar-bg: $linen
+$navbar-fg: $rosewood
+$navbar-hl: $rose
+
+/*-- scss:rules --*/
+h1, h2, h3, h4 {
+  font-family: $bebas;
+}
+
+/*.nav-brand imag{
+  max-height: 40px;
+  width: auto;
+}
+
+h1, h2 {
+  letter-spacing: 5px;
+  font-weight: 800;
+}
+
+.title {
+  color: $rosewood;
+}
+
+.center-text {
+  text-align: center;
+}
+
+.orange-text{
+  color: orange;
+}*/

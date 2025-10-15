@@ -4,7 +4,11 @@ project:
 
 website:
   title: "Sofia Rodas"
+  # favicon: images/favicon.png
   navbar:
+    # title: false
+    # logo: images/logo.png
+    # logo-alt: "description"
     right:
       - href: index.qmd
         text: Home
@@ -24,9 +28,9 @@ format:
     theme: styles.scss
       - journal
       - brand
-    css: styles.css
     toc: true
     page-layout: full
+    mainfont: Dosis
 
 
 

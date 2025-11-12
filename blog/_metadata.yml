@@ -1,0 +1,11 @@
+# any options specifies here will apply to all posts in the blog/ folder
+
+author: 
+  - name: Sofia Rodas
+    url: https://sofiiir.github.io/
+    affiliation: The Bren School MEDS
+    affiliation-url: https://bren.ucsb.edu/masters-programs/master-environmental-data-science/academics-meds-program
+    
+title-block-banner: true
+  
+freeze: auto

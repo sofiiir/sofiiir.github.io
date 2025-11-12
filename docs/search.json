@@ -1,17 +1,10 @@
 [
   {
-    "objectID": "resources.html",
-    "href": "resources.html",
-    "title": "resources",
+    "objectID": "blog.html",
+    "href": "blog.html",
+    "title": "Blog",
     "section": "",
-    "text": "this is an h1 element\n\n\nthis is an h1 element with the title class\n\n\nthis test is both centered and orange\n\n\nHere’s where I’m describing something fun that I enjoy doing.\nHere’s a full line\n\nHere’s one line\nHere’s another line"
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Sofia Rodas",
-    "section": "",
-    "text": "Hi this is Sofia! I’m working towards a Masters of Environmental Data Science at the Bren School of Environmental Science & Management."
+    "text": "No matching items"
   },
   {
     "objectID": "about.html",
@@ -33,5 +26,19 @@
     "title": "About",
     "section": "What I do for fun",
     "text": "What I do for fun\nI love being outside!"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Sofia Rodas",
+    "section": "",
+    "text": "Hi this is Sofia! I’m working towards a Masters of Environmental Data Science at the Bren School of Environmental Science & Management."
+  },
+  {
+    "objectID": "resources.html",
+    "href": "resources.html",
+    "title": "resources",
+    "section": "",
+    "text": "this is an h1 element\n\n\nthis is an h1 element with the title class\n\n\nthis test is both centered and orange\n\n\nHere’s where I’m describing something fun that I enjoy doing.\nHere’s a full line\n\nHere’s one line\nHere’s another line"
   }
 ]

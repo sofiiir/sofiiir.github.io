@@ -1,0 +1,25 @@
+---
+title: "Practice blog"
+description: "Pre-final assignment practice"
+author: 
+  - name: Sofia Rodas
+    url: https://sofiiir.github.io/
+    affiliation: The Bren School MEDS
+    affiliation-url: https://bren.ucsb.edu/masters-programs/master-environmental-data-science/academics-meds-program
+date: 2025-11-12
+categories: [MEDS, R, Data-viz]
+image: octocat.png
+citation: 
+  url: https://sofiiir.github.io/blog/practice-blog/
+draft: true
+bibliography: refrences.bib
+# draft-mode: linked
+---
+
+This is the body of the blog post. Add a footnote here[^1]. Or an inline footnote[^2]. Cite Sam Csik [@shanny-csik2022].
+
+[^1]: Footnote text
+
+[^2]: the inline note
+
+Cite a paper with a DOI[@brown2024]

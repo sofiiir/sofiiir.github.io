@@ -11,7 +11,7 @@ categories: [MEDS, R, Data-viz]
 image: octocat.png
 citation: 
   url: https://sofiiir.github.io/blog/practice-blog/
-draft: true
+# draft: true
 bibliography: refrences.bib
 # draft-mode: linked
 ---

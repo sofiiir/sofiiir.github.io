@@ -4,7 +4,7 @@
     "href": "blog.html",
     "title": "Blog",
     "section": "",
-    "text": "No matching items"
+    "text": "Practice blog\n\n\n\nMEDS\n\nR\n\nData-viz\n\n\n\nPre-final assignment practice\n\n\n\nSofia Rodas\n\n\nNov 12, 2025\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "about.html",
@@ -33,6 +33,20 @@
     "title": "Sofia Rodas",
     "section": "",
     "text": "Hi this is Sofia! I’m working towards a Masters of Environmental Data Science at the Bren School of Environmental Science & Management."
+  },
+  {
+    "objectID": "blog/practice-blog/index.html",
+    "href": "blog/practice-blog/index.html",
+    "title": "Practice blog",
+    "section": "",
+    "text": "This is the body of the blog post. Add a footnote here1. Or an inline footnote2. Cite Sam Csik (Shanny-Csik 2022).\nCite a paper with a DOI(Brown, Wilson, and Tyler 2024)"
+  },
+  {
+    "objectID": "blog/practice-blog/index.html#footnotes",
+    "href": "blog/practice-blog/index.html#footnotes",
+    "title": "Practice blog",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nFootnote text↩︎\nthe inline note↩︎"
   },
   {
     "objectID": "resources.html",

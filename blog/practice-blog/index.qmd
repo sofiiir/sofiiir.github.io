@@ -11,9 +11,9 @@ categories: [MEDS, R, Data-viz]
 image: octocat.png
 citation: 
   url: https://sofiiir.github.io/blog/practice-blog/
-# draft: true
 bibliography: refrences.bib
-# draft-mode: linked
+draft: true
+draft-mode: visible
 ---
 
 This is the body of the blog post. Add a footnote here[^1]. Or an inline footnote[^2]. Cite Sam Csik [@shanny-csik2022].

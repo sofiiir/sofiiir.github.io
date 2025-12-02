@@ -8,3 +8,6 @@
 /.quarto/
 
 **/*.quarto_ipynb
+
+blog/*/data
+blog/eaton-and-palisades-fire-blog/data

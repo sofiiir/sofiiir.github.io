@@ -4,7 +4,7 @@
     "href": "blog.html",
     "title": "Blog",
     "section": "",
-    "text": "GDP Influence on Coastline Protection\n\n\n\nMEDS\n\nR\n\nData-viz\n\n\n\nNation’s GDP influence on coastline protections\n\n\n\nSofia Rodas\n\n\nNov 12, 2025\n\n\n\n\n\n\nNo matching items"
+    "text": "GDP Influence on Coastline Protection\n\n\n\nMEDS\n\nR\n\nData-viz\n\n\n\nNation’s GDP influence on coastline protections\n\n\n\nSofia Rodas\n\n\nNov 12, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nPractice blog\n\n\n\nMEDS\n\nR\n\nData-viz\n\n\n\nPre-final assignment practice\n\n\n\nSofia Rodas\n\n\nNov 12, 2025\n\n\n\n\n\n\n\n\n\n\n\nEaton and Palisades Fire Blog\n\n\n\nMEDS\n\nR\n\nData-viz\n\n\n\nExploring the Eaton and Palisades Fire that took place in the Los Angeles area January 2025\n\n\n\nSofia Rodas\n\n\nNov 12, 2025\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "about.html",
@@ -28,6 +28,13 @@
     "text": "What I do for fun\nI love being outside!"
   },
   {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Sofia Rodas",
+    "section": "",
+    "text": "Hi this is Sofia! I’m working towards a Masters of Environmental Data Science at the Bren School of Environmental Science & Management."
+  },
+  {
     "objectID": "blog/gdp-influence-on-coastline-protection-blog/index.html",
     "href": "blog/gdp-influence-on-coastline-protection-blog/index.html",
     "title": "GDP Influence on Coastline Protection",
@@ -42,11 +49,18 @@
     "text": "Footnotes\n\n\nFootnote text↩︎\nthe inline note↩︎"
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Sofia Rodas",
+    "objectID": "blog/eaton-and-palisades-fire-blog/index.html",
+    "href": "blog/eaton-and-palisades-fire-blog/index.html",
+    "title": "Eaton and Palisades Fire Blog",
     "section": "",
-    "text": "Hi this is Sofia! I’m working towards a Masters of Environmental Data Science at the Bren School of Environmental Science & Management."
+    "text": "This is the body of the blog post. Add a footnote here1. Or an inline footnote2. Cite Sam Csik (shanny-csik2022?).\nCite a paper with a DOI(brown2024?)"
+  },
+  {
+    "objectID": "blog/eaton-and-palisades-fire-blog/index.html#footnotes",
+    "href": "blog/eaton-and-palisades-fire-blog/index.html#footnotes",
+    "title": "Eaton and Palisades Fire Blog",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nFootnote text↩︎\nthe inline note↩︎"
   },
   {
     "objectID": "resources.html",

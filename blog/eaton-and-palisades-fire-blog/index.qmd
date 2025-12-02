@@ -1,0 +1,24 @@
+---
+title: "Eaton and Palisades Fire Blog"
+description: "Exploring the Eaton and Palisades Fire that took place in the Los Angeles area January 2025"
+author: 
+  - name: Sofia Rodas
+    url: https://sofiiir.github.io/
+    affiliation: The Bren School MEDS
+    affiliation-url: https://bren.ucsb.edu/masters-programs/master-environmental-data-science/academics-meds-program
+date: 2025-11-12
+categories: [MEDS, R, Data-viz]
+citation: 
+  url: https://sofiiir.github.io/blog/gdp-influence-on-coastline-protection-blog/
+bibliography: references.bib
+---
+
+
+
+This is the body of the blog post. Add a footnote here[^1]. Or an inline footnote[^2]. Cite Sam Csik [@shanny-csik2022].
+
+[^1]: Footnote text
+
+[^2]: the inline note
+
+Cite a paper with a DOI[@brown2024]

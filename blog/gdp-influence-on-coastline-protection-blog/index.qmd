@@ -1,5 +1,5 @@
 ---
-title: "GDP Influence on Coastline Protection blog"
+title: "GDP Influence on Coastline Protection"
 description: "Nation's GDP influence on coastline protections"
 author: 
   - name: Sofia Rodas

@@ -7,10 +7,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Sofia Rodas">
-<meta name="dcterms.date" content="2025-11-12">
-<meta name="description" content="Exploring the Eaton and Palisades Fire that took place in the Los Angeles area January 2025">
+<meta name="dcterms.date" content="2025-12-03">
+<meta name="description" content="Using Landsat and environmental justice data to explore the Eaton and Palisades Fire that took place in the Los Angeles area January 2025.">
 
-<title>Eaton and Palisades Fire Blog – Sofia Rodas</title>
+<title>Exploring the Eaton and Palisades Fire in Python – Sofia Rodas</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -125,11 +125,11 @@ ul.task-list li input[type="checkbox"] {
 <!-- content -->
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
-    <div class="quarto-title column-page">
-      <h1 class="title">Eaton and Palisades Fire Blog</h1>
+    <div class="quarto-title column-page-left">
+      <h1 class="title">Exploring the Eaton and Palisades Fire in Python</h1>
                   <div>
         <div class="description">
-          Exploring the Eaton and Palisades Fire that took place in the Los Angeles area January 2025
+          Using Landsat and environmental justice data to explore the Eaton and Palisades Fire that took place in the Los Angeles area January 2025.
         </div>
       </div>
                           <div class="quarto-categories">
@@ -140,7 +140,7 @@ ul.task-list li input[type="checkbox"] {
                   </div>
   </div>
     
-  <div class="quarto-title-meta-author column-page">
+  <div class="quarto-title-meta-author column-page-left">
     <div class="quarto-title-meta-heading">Author</div>
     <div class="quarto-title-meta-heading">Affiliation</div>
     
@@ -156,13 +156,13 @@ ul.task-list li input[type="checkbox"] {
         </div>
     </div>
 
-  <div class="quarto-title-meta column-page">
+  <div class="quarto-title-meta column-page-left">
 
         
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">November 12, 2025</p>
+        <p class="date">December 3, 2025</p>
       </div>
     </div>
     
@@ -173,38 +173,62 @@ ul.task-list li input[type="checkbox"] {
   </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#about" id="toc-about" class="nav-link active" data-scroll-target="#about">About</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
-<main class="content quarto-banner-title-block column-page" id="quarto-document-content">
+<main class="content quarto-banner-title-block column-page-left" id="quarto-document-content">
 
 
 
 
 
-<p>This is the body of the blog post. Add a footnote here<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>. Or an inline footnote<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>. Cite Sam Csik <span class="citation" data-cites="shanny-csik2022">(<a href="#ref-shanny-csik2022" role="doc-biblioref"><strong>shanny-csik2022?</strong></a>)</span>.</p>
-<p>Cite a paper with a DOI<span class="citation" data-cites="brown2024">(<a href="#ref-brown2024" role="doc-biblioref"><strong>brown2024?</strong></a>)</span></p>
+<section id="about" class="level2">
+<h2 class="anchored" data-anchor-id="about">About</h2>
+<p><strong>Purpose:</strong> - This notebook maps NASA and USGS Landsat8 data and National Interagency Fire Center (NIFC) fire boundaries data depicting the Eaton and Palisades Fires that occured in January of 2025. The final result is a false color map showing clear colorations of the fire scars with an overlay of the official fire boundaries.</p>
+<p><strong>Highlights:</strong></p>
+<ul>
+<li><p>Landsat data is read in with NetCDF. No CRS is originally assigned to the entire Landsat data. The CRS is held in the <code>spatial_ref</code> variable. The GeoSpatial data must be restored by using the CRS from the <code>spatial_ref</code> variable.</p></li>
+<li><p>Landsat data is versatile. Landsat 8 has 11 bands that can be selected to make a variety of coloration maps. For example, the red, green, and blue bands (in that order) can be selected in that order to create a true coloration map.</p></li>
+<li><p>False color Landsat maps are created by selecting the short-wave infrared (swir22), near-infrared, and red variables (in that order). This map best depicts the fire scars on the landscape. The final map shows the fire scars with the additional boundaries of the fires being included for clarity.</p></li>
+</ul>
+<p><strong>Datasets descriptions:</strong></p>
+<ul>
+<li><p><strong>Eaton and Palisades Fire perimeters:</strong> The fire perimeter data was acquired from the City of Los Angeles official GeoHub. This City of Los Angeles GIS data is originally from the National Interagency Fire Center (NIFC) through the Fire Integrated Real-time Intelligence System (FIRIS). Eaton fire and Palisades fire perimeters are included in this download. This data is publicly available.</p></li>
+<li><p><strong>Landsat8:</strong> NASA Landsat satellites in conjunction with USGS acquire data using 11 bands through the use of Operational Land Imager (OLI) and the Thermal Infrared Sensor (TIRS). Landsat satellites orbit earth at a rate of 16 days per cycle making imaging availability satelite location dependent. This data is publicly available.</p></li>
+</ul>
+</section>
+<section id="references" class="level2">
+<h2 class="anchored" data-anchor-id="references">References</h2>
+<ul>
+<li><p>C. Galaz Garcia and A. Adams, EDS 220 - Working with Environmental Datasets. (n.d.) Available: https://meds-eds-220.github.io/MEDS-eds-220-course/. [Accessed November 17, 2025]</p></li>
+<li><p>City of Los Angeles GeoHub / NIFC FIRIS(2025).Palisades and Eaton Dissolved Fire Perimeters (2025) [Shapefile]. Available: https://egis-lacounty.hub.arcgis.com/maps/ad51845ea5fb4eb483bc2a7c38b2370c/about. [Retrieved November 17, 2025]</p></li>
+<li><p>Earth Resources Observation and Science (EROS) Center. (2020). Landsat 8-9 Operational Land Imager / Thermal Infrared Sensor Level-2, Collection 2 [dataset]. U.S. Geological Survey. https://doi.org/10.5066/P9OGBGM6. Available: https://www.usgs.gov/centers/eros/science/usgs-eros-archive-landsat-archives-landsat-8-9-olitirs-collection-2-level-2. [Accessed November 17 ,2025]</p></li>
+<li><p>NASA Earth Observatory. (2014, Mar.&nbsp;4). Why is that forest red and that cloud blue? How to interpret a false-color satellite image. Available: https://earthobservatory.nasa.gov/features/FalseColor. [Accessed: November 18, 2025]</p></li>
+<li><p>U.S. Geological Survey. (n.d.). What are the band designations for the Landsat satellites? Available: https://www.usgs.gov/faqs/what-are-band-designations-landsat-satellites. [Accessed: November 18, 2025]</p></li>
+<li><p>U.S. Geological Survey. (2021, Nov.&nbsp;12). Common Landsat band combinations. Available: https://www.usgs.gov/media/images/common-landsat-band-combinations. [Accessed: November 18, 2025]</p></li>
+</ul>
 
 
+</section>
 
-
-<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
-
-<ol>
-<li id="fn1"><p>Footnote text<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn2"><p>the inline note<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-</ol>
-</section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{rodas2025,
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{rodas2025,
   author = {Rodas, Sofia},
-  title = {Eaton and {Palisades} {Fire} {Blog}},
-  date = {2025-11-12},
+  title = {Exploring the {Eaton} and {Palisades} {Fire} in {Python}},
+  date = {2025-12-03},
   url = {https://sofiiir.github.io/blog/gdp-influence-on-coastline-protection-blog/},
   langid = {en}
 }
 </code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-rodas2025" class="csl-entry quarto-appendix-citeas" role="listitem">
-Rodas, Sofia. 2025. <span>“Eaton and Palisades Fire Blog.”</span>
-November 12, 2025. <a href="https://sofiiir.github.io/blog/gdp-influence-on-coastline-protection-blog/">https://sofiiir.github.io/blog/gdp-influence-on-coastline-protection-blog/</a>.
+Rodas, Sofia. 2025. <span>“Exploring the Eaton and Palisades Fire in
+Python.”</span> December 3, 2025. <a href="https://sofiiir.github.io/blog/gdp-influence-on-coastline-protection-blog/">https://sofiiir.github.io/blog/gdp-influence-on-coastline-protection-blog/</a>.
 </div></div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {

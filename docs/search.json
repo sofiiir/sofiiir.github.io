@@ -4,7 +4,7 @@
     "href": "blog.html",
     "title": "Blog",
     "section": "",
-    "text": "GDP Influence on Coastline Protection\n\n\n\nMEDS\n\nR\n\nData-viz\n\n\n\nNation’s GDP influence on coastline protections\n\n\n\nSofia Rodas\n\n\nNov 12, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nPractice blog\n\n\n\nMEDS\n\nR\n\nData-viz\n\n\n\nPre-final assignment practice\n\n\n\nSofia Rodas\n\n\nNov 12, 2025\n\n\n\n\n\n\n\n\n\n\n\nEaton and Palisades Fire Blog\n\n\n\nMEDS\n\nR\n\nData-viz\n\n\n\nExploring the Eaton and Palisades Fire that took place in the Los Angeles area January 2025\n\n\n\nSofia Rodas\n\n\nNov 12, 2025\n\n\n\n\n\n\nNo matching items"
+    "text": "Exploring the Eaton and Palisades Fire in Python\n\n\n\nMEDS\n\nR\n\nData-viz\n\n\n\nUsing Landsat and environmental justice data to explore the Eaton and Palisades Fire that took place in the Los Angeles area January 2025.\n\n\n\nSofia Rodas\n\n\nDec 3, 2025\n\n\n\n\n\n\n\n\n\n\n\nGDP Influence on Coastline Protection\n\n\n\nMEDS\n\nR\n\nData-viz\n\n\n\nNation’s GDP influence on coastline protections\n\n\n\nSofia Rodas\n\n\nNov 12, 2025\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "about.html",
@@ -51,16 +51,23 @@
   {
     "objectID": "blog/eaton-and-palisades-fire-blog/index.html",
     "href": "blog/eaton-and-palisades-fire-blog/index.html",
-    "title": "Eaton and Palisades Fire Blog",
+    "title": "Exploring the Eaton and Palisades Fire in Python",
     "section": "",
-    "text": "This is the body of the blog post. Add a footnote here1. Or an inline footnote2. Cite Sam Csik (shanny-csik2022?).\nCite a paper with a DOI(brown2024?)"
+    "text": "Purpose: - This notebook maps NASA and USGS Landsat8 data and National Interagency Fire Center (NIFC) fire boundaries data depicting the Eaton and Palisades Fires that occured in January of 2025. The final result is a false color map showing clear colorations of the fire scars with an overlay of the official fire boundaries.\nHighlights:\n\nLandsat data is read in with NetCDF. No CRS is originally assigned to the entire Landsat data. The CRS is held in the spatial_ref variable. The GeoSpatial data must be restored by using the CRS from the spatial_ref variable.\nLandsat data is versatile. Landsat 8 has 11 bands that can be selected to make a variety of coloration maps. For example, the red, green, and blue bands (in that order) can be selected in that order to create a true coloration map.\nFalse color Landsat maps are created by selecting the short-wave infrared (swir22), near-infrared, and red variables (in that order). This map best depicts the fire scars on the landscape. The final map shows the fire scars with the additional boundaries of the fires being included for clarity.\n\nDatasets descriptions:\n\nEaton and Palisades Fire perimeters: The fire perimeter data was acquired from the City of Los Angeles official GeoHub. This City of Los Angeles GIS data is originally from the National Interagency Fire Center (NIFC) through the Fire Integrated Real-time Intelligence System (FIRIS). Eaton fire and Palisades fire perimeters are included in this download. This data is publicly available.\nLandsat8: NASA Landsat satellites in conjunction with USGS acquire data using 11 bands through the use of Operational Land Imager (OLI) and the Thermal Infrared Sensor (TIRS). Landsat satellites orbit earth at a rate of 16 days per cycle making imaging availability satelite location dependent. This data is publicly available."
   },
   {
-    "objectID": "blog/eaton-and-palisades-fire-blog/index.html#footnotes",
-    "href": "blog/eaton-and-palisades-fire-blog/index.html#footnotes",
-    "title": "Eaton and Palisades Fire Blog",
-    "section": "Footnotes",
-    "text": "Footnotes\n\n\nFootnote text↩︎\nthe inline note↩︎"
+    "objectID": "blog/eaton-and-palisades-fire-blog/index.html#about",
+    "href": "blog/eaton-and-palisades-fire-blog/index.html#about",
+    "title": "Exploring the Eaton and Palisades Fire in Python",
+    "section": "",
+    "text": "Purpose: - This notebook maps NASA and USGS Landsat8 data and National Interagency Fire Center (NIFC) fire boundaries data depicting the Eaton and Palisades Fires that occured in January of 2025. The final result is a false color map showing clear colorations of the fire scars with an overlay of the official fire boundaries.\nHighlights:\n\nLandsat data is read in with NetCDF. No CRS is originally assigned to the entire Landsat data. The CRS is held in the spatial_ref variable. The GeoSpatial data must be restored by using the CRS from the spatial_ref variable.\nLandsat data is versatile. Landsat 8 has 11 bands that can be selected to make a variety of coloration maps. For example, the red, green, and blue bands (in that order) can be selected in that order to create a true coloration map.\nFalse color Landsat maps are created by selecting the short-wave infrared (swir22), near-infrared, and red variables (in that order). This map best depicts the fire scars on the landscape. The final map shows the fire scars with the additional boundaries of the fires being included for clarity.\n\nDatasets descriptions:\n\nEaton and Palisades Fire perimeters: The fire perimeter data was acquired from the City of Los Angeles official GeoHub. This City of Los Angeles GIS data is originally from the National Interagency Fire Center (NIFC) through the Fire Integrated Real-time Intelligence System (FIRIS). Eaton fire and Palisades fire perimeters are included in this download. This data is publicly available.\nLandsat8: NASA Landsat satellites in conjunction with USGS acquire data using 11 bands through the use of Operational Land Imager (OLI) and the Thermal Infrared Sensor (TIRS). Landsat satellites orbit earth at a rate of 16 days per cycle making imaging availability satelite location dependent. This data is publicly available."
+  },
+  {
+    "objectID": "blog/eaton-and-palisades-fire-blog/index.html#references",
+    "href": "blog/eaton-and-palisades-fire-blog/index.html#references",
+    "title": "Exploring the Eaton and Palisades Fire in Python",
+    "section": "References",
+    "text": "References\n\nC. Galaz Garcia and A. Adams, EDS 220 - Working with Environmental Datasets. (n.d.) Available: https://meds-eds-220.github.io/MEDS-eds-220-course/. [Accessed November 17, 2025]\nCity of Los Angeles GeoHub / NIFC FIRIS(2025).Palisades and Eaton Dissolved Fire Perimeters (2025) [Shapefile]. Available: https://egis-lacounty.hub.arcgis.com/maps/ad51845ea5fb4eb483bc2a7c38b2370c/about. [Retrieved November 17, 2025]\nEarth Resources Observation and Science (EROS) Center. (2020). Landsat 8-9 Operational Land Imager / Thermal Infrared Sensor Level-2, Collection 2 [dataset]. U.S. Geological Survey. https://doi.org/10.5066/P9OGBGM6. Available: https://www.usgs.gov/centers/eros/science/usgs-eros-archive-landsat-archives-landsat-8-9-olitirs-collection-2-level-2. [Accessed November 17 ,2025]\nNASA Earth Observatory. (2014, Mar. 4). Why is that forest red and that cloud blue? How to interpret a false-color satellite image. Available: https://earthobservatory.nasa.gov/features/FalseColor. [Accessed: November 18, 2025]\nU.S. Geological Survey. (n.d.). What are the band designations for the Landsat satellites? Available: https://www.usgs.gov/faqs/what-are-band-designations-landsat-satellites. [Accessed: November 18, 2025]\nU.S. Geological Survey. (2021, Nov. 12). Common Landsat band combinations. Available: https://www.usgs.gov/media/images/common-landsat-band-combinations. [Accessed: November 18, 2025]"
   },
   {
     "objectID": "resources.html",

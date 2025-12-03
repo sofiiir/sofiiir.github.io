@@ -16,7 +16,7 @@ bibliography: references.bib
 ## About
 
 **Purpose:** 
-- This notebook maps NASA  and USGS Landsat8 data and National Interagency Fire Center (NIFC) fire boundaries data depicting the Eaton and Palisades Fires that occured in January of 2025. The final result is a false color map showing clear colorations of the fire scars with an overlay of the official fire boundaries.
+- Demonstrate mapping NASA and USGS Landsat8 data and National Interagency Fire Center (NIFC) fire boundaries data depicting the Eaton and Palisades Fires that occured in January of 2025. The resultiing false color map clearly shows colorations of the fire scars with an overlay of the official fire boundaries. Additionally, this blog exhibits environmental justice data in the Eaton Canyon and Palisades regions.
 
 
 **Highlights:** 
@@ -33,11 +33,15 @@ bibliography: references.bib
 
 - **Landsat8:** NASA Landsat satellites in conjunction with USGS acquire data using 11 bands through the use of Operational Land Imager (OLI) and the Thermal Infrared Sensor (TIRS). Landsat satellites orbit earth at a rate of 16 days per cycle making imaging availability satelite location dependent. This data is publicly available.
 
+- **Environmental Justice Index:** ATSDR environemntal justice data was contains data by census tract and is used to explore EJI differences in the Eaton and Palisades fire areas. 
+
 
 
 
 
 ## References
+
+- ATSDR, Place and Health - Geospatial Research, Analysis, and Services Program (GRASP), EJI Data Download . (n.d.) Available: https://www.atsdr.cdc.gov/place-health/php/eji/eji-data-download.html. [Accessed November 17, 2025]
 
 - C. Galaz Garcia and A. Adams, EDS 220 - Working with Environmental Datasets. (n.d.) Available: https://meds-eds-220.github.io/MEDS-eds-220-course/. [Accessed November 17, 2025]
 

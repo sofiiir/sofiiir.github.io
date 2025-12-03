@@ -192,7 +192,7 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="about" class="level2">
 <h2 class="anchored" data-anchor-id="about">About</h2>
-<p><strong>Purpose:</strong> - This notebook maps NASA and USGS Landsat8 data and National Interagency Fire Center (NIFC) fire boundaries data depicting the Eaton and Palisades Fires that occured in January of 2025. The final result is a false color map showing clear colorations of the fire scars with an overlay of the official fire boundaries.</p>
+<p><strong>Purpose:</strong> - Demonstrate mapping NASA and USGS Landsat8 data and National Interagency Fire Center (NIFC) fire boundaries data depicting the Eaton and Palisades Fires that occured in January of 2025. The resultiing false color map clearly shows colorations of the fire scars with an overlay of the official fire boundaries. Additionally, this blog exhibits environmental justice data in the Eaton Canyon and Palisades regions.</p>
 <p><strong>Highlights:</strong></p>
 <ul>
 <li><p>Landsat data is read in with NetCDF. No CRS is originally assigned to the entire Landsat data. The CRS is held in the <code>spatial_ref</code> variable. The GeoSpatial data must be restored by using the CRS from the <code>spatial_ref</code> variable.</p></li>
@@ -203,11 +203,13 @@ ul.task-list li input[type="checkbox"] {
 <ul>
 <li><p><strong>Eaton and Palisades Fire perimeters:</strong> The fire perimeter data was acquired from the City of Los Angeles official GeoHub. This City of Los Angeles GIS data is originally from the National Interagency Fire Center (NIFC) through the Fire Integrated Real-time Intelligence System (FIRIS). Eaton fire and Palisades fire perimeters are included in this download. This data is publicly available.</p></li>
 <li><p><strong>Landsat8:</strong> NASA Landsat satellites in conjunction with USGS acquire data using 11 bands through the use of Operational Land Imager (OLI) and the Thermal Infrared Sensor (TIRS). Landsat satellites orbit earth at a rate of 16 days per cycle making imaging availability satelite location dependent. This data is publicly available.</p></li>
+<li><p><strong>Environmental Justice Index:</strong> ATSDR environemntal justice data was contains data by census tract and is used to explore EJI differences in the Eaton and Palisades fire areas.</p></li>
 </ul>
 </section>
 <section id="references" class="level2">
 <h2 class="anchored" data-anchor-id="references">References</h2>
 <ul>
+<li><p>ATSDR, Place and Health - Geospatial Research, Analysis, and Services Program (GRASP), EJI Data Download . (n.d.) Available: https://www.atsdr.cdc.gov/place-health/php/eji/eji-data-download.html. [Accessed November 17, 2025]</p></li>
 <li><p>C. Galaz Garcia and A. Adams, EDS 220 - Working with Environmental Datasets. (n.d.) Available: https://meds-eds-220.github.io/MEDS-eds-220-course/. [Accessed November 17, 2025]</p></li>
 <li><p>City of Los Angeles GeoHub / NIFC FIRIS(2025).Palisades and Eaton Dissolved Fire Perimeters (2025) [Shapefile]. Available: https://egis-lacounty.hub.arcgis.com/maps/ad51845ea5fb4eb483bc2a7c38b2370c/about. [Retrieved November 17, 2025]</p></li>
 <li><p>Earth Resources Observation and Science (EROS) Center. (2020). Landsat 8-9 Operational Land Imager / Thermal Infrared Sensor Level-2, Collection 2 [dataset]. U.S. Geological Survey. https://doi.org/10.5066/P9OGBGM6. Available: https://www.usgs.gov/centers/eros/science/usgs-eros-archive-landsat-archives-landsat-8-9-olitirs-collection-2-level-2. [Accessed November 17 ,2025]</p></li>

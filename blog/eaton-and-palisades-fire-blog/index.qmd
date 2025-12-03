@@ -55,6 +55,7 @@ import contextily as ctx
 ```
 
 ### Import fire perimeter data 
+Use the GeoPandas library to import geospatial data. 
 
 ```{python}
 fp = os.path.join('data', 'eaton_fire_perimeter', 'Eaton_Perimeter_20250121.shp')
@@ -66,6 +67,7 @@ palisades_fire = gpd.read_file(fp)
 ```
 
 ### Import Landsat data with NetCDF
+Use the xarray library to import Landsat data. 
 
 ```{python}
 fp = os.path.join('data', 'landsat8-2025-02-23-palisades-eaton.nc')
@@ -98,7 +100,7 @@ To plot Landsat data let's also make sure that none of the bands contain NA valu
 landsat_clean = landsat[['red', 'green', 'blue']].to_array().fillna(value = 0)
 ```
 
-Map the true color Landsat map.
+Some cloud cover is present in the Landsat data which would skew our plotting. Add the argument `robust = True` to remove the outliers from the plot. This uses the 2nd and 98th percentiles of the data to calculate the color limits according to the xarray documentation. 
 
 ```{python}
 landsat_clean.plot.imshow(robust = True)
@@ -210,7 +212,7 @@ The data frame denotes this column as:
 
 - RPL_EBM_DOM1 : Percentile rank of domain consisting of ozone, PM2.5, air toxics cancer risk, and diesel particulate matter.
 
-### Import Environmental Justice Idex data
+### Import Environmental Justice Idex (EJI) data
 
 ```{python}
 fp_eji = os.path.join('data', 'EJI_2024_California', 'EJI_2024_California.gdb')
@@ -286,6 +288,7 @@ cbar.set_label('Percentile rank of PM2.5, ozone, air toxics cancer risk, and die
 plt.show()
 ```
 
+#### EJI Map Analysis
 The Eaton Fire area has a higher percentile rate of domain consisting of ozone, PM2.5, air toxics cancer risk, and diesel particulate matter than the Palisades Fire area. Knowing the demographics of these areas the Eaton Canyon community is composed of more people of color and is a historically black community. The Palisades community is largely white and of higher economic status. Further analysis mapping the socioeconomic makeup of these communities can illustrate how ozone, PM2.5, air toxics cancer risk, and diesel particulate matter percentile is correlated with other factors. These differences within the percentile for ozone, PM2.5, air toxics cancer risk, and diesel particulate matter in the fire perimeters show that communities suffering from destructive fires does not follow a pattern related to this domain. 
 
 ## References

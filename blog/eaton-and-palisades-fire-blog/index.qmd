@@ -18,6 +18,7 @@ GitHub repository: [https://github.com/sofiiir/eds220-hwk4.git](https://github.c
 ## About
 
 **Purpose:** 
+
 - Demonstrate mapping NASA and USGS Landsat8 data and National Interagency Fire Center (NIFC) fire boundaries data depicting the Eaton and Palisades Fires that occured in January of 2025. The resultiing false color map clearly shows colorations of the fire scars with an overlay of the official fire boundaries. Additionally, this blog exhibits environmental justice data in the Eaton Canyon and Palisades regions.
 
 **Highlights:** 

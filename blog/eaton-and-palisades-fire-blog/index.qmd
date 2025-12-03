@@ -103,7 +103,7 @@ Map the true color Landsat map.
 landsat_clean.plot.imshow(robust = True)
 ```
 
-### Map a False Color Image 
+## Map a False Color Image 
 
 Create a map showing the shortwave infrared/near-infrared/red false color image together with both fire perimeters. Customize it appropriately including, at least, an informative title and legend. You may also want to include text on the map to identify which fire is which.
 
@@ -201,7 +201,7 @@ plt.show()
 The map above depicts false color imagery for the Eaton and Palisades Fires that took place in January 2025. Landsat raster data was mapped using the shortwave infrared, near-infrared, and red bands to create a false color imagery map. The red on the map despicts fire scars caused by the Eaton and Palisades Fires as the labels show. The green in the map above shows the areas without burn scars while bright green depicts vegetation. Bodies of water including the Pacific Ocean are shown in black in this false imagery. False imagery is being used to more dramatically show the effects of fire on the landscape. 
 
 
-## Social dimensions of the Eaton and Palisades Fires
+# Social dimensions of the Eaton and Palisades Fires
 
 Let's explore some of the Environmental Justice Index data. The dataframe includes a variety of environmental justice indices. The aspect of greatest interest to me is the percentile rank of domain consisting of ozone, PM2.5, air toxics cancer risk, and diesel particulate matter.
 
@@ -218,7 +218,7 @@ eji = gpd.read_file(fp_eji)
 
 ### Data wrangling
 
-Again all of the CRS must match to accurately map the intended regions.
+Again, all of the CRS must match to accurately map the intended regions. Since we have already confirmed that the Eaton and Palisades Fires, we can just use the CRS of one of the fire perimeters to change the CRS of our Environmental Justice data.
 
 ```{python}
 # Change CRS of eji
@@ -237,82 +237,14 @@ palisades_clip = gpd.clip(eji, palisades_fire)
 eaton_clip = gpd.clip(eji, eaton_fire)
 ```
 
-These individual clipped data can be plot on their own to view what was completed in the last clipping
-
-#### Plot the EJI Data within the fire perimeters
-```{python}
-fig, ax = plt.subplots(figsize=(11, 5))
-ax.axis('off') 
-
-# plot the clipped Palisades data 
-palisades_clip.plot('TRACTCE',
-                    ax = ax)
 
 
-plt.title('Census tracts overlapping Palisades fire perimeter')
-```
+# Plot the EJI Data within the fire perimeters
 
-```{python}
-fig, ax = plt.subplots(figsize=(11, 5))
-ax.axis('off')
-
-# plot the clipped Eaton data
-eaton_clip.plot('TRACTCE', 
-                ax = ax)
-
-plt.title('Census tracts overlapping Eaton fire perimeter')
-```
-
-These perimeters can also be plot with a basemap to better provide context of where the fires took place.
-
-```{python}
-fig, ax = plt.subplots(1, 1, figsize=(14, 12))
-ax.axis('off')
-
-# Palisades fire plot
-palisades_clip.plot(ax=ax,
-                    color = 'red', 
-                    edgecolor='red',
-                    linewidth = 1.5,
-                    alpha = 0.5)
-
-# Eaton fire plot
-eaton_clip.plot(ax = ax, 
-                color = 'red', 
-                edgecolor='red',
-                linewidth = 1.5,
-                alpha = 0.5)
-
-# Add an Eaton Fire label
-plt.figtext(x = .73,
-            y = .68,
-            s ="Eaton Fire",
-            weight = 'bold',
-           color = "white", 
-           backgroundcolor =  "#2D3142")
-
-# Add a Palisade Fire label
-plt.figtext(x = .13,
-            y = .44,
-            s ="Palisades Fire",
-            weight = 'bold',
-           color = "white", 
-           backgroundcolor =  "#2D3142")
-
-# Add a title 
-ax.set_title('Eaton and Palisades Fires January 2025', fontsize = 13)
-
-# Add basemap using contextily
-ctx.add_basemap(ax, source=ctx.providers.OpenStreetMap.Mapnik, alpha = .5)
-
-
-plt.tight_layout()
-plt.show()
-```
 
 Finally, let's plot the fire perimeters mapping the percentile ranks of domain consisting of ozone, PM2.5, air toxics cancer risk, and diesel particulate matter.
 ```{python}
-fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(20, 10))
+fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(10, 5))
 
 # RPL_EBM_DOM1 : Percentile rank of domain consisting of ozone, PM2.5, air toxics cancer risk, and diesel particulate matter.
 eji_variable = 'RPL_EBM_DOM1'

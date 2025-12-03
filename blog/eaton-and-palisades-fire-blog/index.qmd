@@ -13,7 +13,7 @@ citation:
 bibliography: references.bib
 ---
 
-GitHub repository: https://github.com/sofiiir/eds220-hwk4.git
+GitHub repository: [https://github.com/sofiiir/eds220-hwk4.git](https://github.com/sofiiir/eds220-hwk4.git)
 
 ## About
 
@@ -60,7 +60,6 @@ palisades_fire = gpd.read_file(fp)
 
 ```
 
-
 ### Import Landsat data with NetCDF
 
 ```{python}
@@ -71,12 +70,25 @@ landsat = xr.open_dataset(fp)
 ### Check the CRS for all of the data
 In order to accurately map the data, the CRS must all match.
 
+Since the Landsat data is a raster the CRS is checked with `.rio.crs` as opposed to `.crs` which checks the CRS of `geopandas` data.
+
 ```{python}
 # Check the CRSs
 print('landsat CRS: ', landsat.rio.crs)
 print('Eaton fire CRS: ', eaton_fire.crs)
 print('Palisades fire CRS: ', palisades_fire.crs)
 ```
+
+### Landsat CRS Investigation 
+
+When we check the CRS of the Landsat data it doesn't seem to have a CRS assigned to it. Let's investigate the Landsat data set.
+
+```{python}
+landsat
+```
+
+
+
 
 ## References
 

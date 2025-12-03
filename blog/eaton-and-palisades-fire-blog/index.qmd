@@ -36,7 +36,7 @@ GitHub repository: https://github.com/sofiiir/eds220-hwk4.git
 
 - **Environmental Justice Index:** ATSDR environemntal justice data was contains data by census tract and is used to explore EJI differences in the Eaton and Palisades fire areas. 
 
-#### Load necessary packages
+### Load necessary packages
 
 ```{python}
 import os 
@@ -49,7 +49,7 @@ from matplotlib_scalebar.scalebar import ScaleBar
 from matplotlib_map_utils.core.north_arrow import NorthArrow, north_arrow
 ```
 
-#### Import fire perimeter data 
+### Import fire perimeter data 
 
 ```{python}
 fp = os.path.join('data', 'eaton_fire_perimeter', 'Eaton_Perimeter_20250121.shp')
@@ -61,6 +61,22 @@ palisades_fire = gpd.read_file(fp)
 ```
 
 
+### Import Landsat data with NetCDF
+
+```{python}
+fp = os.path.join('data', 'landsat8-2025-02-23-palisades-eaton.nc')
+landsat = xr.open_dataset(fp)
+```
+
+### Check the CRS for all of the data
+In order to accurately map the data, the CRS must all match.
+
+```{python}
+# Check the CRSs
+print('landsat CRS: ', landsat.rio.crs)
+print('Eaton fire CRS: ', eaton_fire.crs)
+print('Palisades fire CRS: ', palisades_fire.crs)
+```
 
 ## References
 

@@ -213,7 +213,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#about" id="toc-about" class="nav-link active" data-scroll-target="#about">About</a></li>
+  <li><a href="#about" id="toc-about" class="nav-link active" data-scroll-target="#about">About</a>
+  <ul class="collapse">
+  <li><a href="#load-necessary-packages" id="toc-load-necessary-packages" class="nav-link" data-scroll-target="#load-necessary-packages">Load necessary packages</a></li>
+  <li><a href="#import-fire-perimeter-data" id="toc-import-fire-perimeter-data" class="nav-link" data-scroll-target="#import-fire-perimeter-data">Import fire perimeter data</a></li>
+  <li><a href="#import-landsat-data-with-netcdf" id="toc-import-landsat-data-with-netcdf" class="nav-link" data-scroll-target="#import-landsat-data-with-netcdf">Import Landsat data with NetCDF</a></li>
+  <li><a href="#check-the-crs-for-all-of-the-data" id="toc-check-the-crs-for-all-of-the-data" class="nav-link" data-scroll-target="#check-the-crs-for-all-of-the-data">Check the CRS for all of the data</a></li>
+  </ul></li>
   <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
   </ul>
 </nav>
@@ -241,9 +247,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><p><strong>Landsat8:</strong> NASA Landsat satellites in conjunction with USGS acquire data using 11 bands through the use of Operational Land Imager (OLI) and the Thermal Infrared Sensor (TIRS). Landsat satellites orbit earth at a rate of 16 days per cycle making imaging availability satelite location dependent. This data is publicly available.</p></li>
 <li><p><strong>Environmental Justice Index:</strong> ATSDR environemntal justice data was contains data by census tract and is used to explore EJI differences in the Eaton and Palisades fire areas.</p></li>
 </ul>
-<section id="load-necessary-packages" class="level4">
-<h4 class="anchored" data-anchor-id="load-necessary-packages">Load necessary packages</h4>
-<div id="82a6e8e6" class="cell" data-execution_count="1">
+<section id="load-necessary-packages" class="level3">
+<h3 class="anchored" data-anchor-id="load-necessary-packages">Load necessary packages</h3>
+<div id="d57a1cc9" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os </span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
@@ -254,14 +260,36 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib_map_utils.core.north_arrow <span class="im">import</span> NorthArrow, north_arrow</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
-<section id="import-fire-perimeter-data" class="level4">
-<h4 class="anchored" data-anchor-id="import-fire-perimeter-data">Import fire perimeter data</h4>
-<div id="26bb4e05" class="cell" data-execution_count="2">
+<section id="import-fire-perimeter-data" class="level3">
+<h3 class="anchored" data-anchor-id="import-fire-perimeter-data">Import fire perimeter data</h3>
+<div id="1fbd0d0b" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>fp <span class="op">=</span> os.path.join(<span class="st">'data'</span>, <span class="st">'eaton_fire_perimeter'</span>, <span class="st">'Eaton_Perimeter_20250121.shp'</span>)</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>eaton_fire <span class="op">=</span> gpd.read_file(fp)</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>fp <span class="op">=</span> os.path.join(<span class="st">'data'</span>, <span class="st">'palisades_fire_perimeter'</span>, <span class="st">'Palisades_Perimeter_20250121.shp'</span>)</span>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>palisades_fire <span class="op">=</span> gpd.read_file(fp)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="import-landsat-data-with-netcdf" class="level3">
+<h3 class="anchored" data-anchor-id="import-landsat-data-with-netcdf">Import Landsat data with NetCDF</h3>
+<div id="573b4be4" class="cell" data-execution_count="3">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>fp <span class="op">=</span> os.path.join(<span class="st">'data'</span>, <span class="st">'landsat8-2025-02-23-palisades-eaton.nc'</span>)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>landsat <span class="op">=</span> xr.open_dataset(fp)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="check-the-crs-for-all-of-the-data" class="level3">
+<h3 class="anchored" data-anchor-id="check-the-crs-for-all-of-the-data">Check the CRS for all of the data</h3>
+<p>In order to accurately map the data, the CRS must all match.</p>
+<div id="8657d9ab" class="cell" data-execution_count="4">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Check the CRSs</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'landsat CRS: '</span>, landsat.rio.crs)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Eaton fire CRS: '</span>, eaton_fire.crs)</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Palisades fire CRS: '</span>, palisades_fire.crs)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>landsat CRS:  None
+Eaton fire CRS:  EPSG:3857
+Palisades fire CRS:  EPSG:3857</code></pre>
+</div>
 </div>
 </section>
 </section>

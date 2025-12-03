@@ -45,9 +45,12 @@ import numpy as np
 import pandas as pd
 import geopandas as gpd
 import xarray as xr
+
 import matplotlib.pyplot as plt
 from matplotlib_scalebar.scalebar import ScaleBar
 from matplotlib_map_utils.core.north_arrow import NorthArrow, north_arrow
+
+import contextily as ctx
 ```
 
 ### Import fire perimeter data 
@@ -193,10 +196,40 @@ north_arrow(ax=ax, location="lower right", rotation={"crs":32611, "reference":"c
 plt.show()
 ```
 
-#### Map analysis
+####  False Color Map analysis
 
 The map above depicts false color imagery for the Eaton and Palisades Fires that took place in January 2025. Landsat raster data was mapped using the shortwave infrared, near-infrared, and red bands to create a false color imagery map. The red on the map despicts fire scars caused by the Eaton and Palisades Fires as the labels show. The green in the map above shows the areas without burn scars while bright green depicts vegetation. Bodies of water including the Pacific Ocean are shown in black in this false imagery. False imagery is being used to more dramatically show the effects of fire on the landscape. 
 
+
+## Social dimensions of the Eaton and Palisades Fires
+
+Let's explore some of the Environmental Justice Index data. The dataframe includes a variety of environmental justice indices. The aspect of greatest interest to me is the percentile rank of domain consisting of ozone, PM2.5, air toxics cancer risk, and diesel particulate matter.
+
+The data frame denotes this column as: 
+
+- RPL_EBM_DOM1 : Percentile rank of domain consisting of ozone, PM2.5, air toxics cancer risk, and diesel particulate matter.
+
+### Import Environmental Justice Idex data
+
+```{python}
+fp_eji = os.path.join('data', 'EJI_2024_California', 'EJI_2024_California.gdb')
+eji = gpd.read_file(fp_eji)
+```
+
+### Data wrangling
+
+Again all of the CRS must match to accurately map the intended regions.
+
+```{python}
+# Change CRS of eji
+eji = eji.to_crs(palisades_fire.crs)
+```
+
+We can again make sure that the CRS are the same using an assert statement. 
+```{python}
+assert eji.crs == palisades_fire.crs
+assert eji.crs == eaton_fire.crs
+```
 
 ## References
 

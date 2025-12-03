@@ -225,10 +225,132 @@ Again all of the CRS must match to accurately map the intended regions.
 eji = eji.to_crs(palisades_fire.crs)
 ```
 
-We can again make sure that the CRS are the same using an assert statement. 
+We can make sure that the CRS are the same using an assert statement. 
 ```{python}
 assert eji.crs == palisades_fire.crs
 assert eji.crs == eaton_fire.crs
+```
+
+The only Environmental Justice Index areas of interest are those within the fire perimeters. Let's clip the Environmental Justice data by the perimeters and save them to new variables for mapping purposes.
+```{python}
+palisades_clip = gpd.clip(eji, palisades_fire)
+eaton_clip = gpd.clip(eji, eaton_fire)
+```
+
+These individual clipped data can be plot on their own to view what was completed in the last clipping
+
+#### Plot the EJI Data within the fire perimeters
+```{python}
+fig, ax = plt.subplots(figsize=(11, 5))
+ax.axis('off') 
+
+# plot the clipped Palisades data 
+palisades_clip.plot('TRACTCE',
+                    ax = ax)
+
+
+plt.title('Census tracts overlapping Palisades fire perimeter')
+```
+
+```{python}
+fig, ax = plt.subplots(figsize=(11, 5))
+ax.axis('off')
+
+# plot the clipped Eaton data
+eaton_clip.plot('TRACTCE', 
+                ax = ax)
+
+plt.title('Census tracts overlapping Eaton fire perimeter')
+```
+
+These perimeters can also be plot with a basemap to better provide context of where the fires took place.
+
+```{python}
+fig, ax = plt.subplots(1, 1, figsize=(14, 12))
+ax.axis('off')
+
+# Palisades fire plot
+palisades_clip.plot(ax=ax,
+                    color = 'red', 
+                    edgecolor='red',
+                    linewidth = 1.5,
+                    alpha = 0.5)
+
+# Eaton fire plot
+eaton_clip.plot(ax = ax, 
+                color = 'red', 
+                edgecolor='red',
+                linewidth = 1.5,
+                alpha = 0.5)
+
+# Add an Eaton Fire label
+plt.figtext(x = .73,
+            y = .68,
+            s ="Eaton Fire",
+            weight = 'bold',
+           color = "white", 
+           backgroundcolor =  "#2D3142")
+
+# Add a Palisade Fire label
+plt.figtext(x = .13,
+            y = .44,
+            s ="Palisades Fire",
+            weight = 'bold',
+           color = "white", 
+           backgroundcolor =  "#2D3142")
+
+# Add a title 
+ax.set_title('Eaton and Palisades Fires January 2025', fontsize = 13)
+
+# Add basemap using contextily
+ctx.add_basemap(ax, source=ctx.providers.OpenStreetMap.Mapnik, alpha = .5)
+
+
+plt.tight_layout()
+plt.show()
+```
+
+Finally, let's plot the fire perimeters mapping the percentile ranks of domain consisting of ozone, PM2.5, air toxics cancer risk, and diesel particulate matter.
+```{python}
+fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(20, 10))
+
+# RPL_EBM_DOM1 : Percentile rank of domain consisting of ozone, PM2.5, air toxics cancer risk, and diesel particulate matter.
+eji_variable = 'RPL_EBM_DOM1'
+
+# Find common min/max for legend range
+vmin = min(palisades_clip[eji_variable].min(), eaton_clip[eji_variable].min())
+vmax = max(palisades_clip[eji_variable].max(), eaton_clip[eji_variable].max())
+
+# Plot census tracts within Palisades perimeter
+palisades_clip.plot(
+    column= eji_variable,
+    vmin=vmin, vmax=vmax,
+    legend=False,
+    ax=ax1,
+)
+ax1.set_title('Palisades Fire Perimeter')
+ax1.axis('off')
+
+# Plot census tracts within Eaton perimeter
+eaton_clip.plot(
+    column=eji_variable,
+    vmin=vmin, vmax=vmax,
+    legend=False,
+    ax=ax2,
+)
+ax2.set_title('Eaton Fire Perimeter')
+ax2.axis('off')
+
+# Add overall title
+fig.suptitle('Percentile rank of PM2.5, ozone, air toxics cancer risk, and diesel PM - Fire Areas Comparison')
+
+# Add shared colorbar at the bottom
+sm = plt.cm.ScalarMappable( norm=plt.Normalize(vmin=vmin, vmax=vmax))
+cbar_ax = fig.add_axes([0.25, 0.08, 0.5, 0.02])  # [left, bottom, width, height]
+cbar = fig.colorbar(sm, cax=cbar_ax, orientation='horizontal')
+cbar.set_label('Percentile rank of PM2.5, ozone, air toxics cancer risk, and diesel PM')
+
+plt.show()
 ```
 
 ## References

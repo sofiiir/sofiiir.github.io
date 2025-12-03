@@ -285,6 +285,8 @@ cbar.set_label('Percentile rank of PM2.5, ozone, air toxics cancer risk, and die
 plt.show()
 ```
 
+The Eaton Fire area has a higher percentile rate of domain consisting of ozone, PM2.5, air toxics cancer risk, and diesel particulate matter than the Palisades Fire area. Knowing the demographics of these areas the Eaton Canyon community is composed of more people of color and is a historically black community. The Palisades community is largely white and of higher economic status. Further analysis mapping the socioeconomic makeup of these communities can illustrate how ozone, PM2.5, air toxics cancer risk, and diesel particulate matter percentile is correlated with other factors. These differences within the percentile for ozone, PM2.5, air toxics cancer risk, and diesel particulate matter in the fire perimeters show that communities suffering from destructive fires does not follow a pattern related to this domain. 
+
 ## References
 
 - ATSDR, Place and Health - Geospatial Research, Analysis, and Services Program (GRASP), EJI Data Download . (n.d.) Available: https://www.atsdr.cdc.gov/place-health/php/eji/eji-data-download.html. [Accessed November 17, 2025]

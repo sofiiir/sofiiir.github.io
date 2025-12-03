@@ -13,11 +13,12 @@ citation:
 bibliography: references.bib
 ---
 
+GitHub repository: https://github.com/sofiiir/eds220-hwk4.git
+
 ## About
 
 **Purpose:** 
 - Demonstrate mapping NASA and USGS Landsat8 data and National Interagency Fire Center (NIFC) fire boundaries data depicting the Eaton and Palisades Fires that occured in January of 2025. The resultiing false color map clearly shows colorations of the fire scars with an overlay of the official fire boundaries. Additionally, this blog exhibits environmental justice data in the Eaton Canyon and Palisades regions.
-
 
 **Highlights:** 
 
@@ -35,7 +36,29 @@ bibliography: references.bib
 
 - **Environmental Justice Index:** ATSDR environemntal justice data was contains data by census tract and is used to explore EJI differences in the Eaton and Palisades fire areas. 
 
+#### Load necessary packages
 
+```{python}
+import os 
+import numpy as np
+import pandas as pd
+import geopandas as gpd
+import xarray as xr
+import matplotlib.pyplot as plt
+from matplotlib_scalebar.scalebar import ScaleBar
+from matplotlib_map_utils.core.north_arrow import NorthArrow, north_arrow
+```
+
+#### Import fire perimeter data 
+
+```{python}
+fp = os.path.join('data', 'eaton_fire_perimeter', 'Eaton_Perimeter_20250121.shp')
+eaton_fire = gpd.read_file(fp)
+
+fp = os.path.join('data', 'palisades_fire_perimeter', 'Palisades_Perimeter_20250121.shp')
+palisades_fire = gpd.read_file(fp)
+
+```
 
 
 

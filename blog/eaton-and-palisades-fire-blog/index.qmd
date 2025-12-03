@@ -67,8 +67,43 @@ fp = os.path.join('data', 'landsat8-2025-02-23-palisades-eaton.nc')
 landsat = xr.open_dataset(fp)
 ```
 
-### Check the CRS for all of the data
-In order to accurately map the data, the CRS must all match.
+### Landsat CRS Investigation 
+
+```{python}
+print('landsat CRS: ', landsat.rio.crs)
+```
+
+When we check the CRS of the Landsat data it doesn't seem to have a CRS assigned to it. Let's investigate the Landsat data set.
+
+```{python}
+landsat
+```
+
+The Landsat CRS is stored in the `spatial_ref` data variable. Let's reassign this CRS to the whole Landsat data. 
+
+```{python}
+landsat = landsat.rio.write_crs(landsat.spatial_ref.crs_wkt)
+```
+
+### Map the true color Landsat map 
+To plot Landsat data let's also make sure that none of the bands contain NA values.
+
+```{python}
+# Fill nan values for the RGB bands
+landsat_clean = landsat[['red', 'green', 'blue']].to_array().fillna(value = 0)
+```
+
+Map the true color Landsat map.
+
+```{python}
+landsat_clean.plot.imshow(robust = True)
+```
+
+### Map a False Color Image 
+
+Create a map showing the shortwave infrared/near-infrared/red false color image together with both fire perimeters. Customize it appropriately including, at least, an informative title and legend. You may also want to include text on the map to identify which fire is which.
+
+In order to accurately map the data with the fire boundaries, the CRS must all match.
 
 Since the Landsat data is a raster the CRS is checked with `.rio.crs` as opposed to `.crs` which checks the CRS of `geopandas` data.
 
@@ -79,15 +114,87 @@ print('Eaton fire CRS: ', eaton_fire.crs)
 print('Palisades fire CRS: ', palisades_fire.crs)
 ```
 
-### Landsat CRS Investigation 
-
-When we check the CRS of the Landsat data it doesn't seem to have a CRS assigned to it. Let's investigate the Landsat data set.
+Not all of the CRSs match. Adjust the CRS before mapping.
 
 ```{python}
-landsat
+# Reproject fire perimeter to the Landsat to crs
+eaton_fire = eaton_fire.to_crs(landsat.rio.crs)
+palisades_fire = palisades_fire.to_crs(landsat.rio.crs)
 ```
 
+Use assert statements to ensure all of the CRS match. 
+```{python}
+# Confirm the CRSs all match
+assert eaton_fire.crs == landsat.rio.crs
+assert palisades_fire.crs == landsat.rio.crs
+```
 
+Plot the false color map.
+
+```{python}
+# Create a figure and subplot
+fig, ax = plt.subplots(figsize=(11, 5))
+ax.axis('off')
+
+# False color map 
+landsat[['swir22', 'nir08', 'red']].to_array().plot.imshow(ax = ax, 
+                                                           robust = True)
+
+# Map Eaton Fire perimeter 
+eaton_fire.plot(ax = ax, 
+                zorder =1,
+                color = 'none', 
+                edgecolor='red',
+                linewidth = 1.5
+               )
+
+# Map Palisades Fire perimeter
+palisades_fire.plot(ax = ax, 
+                    zorder= 2,
+                    color = 'none', 
+                    edgecolor='red',
+                    linewidth = 1.5
+                   )
+
+# Add an Eaton Fire label
+plt.figtext(x = .65,
+            y = .74,
+            s ="Eaton Fire",
+            weight = 'bold',
+           color = "white", 
+           backgroundcolor =  "#2D3142")
+
+# Add a Palisade Fire label
+plt.figtext(x = .24,
+            y = .47,
+            s ="Palisades Fire",
+            weight = 'bold',
+           color = "white", 
+           backgroundcolor =  "#2D3142")
+
+# Add a Los Angeles label as a reference
+plt.figtext(x = .47,
+            y = .38,
+            s ="Los Angeles",
+            weight = 'bold',
+           color = "white")
+
+# Add a title 
+ax.set_title('False Color Landsat8 Map: [SWIR, NIR, and Red] Bands', fontsize = 13)
+plt.suptitle('Eaton and Palisades Fires January 2025',  fontsize = 14, fontweight = 'bold')
+
+# Add a scalebar 
+ax.add_artist(ScaleBar(1, location = "lower left",box_alpha = 0.7, border_pad = 0.5))
+
+# Add a north arrow
+north_arrow(ax=ax, location="lower right", rotation={"crs":32611, "reference":"center"})
+
+plt.show()
+```
+
+#### Map analysis
+
+The map above depicts false color imagery for the Eaton and Palisades Fires that took place in January 2025. Landsat raster data was mapped using the shortwave infrared, near-infrared, and red bands to create a false color imagery map. The red on the map despicts fire scars caused by the Eaton and Palisades Fires as the labels show. The green in the map above shows the areas without burn scars while bright green depicts vegetation. Bodies of water including the Pacific Ocean are shown in black in this false imagery. False imagery is being used to more dramatically show the effects of fire on the landscape. 
 
 
 ## References

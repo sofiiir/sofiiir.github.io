@@ -46,7 +46,7 @@ Data cleaning was performed in a separate file with the final product being a cl
 #| ouput: false 
 
 # read in clean data
-coastal_ecosystem <- read_csv(here::here("data","gdp_coastal_ecosystem.csv"))
+coastal_ecosystem <- read_csv(here::here("blog", "gdp-influence-on-coastline-protection-blog","data","gdp_coastal_ecosystem.csv"))
 ```
 
 Initial plot of visualizing how GDP influences percent protected areas divided into ecosystems.

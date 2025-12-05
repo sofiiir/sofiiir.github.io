@@ -35,6 +35,8 @@ library(glmmTMB)
 # Purpose
 This repository investigates the hypothesis that nations with higher per capita GDP are more likely to protect their coastlines. 
 
+![DAG: Total area of an ecosystem, ecosystem type, and GDP per capita of a country all influence proportion of protected coastline.](data/DAG.png)
+
 # Data
 The original data comes from the [Ocean+Habitats](https://habitats.oceanplus.org/) webpage which works to inform policy about the state of our oceans coastline focusing on metrics concerning ocean protection. This analysis focuses on the five ecosystems for which data is available. The five ecosystems are cold-water corals, mangroves, seagrasses, saltmarshes, and warm-water corals.
 

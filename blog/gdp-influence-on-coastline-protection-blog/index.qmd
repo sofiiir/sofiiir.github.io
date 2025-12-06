@@ -19,6 +19,7 @@ execute:
   message: false
   warning: false
   error: false
+image: beach.png
 ---
 
 ```{r}

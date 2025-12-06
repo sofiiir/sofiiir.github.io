@@ -4,7 +4,7 @@
     "href": "blog.html",
     "title": "Blog",
     "section": "",
-    "text": "GDP Influence on Coastline Protection\n\n\n\nMEDS\n\nR\n\nData-viz\n\n\n\nNation’s GDP influence on coastline protections\n\n\n\nSofia Rodas\n\n\nDec 4, 2025\n\n\n\n\n\n\n\n\n\n\n\nExploring the Eaton and Palisades Fire in Python\n\n\n\nMEDS\n\nR\n\nData-viz\n\n\n\nUsing Landsat and environmental justice data to explore the Eaton and Palisades Fire that took place in the Los Angeles area January 2025.\n\n\n\nSofia Rodas\n\n\nDec 3, 2025\n\n\n\n\n\n\nNo matching items"
+    "text": "Potential Aquaculture Locations within Exclusive Economic Zones\n\n\n\nMEDS\n\nR\n\nData-viz\n\n\n\nAnalysis of surface sea temperature and bathymetry to find suitable locations for aquaculture based on species parameters.\n\n\n\nSofia Rodas\n\n\nDec 6, 2025\n\n\n\n\n\n\n\n\n\n\n\nGDP Influence on Coastline Protection\n\n\n\nMEDS\n\nR\n\nData-viz\n\n\n\nNation’s GDP influence on coastline protections\n\n\n\nSofia Rodas\n\n\nDec 4, 2025\n\n\n\n\n\n\n\n\n\n\n\nExploring the Eaton and Palisades Fire in Python\n\n\n\nMEDS\n\nR\n\nData-viz\n\n\n\nUsing Landsat and environmental justice data to explore the Eaton and Palisades Fire that took place in the Los Angeles area January 2025.\n\n\n\nSofia Rodas\n\n\nDec 3, 2025\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "about.html",
@@ -28,11 +28,39 @@
     "text": "What I do for fun\nI love being outside!"
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Sofia Rodas",
+    "objectID": "blog/potential-aquaculture-locations/index.html",
+    "href": "blog/potential-aquaculture-locations/index.html",
+    "title": "Potential Aquaculture Locations within Exclusive Economic Zones",
     "section": "",
-    "text": "Hi this is Sofia! I’m working towards a Masters of Environmental Data Science at the Bren School of Environmental Science & Management."
+    "text": "Aquaculture is a viable solution to help address over-fishing while providing ocean foods to communities that rely on them. It additionally creates a job sector increasing local employment opportunities. Though there are many factors in choosing suitable locations for aquaculture, sea surface temperature (SST) and bathymetry are two key considerations. This analysis focuses on creating a function that identifies potential aquaculture locations based on SST and bathymetry species requirements. Further, the findings of potential aquaculture locations for each species is broken into Exclusive Economic Zones (EEZ).\n\n\nCode\n# load in necessary libraries\nlibrary(tidyverse)\nlibrary(sf)\nlibrary(terra)\nlibrary(tmap)\nlibrary(patchwork)\nlibrary(kableExtra)"
+  },
+  {
+    "objectID": "blog/potential-aquaculture-locations/index.html#introduction",
+    "href": "blog/potential-aquaculture-locations/index.html#introduction",
+    "title": "Potential Aquaculture Locations within Exclusive Economic Zones",
+    "section": "",
+    "text": "Aquaculture is a viable solution to help address over-fishing while providing ocean foods to communities that rely on them. It additionally creates a job sector increasing local employment opportunities. Though there are many factors in choosing suitable locations for aquaculture, sea surface temperature (SST) and bathymetry are two key considerations. This analysis focuses on creating a function that identifies potential aquaculture locations based on SST and bathymetry species requirements. Further, the findings of potential aquaculture locations for each species is broken into Exclusive Economic Zones (EEZ).\n\n\nCode\n# load in necessary libraries\nlibrary(tidyverse)\nlibrary(sf)\nlibrary(terra)\nlibrary(tmap)\nlibrary(patchwork)\nlibrary(kableExtra)"
+  },
+  {
+    "objectID": "blog/potential-aquaculture-locations/index.html#read-in-data",
+    "href": "blog/potential-aquaculture-locations/index.html#read-in-data",
+    "title": "Potential Aquaculture Locations within Exclusive Economic Zones",
+    "section": "Read in data",
+    "text": "Read in data\n\n\nCode\n# read in eez data as an sf object\neez_sf &lt;- read_sf(here::here(\"blog\", \"potential-aquaculture-locations\",\"data\",\"wc_regions_clean.shp\"))\n\n\n\n\nCode\n# read in raster depth data\ndepth &lt;- rast(here::here(\"blog\", \"potential-aquaculture-locations\", \"data\", \"depth.tif\"))\n\n\n\n\nCode\n# read in raster sea surface temperature data\nsst_2008 &lt;- rast(here::here(\"blog\", \"potential-aquaculture-locations\", \"data\", \"average_annual_sst_2008.tif\"))\nsst_2009 &lt;- rast(here::here(\"blog\", \"potential-aquaculture-locations\", \"data\", \"average_annual_sst_2009.tif\"))\nsst_2010 &lt;- rast(here::here(\"blog\", \"potential-aquaculture-locations\", \"data\", \"average_annual_sst_2010.tif\"))\nsst_2011 &lt;- rast(here::here(\"blog\", \"potential-aquaculture-locations\", \"data\", \"average_annual_sst_2011.tif\"))\nsst_2012 &lt;- rast(here::here(\"blog\", \"potential-aquaculture-locations\", \"data\", \"average_annual_sst_2012.tif\"))\n\n# stack data into a raster stack\nsst &lt;- c(sst_2008, sst_2009, sst_2010, sst_2011, sst_2012)\n\n\n\n\nCode\n# remove unnecessary raster data\nrm(sst_2008, sst_2009, sst_2010, sst_2011, sst_2012)"
+  },
+  {
+    "objectID": "blog/potential-aquaculture-locations/index.html#check-crs",
+    "href": "blog/potential-aquaculture-locations/index.html#check-crs",
+    "title": "Potential Aquaculture Locations within Exclusive Economic Zones",
+    "section": "Check CRS",
+    "text": "Check CRS\nNote: To check the CRS of a raster use crs. To check the CRS of a simple feature object use st_crs.\n\n\nCode\n  if (crs(sst)== crs(depth)){\n  print(\"it's a match!\")\n}else {\n    warning(\"still not a match\")\n}\n\n\nWarning: still not a match\n\n\nMake all of the CRS match the SST CRS.\n\n\nCode\ndepth &lt;- project(depth, crs(sst))\neez_sf &lt;- st_transform(eez_sf, crs(sst))\n\n\nMake sure the CRS alterations were successful.\n\n\nCode\n  if (crs(sst)== crs(depth)){\n  print(\"it's a match!\")\n}else {\n    warning(\"still not a match\")\n}\n\n\n[1] \"it's a match!\""
+  },
+  {
+    "objectID": "blog/potential-aquaculture-locations/index.html#data-processing",
+    "href": "blog/potential-aquaculture-locations/index.html#data-processing",
+    "title": "Potential Aquaculture Locations within Exclusive Economic Zones",
+    "section": "Data processing",
+    "text": "Data processing\nThis analysis works based on the mean of Sea Surface Temperature (SST) measured between 2008 and 2012.\n\n\nCode\n# calculate the mean of sst \nmean_sst &lt;- mean(sst)\n\n# convert the units from kelvin to celcius\nmean_sst &lt;- mean_sst - 273 \n\n\nThis analysis requires SST and depth to have the same extent, resolution, and positions. Crop to make sure the extent of the rasters are the same.\n\n\nCode\n# crop the depth raster \ndepth &lt;- crop(depth, mean_sst)\n\n\nResample to make sure that the resolutions of the rasters are the same.\n\n\nCode\ndepth &lt;- resample(depth, mean_sst)\n\n\nMake sure the extents and resolutions match for the SST and depth data frames.\n\n\nCode\n  if (ext(mean_sst)== ext(depth)){\n  print(\"extents match!\")\n}else {\n    warning(\"extents not a match\")\n}\n\n\n[1] \"extents match!\"\n\n\nCode\nif (res(mean_sst)[1]== res(depth)[1] & res(mean_sst)[2]== res(depth)[2]){\n   print(\"resolutions match!\")\n }else {\n     warning(\"resolutions not a match\")\n }\n\n\n[1] \"resolutions match!\""
   },
   {
     "objectID": "blog/gdp-influence-on-coastline-protection-blog/index.html",
@@ -47,6 +75,13 @@
     "title": "GDP Influence on Coastline Protection",
     "section": "Fit a Beta Regression model.",
     "text": "Fit a Beta Regression model.\nThe Beta Regression model is useful when the response is a proportion. Since the protected areas is between 0 and 100 percent this model will assess whether there is any relationship between the predictors and the response.\n\n\nCode\ncoastal_ecosystem_model &lt;- glmmTMB(adj_proportion_protected ~ pc_gdp_2016 + total_area + ecosystem,\n  data = coastal_ecosystem,\n  family = beta_family(link = \"logit\"))\n\nsum_coastal_ecosystem_mod &lt;- summary(coastal_ecosystem_model)\nsum_coastal_ecosystem_mod\n\n\n Family: beta  ( logit )\nFormula:          \nadj_proportion_protected ~ pc_gdp_2016 + total_area + ecosystem\nData: coastal_ecosystem\n\n      AIC       BIC    logLik -2*log(L)  df.resid \n   -746.9    -714.2     381.5    -762.9       435 \n\n\nDispersion parameter for beta family (): 1.07 \n\nConditional model:\n                       Estimate Std. Error z value Pr(&gt;|z|)    \n(Intercept)          -1.612e+00  1.379e-01 -11.690  &lt; 2e-16 ***\npc_gdp_2016           1.845e-05  3.670e-06   5.029 4.92e-07 ***\ntotal_area            3.326e-06  1.188e-05   0.280 0.779483    \necosystemmangroves    9.615e-01  1.863e-01   5.161 2.46e-07 ***\necosystemsaltmarshes  1.082e+00  1.878e-01   5.761 8.36e-09 ***\necosystemseagrasses   5.545e-01  1.677e-01   3.306 0.000947 ***\necosystemwarm_coral   7.406e-01  1.931e-01   3.835 0.000126 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\n\n\n\nCode\nmean(coastal_ecosystem$pc_gdp_2016, na.rm = TRUE)\n\n\n[1] 14299.45\n\n\nNow that we have run the Beta Regression let’s create a best fit line. We create data that shows the spread of the potential values for GDP. Here we use seq() to create values from our lowest value to our highest value by a specific interval. We want to keep the rest of the variables constant so we use the mean of the numeric variables and choose one of the categorical options to hold as the constant. R chooses categorical reference variables by alphabetical order so we’re doing the same here.\n\n\nCode\npred_grid &lt;- expand_grid(pc_gdp_2016 = seq(from = 433, to = 71000, by = 500)) |&gt; \n  mutate(total_area = mean(coastal_ecosystem$total_area, na.rm = TRUE),\n         ecosystem = 'coldwater_coral')\n\n\nRun the model to predict expected protected proportion based when holding all variables constant but one.\n\n\nCode\npred &lt;- pred_grid |&gt; \n  mutate(predict =  predict(object = coastal_ecosystem_model,\n                          newdata = pred_grid,\n                          type = \"response\"))\n\n\nLet’s plot the predictions.\n\n\nCode\nggplot(data = pred, aes(x = pc_gdp_2016, y = predict)) +\n  geom_line()\n\n\n\n\n\n\n\n\n\n\nWhat does this mean?\nAs GDP increases the expected proportion of protected area increases.\n\n\nConfidence Interval\nTypically, we can use the predict function to calculate confidence intervals. Unfortunately, the Beta Regression models do not allow us to create confidence intervals using the predict function so we calculate these by hand below.\n\n\nCode\nbeta_model_se &lt;- predict(object = coastal_ecosystem_model,\n                          newdata = pred_grid,\n                          type = \"link\", # stay in link space\n                          se.fit = TRUE) #get the SE of the fit\n\n\nThe values from our summary model are utilized to create this data.\n\n\nCode\nbeta0 &lt;- sum_coastal_ecosystem_mod$coefficients$cond[1]\nbeta1 &lt;- sum_coastal_ecosystem_mod$coefficients$cond[2]\nbeta2 &lt;- sum_coastal_ecosystem_mod$coefficients$cond[3]\nbeta3_mangroves &lt;- sum_coastal_ecosystem_mod$coefficients$cond[4]\nbeta3_saltmarsh &lt;- sum_coastal_ecosystem_mod$coefficients$cond[5]\nbeta3_seagrass &lt;- sum_coastal_ecosystem_mod$coefficients$cond[6]\nbeta3_warmwater_coral &lt;- sum_coastal_ecosystem_mod$coefficients$cond[7]\n\nse &lt;- sum_coastal_ecosystem_mod$coefficients$cond[, \"Std. Error\"]\n\n\nConfidence intervals are then calculated subtracting and adding one standard error from each beta value.\n\n\nCode\n# Beta 0 confidence intervals\nbeta0_CI_lwr &lt;- beta0 - se[1]\nbeta0_CI_upr &lt;- beta0 + se[1]\n\n# Beta 1 confidence intervals\nbeta1_CI_lwr &lt;- beta1 - se[2]\nbeta1_CI_lwr &lt;- beta1 + se[2]\n\n# Beta 2 confidence intervals\nbeta2_CI_lwr &lt;- beta2 - se[3]\nbeta2_CI_lwr &lt;- beta2 + se[3]\n\n# Beta 3 mangrove confidence intervals\nbeta3_man_CI_lwr &lt;- beta3_mangroves - se[4]\nbeta3_man_CI_lwr &lt;- beta3_mangroves + se[4]\n\n# Beta 3 saltmarsh confidence intervals\nbeta3_salt_CI_lwr &lt;- beta3_saltmarsh - se[5]\nbeta3_salt_CI_lwr &lt;- beta3_saltmarsh + se[5]\n\n# Beta 3 seagrass confidence intervals\nbeta3_seag_CI_lwr &lt;- beta3_seagrass - se[6]\nbeta3_seag_CI_lwr &lt;- beta3_seagrass + se[6]\n\n# Beta 3 confidence intervals\nbeta3_wwc_CI_lwr &lt;- beta3_warmwater_coral - se[7]\nbeta3_wwc_CI_lwr &lt;- beta3_warmwater_coral + se[7]"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Sofia Rodas",
+    "section": "",
+    "text": "Hi this is Sofia! I’m working towards a Masters of Environmental Data Science at the Bren School of Environmental Science & Management."
   },
   {
     "objectID": "blog/eaton-and-palisades-fire-blog/index.html",

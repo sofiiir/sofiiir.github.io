@@ -3864,6 +3864,230 @@ vertical-align: -.125em;
     "search-label": "Search"
   }
 }</script>
+<script>$(document).ready(function(){
+    if (typeof $('[data-toggle="tooltip"]').tooltip === 'function') {
+        $('[data-toggle="tooltip"]').tooltip();
+    }
+    if ($('[data-toggle="popover"]').popover === 'function') {
+        $('[data-toggle="popover"]').popover();
+    }
+});
+</script>
+<style type="text/css">
+.lightable-minimal {
+border-collapse: separate;
+border-spacing: 16px 1px;
+width: 100%;
+margin-bottom: 10px;
+}
+.lightable-minimal td {
+margin-left: 5px;
+margin-right: 5px;
+}
+.lightable-minimal th {
+margin-left: 5px;
+margin-right: 5px;
+}
+.lightable-minimal thead tr:last-child th {
+border-bottom: 2px solid #00000050;
+empty-cells: hide;
+}
+.lightable-minimal tbody tr:first-child td {
+padding-top: 0.5em;
+}
+.lightable-minimal.lightable-hover tbody tr:hover {
+background-color: #f5f5f5;
+}
+.lightable-minimal.lightable-striped tbody tr:nth-child(even) {
+background-color: #f5f5f5;
+}
+.lightable-classic {
+border-top: 0.16em solid #111111;
+border-bottom: 0.16em solid #111111;
+width: 100%;
+margin-bottom: 10px;
+margin: 10px 5px;
+}
+.lightable-classic tfoot tr td {
+border: 0;
+}
+.lightable-classic tfoot tr:first-child td {
+border-top: 0.14em solid #111111;
+}
+.lightable-classic caption {
+color: #222222;
+}
+.lightable-classic td {
+padding-left: 5px;
+padding-right: 5px;
+color: #222222;
+}
+.lightable-classic th {
+padding-left: 5px;
+padding-right: 5px;
+font-weight: normal;
+color: #222222;
+}
+.lightable-classic thead tr:last-child th {
+border-bottom: 0.10em solid #111111;
+}
+.lightable-classic.lightable-hover tbody tr:hover {
+background-color: #F9EEC1;
+}
+.lightable-classic.lightable-striped tbody tr:nth-child(even) {
+background-color: #f5f5f5;
+}
+.lightable-classic-2 {
+border-top: 3px double #111111;
+border-bottom: 3px double #111111;
+width: 100%;
+margin-bottom: 10px;
+}
+.lightable-classic-2 tfoot tr td {
+border: 0;
+}
+.lightable-classic-2 tfoot tr:first-child td {
+border-top: 3px double #111111;
+}
+.lightable-classic-2 caption {
+color: #222222;
+}
+.lightable-classic-2 td {
+padding-left: 5px;
+padding-right: 5px;
+color: #222222;
+}
+.lightable-classic-2 th {
+padding-left: 5px;
+padding-right: 5px;
+font-weight: normal;
+color: #222222;
+}
+.lightable-classic-2 tbody tr:last-child td {
+border-bottom: 3px double #111111;
+}
+.lightable-classic-2 thead tr:last-child th {
+border-bottom: 1px solid #111111;
+}
+.lightable-classic-2.lightable-hover tbody tr:hover {
+background-color: #F9EEC1;
+}
+.lightable-classic-2.lightable-striped tbody tr:nth-child(even) {
+background-color: #f5f5f5;
+}
+.lightable-material {
+min-width: 100%;
+white-space: nowrap;
+table-layout: fixed;
+font-family: Roboto, sans-serif;
+border: 1px solid #EEE;
+border-collapse: collapse;
+margin-bottom: 10px;
+}
+.lightable-material tfoot tr td {
+border: 0;
+}
+.lightable-material tfoot tr:first-child td {
+border-top: 1px solid #EEE;
+}
+.lightable-material th {
+height: 56px;
+padding-left: 16px;
+padding-right: 16px;
+}
+.lightable-material td {
+height: 52px;
+padding-left: 16px;
+padding-right: 16px;
+border-top: 1px solid #eeeeee;
+}
+.lightable-material.lightable-hover tbody tr:hover {
+background-color: #f5f5f5;
+}
+.lightable-material.lightable-striped tbody tr:nth-child(even) {
+background-color: #f5f5f5;
+}
+.lightable-material.lightable-striped tbody td {
+border: 0;
+}
+.lightable-material.lightable-striped thead tr:last-child th {
+border-bottom: 1px solid #ddd;
+}
+.lightable-material-dark {
+min-width: 100%;
+white-space: nowrap;
+table-layout: fixed;
+font-family: Roboto, sans-serif;
+border: 1px solid #FFFFFF12;
+border-collapse: collapse;
+margin-bottom: 10px;
+background-color: #363640;
+}
+.lightable-material-dark tfoot tr td {
+border: 0;
+}
+.lightable-material-dark tfoot tr:first-child td {
+border-top: 1px solid #FFFFFF12;
+}
+.lightable-material-dark th {
+height: 56px;
+padding-left: 16px;
+padding-right: 16px;
+color: #FFFFFF60;
+}
+.lightable-material-dark td {
+height: 52px;
+padding-left: 16px;
+padding-right: 16px;
+color: #FFFFFF;
+border-top: 1px solid #FFFFFF12;
+}
+.lightable-material-dark.lightable-hover tbody tr:hover {
+background-color: #FFFFFF12;
+}
+.lightable-material-dark.lightable-striped tbody tr:nth-child(even) {
+background-color: #FFFFFF12;
+}
+.lightable-material-dark.lightable-striped tbody td {
+border: 0;
+}
+.lightable-material-dark.lightable-striped thead tr:last-child th {
+border-bottom: 1px solid #FFFFFF12;
+}
+.lightable-paper {
+width: 100%;
+margin-bottom: 10px;
+color: #444;
+}
+.lightable-paper tfoot tr td {
+border: 0;
+}
+.lightable-paper tfoot tr:first-child td {
+border-top: 1px solid #00000020;
+}
+.lightable-paper thead tr:last-child th {
+color: #666;
+vertical-align: bottom;
+border-bottom: 1px solid #00000020;
+line-height: 1.15em;
+padding: 10px 5px;
+}
+.lightable-paper td {
+vertical-align: middle;
+border-bottom: 1px solid #00000010;
+line-height: 1.15em;
+padding: 7px 5px;
+}
+.lightable-paper.lightable-hover tbody tr:hover {
+background-color: #F9EEC1;
+}
+.lightable-paper.lightable-striped tbody tr:nth-child(even) {
+background-color: #00000008;
+}
+.lightable-paper.lightable-striped tbody td {
+border: 0;
+}
+</style>
 
   <script>/*
  * Polyfill service v3.111.0
@@ -4139,7 +4363,8 @@ window.Quarto = {
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(patchwork)</span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(betareg)</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(glmmTMB)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(glmmTMB)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(kableExtra)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 <section id="purpose" class="level1">
@@ -4262,20 +4487,20 @@ Formula:          proportion_protected_sim ~ gdp + total_area + ecosystem
 Data: sim_df
 
       AIC       BIC    logLik -2*log(L)  df.resid 
-  -2142.1   -2102.8    1079.0   -2158.1       992 
+  -2228.7   -2189.5    1122.4   -2244.7       992 
 
 
-Dispersion parameter for beta family (): 14.9 
+Dispersion parameter for beta family (): 16.5 
 
 Conditional model:
                           Estimate Std. Error z value Pr(&gt;|z|)    
-(Intercept)               0.745055   0.152099   4.898 9.66e-07 ***
-gdp                       1.806565   0.251026   7.197 6.17e-13 ***
-total_area               -0.006149   0.004433  -1.387    0.165    
-ecosystemmangrove        -0.046142   0.065222  -0.707    0.479    
-ecosystemsaltmarsh       -0.095989   0.064712  -1.483    0.138    
-ecosystemseagrass        -0.019017   0.065303  -0.291    0.771    
-ecosystemwarmwater_coral  0.001949   0.065596   0.030    0.976    
+(Intercept)               0.643746   0.150499   4.277 1.89e-05 ***
+gdp                       1.896326   0.242429   7.822 5.19e-15 ***
+total_area                0.003918   0.004318   0.907    0.364    
+ecosystemmangrove        -0.074448   0.062649  -1.188    0.235    
+ecosystemsaltmarsh       -0.062677   0.062785  -0.998    0.318    
+ecosystemseagrass        -0.092048   0.062726  -1.467    0.142    
+ecosystemwarmwater_coral -0.051194   0.062949  -0.813    0.416    
 ---
 Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
 </div>
@@ -4442,28 +4667,100 @@ Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&
 <span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Beta 1 confidence intervals</span></span>
 <span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>beta1_CI_lwr <span class="ot">&lt;-</span> beta1 <span class="sc">-</span> se[<span class="dv">2</span>]</span>
-<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>beta1_CI_lwr <span class="ot">&lt;-</span> beta1 <span class="sc">+</span> se[<span class="dv">2</span>]</span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>beta1_CI_upr <span class="ot">&lt;-</span> beta1 <span class="sc">+</span> se[<span class="dv">2</span>]</span>
 <span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Beta 2 confidence intervals</span></span>
 <span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a>beta2_CI_lwr <span class="ot">&lt;-</span> beta2 <span class="sc">-</span> se[<span class="dv">3</span>]</span>
-<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a>beta2_CI_lwr <span class="ot">&lt;-</span> beta2 <span class="sc">+</span> se[<span class="dv">3</span>]</span>
+<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a>beta2_CI_upr <span class="ot">&lt;-</span> beta2 <span class="sc">+</span> se[<span class="dv">3</span>]</span>
 <span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Beta 3 mangrove confidence intervals</span></span>
 <span id="cb20-14"><a href="#cb20-14" aria-hidden="true" tabindex="-1"></a>beta3_man_CI_lwr <span class="ot">&lt;-</span> beta3_mangroves <span class="sc">-</span> se[<span class="dv">4</span>]</span>
-<span id="cb20-15"><a href="#cb20-15" aria-hidden="true" tabindex="-1"></a>beta3_man_CI_lwr <span class="ot">&lt;-</span> beta3_mangroves <span class="sc">+</span> se[<span class="dv">4</span>]</span>
+<span id="cb20-15"><a href="#cb20-15" aria-hidden="true" tabindex="-1"></a>beta3_man_CI_upr <span class="ot">&lt;-</span> beta3_mangroves <span class="sc">+</span> se[<span class="dv">4</span>]</span>
 <span id="cb20-16"><a href="#cb20-16" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb20-17"><a href="#cb20-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Beta 3 saltmarsh confidence intervals</span></span>
 <span id="cb20-18"><a href="#cb20-18" aria-hidden="true" tabindex="-1"></a>beta3_salt_CI_lwr <span class="ot">&lt;-</span> beta3_saltmarsh <span class="sc">-</span> se[<span class="dv">5</span>]</span>
-<span id="cb20-19"><a href="#cb20-19" aria-hidden="true" tabindex="-1"></a>beta3_salt_CI_lwr <span class="ot">&lt;-</span> beta3_saltmarsh <span class="sc">+</span> se[<span class="dv">5</span>]</span>
+<span id="cb20-19"><a href="#cb20-19" aria-hidden="true" tabindex="-1"></a>beta3_salt_CI_upr <span class="ot">&lt;-</span> beta3_saltmarsh <span class="sc">+</span> se[<span class="dv">5</span>]</span>
 <span id="cb20-20"><a href="#cb20-20" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb20-21"><a href="#cb20-21" aria-hidden="true" tabindex="-1"></a><span class="co"># Beta 3 seagrass confidence intervals</span></span>
 <span id="cb20-22"><a href="#cb20-22" aria-hidden="true" tabindex="-1"></a>beta3_seag_CI_lwr <span class="ot">&lt;-</span> beta3_seagrass <span class="sc">-</span> se[<span class="dv">6</span>]</span>
-<span id="cb20-23"><a href="#cb20-23" aria-hidden="true" tabindex="-1"></a>beta3_seag_CI_lwr <span class="ot">&lt;-</span> beta3_seagrass <span class="sc">+</span> se[<span class="dv">6</span>]</span>
+<span id="cb20-23"><a href="#cb20-23" aria-hidden="true" tabindex="-1"></a>beta3_seag_CI_upr <span class="ot">&lt;-</span> beta3_seagrass <span class="sc">+</span> se[<span class="dv">6</span>]</span>
 <span id="cb20-24"><a href="#cb20-24" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb20-25"><a href="#cb20-25" aria-hidden="true" tabindex="-1"></a><span class="co"># Beta 3 confidence intervals</span></span>
 <span id="cb20-26"><a href="#cb20-26" aria-hidden="true" tabindex="-1"></a>beta3_wwc_CI_lwr <span class="ot">&lt;-</span> beta3_warmwater_coral <span class="sc">-</span> se[<span class="dv">7</span>]</span>
-<span id="cb20-27"><a href="#cb20-27" aria-hidden="true" tabindex="-1"></a>beta3_wwc_CI_lwr <span class="ot">&lt;-</span> beta3_warmwater_coral <span class="sc">+</span> se[<span class="dv">7</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb20-27"><a href="#cb20-27" aria-hidden="true" tabindex="-1"></a>beta3_wwc_CI_upr <span class="ot">&lt;-</span> beta3_warmwater_coral <span class="sc">+</span> se[<span class="dv">7</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
+</div>
+<p>Create a dataframe with the confidence interval values.</p>
+<div class="cell">
+<details open class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>CI_df <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">Variable =</span> <span class="fu">c</span>(<span class="st">&quot;Intercept&quot;</span>, <span class="st">&quot;GDP&quot;</span>, <span class="st">&quot;Total Area&quot;</span>, <span class="st">&quot;Mangroves&quot;</span>, <span class="st">&quot;Saltmarsh&quot;</span>, <span class="st">&quot;Seagrass&quot;</span>, <span class="st">&quot;Warm-water Coral&quot;</span>),</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">Betas =</span> <span class="fu">c</span>(beta0, beta1, beta2, beta3_mangroves, beta3_saltmarsh, beta3_seagrass, beta3_warmwater_coral),</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">LowerCI =</span> <span class="fu">c</span>(beta0_CI_lwr, beta1_CI_lwr, beta2_CI_lwr, beta3_man_CI_lwr, beta3_salt_CI_lwr, beta3_seag_CI_lwr, beta3_wwc_CI_lwr),</span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">UpperCI =</span><span class="fu">c</span>(beta0_CI_upr, beta1_CI_upr, beta2_CI_upr, beta3_man_CI_upr, beta3_salt_CI_upr, beta3_seag_CI_upr, beta3_wwc_CI_upr)</span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>) </span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>CI_df <span class="sc">|&gt;</span> </span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_styling</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<table class="table caption-top table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">Variable</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Betas</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">LowerCI</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">UpperCI</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Intercept</td>
+<td style="text-align: right;">-1.6119807</td>
+<td style="text-align: right;">-1.7498754</td>
+<td style="text-align: right;">-1.4740861</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">GDP</td>
+<td style="text-align: right;">0.0000185</td>
+<td style="text-align: right;">0.0000148</td>
+<td style="text-align: right;">0.0000221</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Total Area</td>
+<td style="text-align: right;">0.0000033</td>
+<td style="text-align: right;">-0.0000086</td>
+<td style="text-align: right;">0.0000152</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Mangroves</td>
+<td style="text-align: right;">0.9615269</td>
+<td style="text-align: right;">0.7752086</td>
+<td style="text-align: right;">1.1478453</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Saltmarsh</td>
+<td style="text-align: right;">1.0816634</td>
+<td style="text-align: right;">0.8939097</td>
+<td style="text-align: right;">1.2694170</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Seagrass</td>
+<td style="text-align: right;">0.5545267</td>
+<td style="text-align: right;">0.3867862</td>
+<td style="text-align: right;">0.7222673</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Warm-water Coral</td>
+<td style="text-align: right;">0.7405975</td>
+<td style="text-align: right;">0.5474693</td>
+<td style="text-align: right;">0.9337256</td>
+</tr>
+</tbody>
+</table>
+</div>
 </div>
 </section>
 </section>

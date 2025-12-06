@@ -29,7 +29,6 @@ image: beach.png
 library(DescTools)
 library(tidyverse)
 library(patchwork)
-library(betareg)
 library(glmmTMB)
 library(kableExtra)
 ```

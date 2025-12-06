@@ -67,7 +67,7 @@
     "href": "blog/gdp-influence-on-coastline-protection-blog/index.html",
     "title": "GDP Influence on Coastline Protection",
     "section": "",
-    "text": "Code\n# load in appropriate libraries\nlibrary(DescTools)\nlibrary(tidyverse)\nlibrary(patchwork)\nlibrary(betareg)\nlibrary(glmmTMB)\nlibrary(kableExtra)"
+    "text": "Code\n# load in appropriate libraries\nlibrary(DescTools)\nlibrary(tidyverse)\nlibrary(patchwork)\nlibrary(glmmTMB)\nlibrary(kableExtra)"
   },
   {
     "objectID": "blog/gdp-influence-on-coastline-protection-blog/index.html#fit-a-beta-regression-model.",

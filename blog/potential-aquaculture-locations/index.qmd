@@ -28,6 +28,7 @@ Aquaculture is a viable solution to help address over-fishing while providing oc
 ```{r}
 #| label: import libraries
 #| ouput: false
+#| code-fold: true
 
 # load in necessary libraries
 library(tidyverse)
@@ -40,6 +41,7 @@ library(kableExtra)
 
 ## Read in data
 
+EEZ data is available through [marineregions.org](https://www.marineregions.org/eez.php). 
 ```{r}
 #| label: eez data read-in
 #| output: false
@@ -47,7 +49,7 @@ library(kableExtra)
 # read in eez data as an sf object
 eez_sf <- read_sf(here::here("blog", "potential-aquaculture-locations","data","wc_regions_clean.shp"))
 ```
-
+Bathymetry data is available through the [General Bathymetric Chart of the Oceans (GEBCO)](https://www.gebco.net/data-products/gridded-bathymetry-data#area). 
 ```{r}
 #| label: depth data read-in
 #| output: false
@@ -56,6 +58,9 @@ eez_sf <- read_sf(here::here("blog", "potential-aquaculture-locations","data","w
 depth <- rast(here::here("blog", "potential-aquaculture-locations", "data", "depth.tif"))
 ```
 
+SST data was acquired from the [NOAA’s 5km Daily Global Satellite Sea Surface Temperature Anomaly v3.1](https://coralreefwatch.noaa.gov/product/5km/index_5km_ssta.php). SST data from 2008 to 2012 is used and averaged for this analysis. This averaging is necessary to account for year to year variations in SST.
+
+We stack all of the SST data for each year to make a single raster.
 ```{r}
 #| label: sst data read-in
 #| output: false
@@ -71,15 +76,21 @@ sst_2012 <- rast(here::here("blog", "potential-aquaculture-locations", "data", "
 sst <- c(sst_2008, sst_2009, sst_2010, sst_2011, sst_2012)
 ```
 
+
 ```{r}
 #| label: clean environment
+#| code-fold: true
 
 # remove unnecessary raster data
 rm(sst_2008, sst_2009, sst_2010, sst_2011, sst_2012)
 ```
 
 ## Check CRS
-Note: To check the CRS of a raster use crs. To check the CRS of a simple feature object use st_crs.
+CRS is one of the three components that is essential to check before plotting. CRS must match for all of the data to accurately perform functions on different data.
+
+To check the CRS of a raster use `crs` and to check the CRS of a simple feature object use `st_crs`. 
+
+Warning messages are especially useful as they'll alert when the specification is not met. 
 ```{r}
 #| label: crs check
 #| warning: true
@@ -91,7 +102,7 @@ Note: To check the CRS of a raster use crs. To check the CRS of a simple feature
 }
 ```
 
-Make all of the CRS match the SST CRS.
+Since not all of the CRS match we need to change some of the CRS. Make all of the CRS match the SST CRS. From personal experience matching the CRS of raster data is less prone to causing errors down the road due to incorrect CRS. 
 
 ```{r}
 #| label: crs matching
@@ -100,7 +111,7 @@ depth <- project(depth, crs(sst))
 eez_sf <- st_transform(eez_sf, crs(sst))
 ```
 
-Make sure the CRS alterations were successful.
+We use warning messages again to make sure the CRS alterations were successful. They were!
 
 ```{r}
 #| label: crs match confirmation
@@ -116,19 +127,20 @@ Make sure the CRS alterations were successful.
 
 ## Data processing
 
-This analysis works based on the mean of Sea Surface Temperature (SST) measured between 2008 and 2012.
+This analysis works based on the mean of Sea Surface Temperature (SST) measured between 2008 and 2012 so we use map algebra to calculate the mean. This analysis is also based on Celsius so we subtract 273 to convert all of the values from the Kelvin scale to the Celsius scale with a global operation. 
 
 ```{r}
-#| label: sst mean and celcius
+#| label: sst mean and celsius
 
 # calculate the mean of sst 
 mean_sst <- mean(sst)
 
-# convert the units from kelvin to celcius
+# convert the units from kelvin to celsius
 mean_sst <- mean_sst - 273 
 ```
 
-This analysis requires SST and depth to have the same extent, resolution, and positions. Crop to make sure the extent of the rasters are the same.
+To reiterate, the three important aspects when working with spatial data is that the extent, resolution, and positions.
+For this analysis SST and depth need to have the same extent, resolution, and positions. Let's crop to make sure the extent of the rasters are the same.
 
 ```{r}
 #| label: depth extent match
@@ -137,7 +149,7 @@ This analysis requires SST and depth to have the same extent, resolution, and po
 depth <- crop(depth, mean_sst)
 ```
 
-Resample to make sure that the resolutions of the rasters are the same.
+Then we resample to make sure that the resolutions of the rasters are the same.
 
 ```{r}
 #| label: depth resolution match
@@ -145,7 +157,7 @@ Resample to make sure that the resolutions of the rasters are the same.
 depth <- resample(depth, mean_sst)
 ```
 
-Make sure the extents and resolutions match for the SST and depth data frames.
+Let's add another warning message to make sure the extents and resolutions match for the SST and depth data frames.
 
 ```{r}
 #| label: depth extent and resolution confirmation
@@ -165,13 +177,15 @@ if (res(mean_sst)[1]== res(depth)[1] & res(mean_sst)[2]== res(depth)[2]){
  }
 ```
 
-# Find cells where conditions are satisfied for both the sst and depth for specific species.
+# Find cells where conditions are satisfied for both the SST and depth for specific species.
 
+The steps to finding locations that satisfy conditions for a specific species based on SST and depth are:
 1.  Make a matrix
 2.  Reclassify based on that matrix
 
 Sea surface temperature is adequate for oysters in the range of 11-30°C. Classify sea surface temperature to find those areas that are potential zones for oyster aquaculture.
 
+We assign anything less than 11 degrees Celsius and anything more that 30 degrees Celsius to 0 since these areas are not suitable for oyster aquaculture. Anything between the range of 11 and 30 degrees Celsius we assign a 1 to signify these areas are suitable for oyster aquaculture. 
 ```{r}
 #| label: sst classification
 
@@ -187,6 +201,7 @@ sst_classified <- classify(mean_sst, rcl = sst_matrix)
 
 Oysters can survive between the depths of 70 and 0 meters below the sea surface. Classify depth to find those areas that are potential zones for oyster aquaculture.
 
+We assign anything below 70 meters and anything above sea level to 0 since these areas are not suitable for oyster aquaculture. Anything between the range of 70 meters deep and sea level we assign a 1 to signify these areas are suitable for oyster aquaculture. 
 ```{r}
 #| label: depth classification
 
@@ -202,6 +217,8 @@ depth_classified <- classify(depth, rcl = depth_matrix)
 
 Create a function to determine what locations are suited for oyster aquaculture based on both sea surface temperature and depth.
 
+Anywhere a zero is present for either depth or SST will result in a 0 since anything times zero is zero. Only areas where there is a one for both depth and SST will be left. 
+
 ```{r}
 #| label: suitable area function 
 
@@ -211,7 +228,7 @@ suitable_habitat <- function(rast1, rast2){
 }
 ```
 
-Apply the function to determine what areas are suitable based on both sst and depth for oyster aquaculture.
+Apply the function to determine what areas that are suitable based on both SST and depth for oyster aquaculture. Then we set anything that is a zero to NA to avoid any analysis issues moving forward. 
 
 ```{r}
 #| label: suitable area application
@@ -222,7 +239,9 @@ suit_oyster_aqu <- lapp(c(sst_classified, depth_classified), fun = suitable_habi
 suit_oyster_aqu[suit_oyster_aqu == 0] <- NA
 ```
 
-Preliminary maps to assess differences between suitable locations based on depth, sst, and both depth and sst.
+Here are some preliminary maps to assess differences between suitable locations based on depth, SST, and both depth and SST.
+
+Intermediate mapping allows us to see if what we think we are doing is what we're doing in reality. 
 
 ```{r}
 #| label: initial exploration maps
@@ -312,6 +331,9 @@ eez_sf <- eez_sf |>
 ```
 
 #### How much suitable space is there for oyster aquaculture?
+
+We can see the amount of area that is suitable throughout the West Coast. This is an interesting metric for any stakeholders who might be interested in seeing whether oyster aquaculture is something to pursue.
+
 ```{r}
 total_oyst <- sum(eez_sf$area)
 ```
@@ -361,6 +383,8 @@ eez_kable |>
 ```
 
 # Potential aquaculture locations for different species
+
+We can combine all the steps we conducted above to make a function that can work on any species. We replace variables that would be different for different species in a function. 
 
 ```{r}
 #| label: potential aquaculture location function
@@ -464,6 +488,8 @@ tm_shape(spec_area_eez) +
 }
 ```
 # Additional species of interest: **Red Sea Urchin**, *Mesocentrotus franciscanus*
+
+Let's try out our function!
 
 Sea surface temperature is adequate for red sea urchins in the range of 6.75-13.02°C. Red sea urchins can survive between the depths of 125 and 0 meters below the sea surface.
 ```{r}

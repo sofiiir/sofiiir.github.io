@@ -157,7 +157,16 @@ coastal_ecosystem <- coastal_ecosystem |>
 $$
 \begin{align}
 \text{ProportionProtected} &\sim BetaRegression(\mu, \phi) \\
-logit(\mu) &= \beta_0 + \beta_1 \text{GDP}+ \beta_2 \text{TotalArea}+ \beta_3 \text{Ecosystem}
+logit(\mu) &= \beta_0 + \beta_1 \text{GDP}+ \beta_2 \text{TotalArea}+ \beta_3 \text{Mangroves} + \beta_4 \text{Saltmarshes}+ \beta_5 \text{Seagrass}+ \beta_6 \text{Warmwater Corals}
+\end{align}
+$$
+
+### Hypothesis
+
+$$
+\begin{align}
+H_0 &: \beta_1 = 0 \\
+H_A &: \beta_1 != 0
 \end{align}
 $$
 

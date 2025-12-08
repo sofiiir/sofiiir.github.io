@@ -4339,6 +4339,7 @@ window.Quarto = {
   <li><a href="#data-preparation" id="toc-data-preparation" class="nav-link" data-scroll-target="#data-preparation">Data preparation</a></li>
   <li><a href="#beta-regression" id="toc-beta-regression" class="nav-link" data-scroll-target="#beta-regression">Beta Regression</a>
   <ul class="collapse">
+  <li><a href="#hypothesis" id="toc-hypothesis" class="nav-link" data-scroll-target="#hypothesis">Hypothesis</a></li>
   <li><a href="#fit-a-beta-regression-model." id="toc-fit-a-beta-regression-model." class="nav-link" data-scroll-target="#fit-a-beta-regression-model.">Fit a Beta Regression model.</a>
   <ul class="collapse">
   <li><a href="#confidence-interval" id="toc-confidence-interval" class="nav-link" data-scroll-target="#confidence-interval">Confidence Interval</a></li>
@@ -4534,9 +4535,18 @@ Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&
 <p><span class="math display">\[
 \begin{align}
 \text{ProportionProtected} &amp;\sim BetaRegression(\mu, \phi) \\
-logit(\mu) &amp;= \beta_0 + \beta_1 \text{GDP}+ \beta_2 \text{TotalArea}+ \beta_3 \text{Ecosystem}
+logit(\mu) &amp;= \beta_0 + \beta_1 \text{GDP}+ \beta_2 \text{TotalArea}+ \beta_3 \text{Mangroves} + \beta_4 \text{Saltmarshes}+ \beta_5 \text{Seagrass}+ \beta_6 \text{Warmwater Corals}
 \end{align}
 \]</span></p>
+<section id="hypothesis" class="level3">
+<h3 class="anchored" data-anchor-id="hypothesis">Hypothesis</h3>
+<p><span class="math display">\[
+\begin{align}
+H_0 &amp;: \beta_1 = 0 \\
+H_A &amp;: \beta_1 != 0
+\end{align}
+\]</span></p>
+</section>
 <section id="fit-a-beta-regression-model." class="level2">
 <h2 class="anchored" data-anchor-id="fit-a-beta-regression-model.">Fit a Beta Regression model.</h2>
 <p>The Beta Regression model is useful when the response is a proportion. Since the protected areas is between 0 and 100 percent this model will assess whether there is any relationship between the predictors and the response.</p>

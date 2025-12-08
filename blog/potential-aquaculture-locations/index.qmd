@@ -41,7 +41,7 @@ library(kableExtra)
 
 ## Read in data
 
-EEZ data is available through [marineregions.org](https://www.marineregions.org/eez.php). 
+EEZ data is available through [marineregions.org](https://www.marineregions.org/eez.php). Since this is vector data we use the `sf` package to read in the data.
 ```{r}
 #| label: eez data read-in
 #| output: false
@@ -49,7 +49,8 @@ EEZ data is available through [marineregions.org](https://www.marineregions.org/
 # read in eez data as an sf object
 eez_sf <- read_sf(here::here("blog", "potential-aquaculture-locations","data","wc_regions_clean.shp"))
 ```
-Bathymetry data is available through the [General Bathymetric Chart of the Oceans (GEBCO)](https://www.gebco.net/data-products/gridded-bathymetry-data#area). 
+Bathymetry data is available through the [General Bathymetric Chart of the Oceans (GEBCO)](https://www.gebco.net/data-products/gridded-bathymetry-data#area). Since this is raster data we use the `terra` package to read in the data. 
+Note: The word depth is used throughout this analysis and refers to bathymetry.
 ```{r}
 #| label: depth data read-in
 #| output: false
@@ -58,7 +59,7 @@ Bathymetry data is available through the [General Bathymetric Chart of the Ocean
 depth <- rast(here::here("blog", "potential-aquaculture-locations", "data", "depth.tif"))
 ```
 
-SST data was acquired from the [NOAA’s 5km Daily Global Satellite Sea Surface Temperature Anomaly v3.1](https://coralreefwatch.noaa.gov/product/5km/index_5km_ssta.php). SST data from 2008 to 2012 is used and averaged for this analysis. This averaging is necessary to account for year to year variations in SST.
+SST data was acquired from the [NOAA’s 5km Daily Global Satellite Sea Surface Temperature Anomaly v3.1](https://coralreefwatch.noaa.gov/product/5km/index_5km_ssta.php). Since this is raster data we use the `terra` package to read in the data. SST data from 2008 to 2012 is used and averaged for this analysis. This averaging is necessary to account for year to year variations in SST.
 
 We stack all of the SST data for each year to make a single raster.
 ```{r}
@@ -245,6 +246,7 @@ Intermediate mapping allows us to see if what we think we are doing is what we'r
 
 ```{r}
 #| label: initial exploration maps
+#| code-fold: true
 
 # suitable depth for oyster aquaculture
 tm_basemap("Esri.OceanBasemap") +
@@ -303,6 +305,9 @@ tm_shape(suit_oyster_aqu) +
 
 Find the suitable aquaculture locations for each EEZ.
 
+We rasterize the vetor data so that the operations can be applied smoothly between the two objects. Since we're only interested in the suitable habitat within the Exclusive Economic Zones so we crop the suitable oyster aquaculture zones by the EEZ object. 
+
+We're then interested in the size of the cells that are quitable in each EEZ area so we use the `zonal` function to calculate the suitable areas.
 ```{r}
 #| label: suitable area per eez
 
@@ -340,6 +345,8 @@ total_oyst <- sum(eez_sf$area)
 
 The total amount of space in the Exclusive Economic Zones (EEZ) on the West Coast that are suitable for oyster aquaculture based on suitable sea surface temperature and suitable bathymetry is `r total_oyst` km^2.
 
+Here's a final map with the coloration of the EEZ zones signifying the total suiatable aquaculture area that each zone contains. 
+
 ```{r}
 #| label: eez map by suitable area amount
 
@@ -368,8 +375,10 @@ tm_shape(eez_sf) +
             scalebar.position = tm_pos_in("left", "bottom")) 
 ```
 
-
+We also make a polished table to visualize the differences in suitable aquaculture area and verify the map above is accurate. 
 ```{r}
+#| code-fold: true
+
 eez_kable <- eez_sf |> 
   st_drop_geometry() |> 
   rename("State" = "rgn",
@@ -384,7 +393,8 @@ eez_kable |>
 
 # Potential aquaculture locations for different species
 
-We can combine all the steps we conducted above to make a function that can work on any species. We replace variables that would be different for different species in a function. 
+We can combine all the steps we conducted above to make a function that can work on calculating potential aquaculture areas for any species. We replace variables that would vary for different species in a by making those arguments in a function. Function arguments should also include all of the necessary data frames for clarity. 
+In the `potent_aqu` function we need to use three data frames. The SST, EEZ, and depth data frames. Additionally, we need to change the minimum and maximum values for the suitable SST and depth of each species. Species name is also an argument for clarity and to add the name to the title of the plot. 
 
 ```{r}
 #| label: potential aquaculture location function

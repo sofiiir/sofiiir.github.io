@@ -4233,7 +4233,7 @@ border: 0;
 </section>
 <section id="read-in-data" class="level2">
 <h2 class="anchored" data-anchor-id="read-in-data">Read in data</h2>
-<p>EEZ data is available through <a href="https://www.marineregions.org/eez.php">marineregions.org</a>.</p>
+<p>EEZ data is available through <a href="https://www.marineregions.org/eez.php">marineregions.org</a>. Since this is vector data we use the <code>sf</code> package to read in the data.</p>
 <div class="cell">
 <details open class="code-fold">
 <summary>Code</summary>
@@ -4241,7 +4241,7 @@ border: 0;
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>eez_sf <span class="ot">&lt;-</span> <span class="fu">read_sf</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">&quot;blog&quot;</span>, <span class="st">&quot;potential-aquaculture-locations&quot;</span>,<span class="st">&quot;data&quot;</span>,<span class="st">&quot;wc_regions_clean.shp&quot;</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
-<p>Bathymetry data is available through the <a href="https://www.gebco.net/data-products/gridded-bathymetry-data#area">General Bathymetric Chart of the Oceans (GEBCO)</a>.</p>
+<p>Bathymetry data is available through the <a href="https://www.gebco.net/data-products/gridded-bathymetry-data#area">General Bathymetric Chart of the Oceans (GEBCO)</a>. Since this is raster data we use the <code>terra</code> package to read in the data. Note: The word depth is used throughout this analysis and refers to bathymetry.</p>
 <div class="cell">
 <details open class="code-fold">
 <summary>Code</summary>
@@ -4249,7 +4249,7 @@ border: 0;
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>depth <span class="ot">&lt;-</span> <span class="fu">rast</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">&quot;blog&quot;</span>, <span class="st">&quot;potential-aquaculture-locations&quot;</span>, <span class="st">&quot;data&quot;</span>, <span class="st">&quot;depth.tif&quot;</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
-<p>SST data was acquired from the <a href="https://coralreefwatch.noaa.gov/product/5km/index_5km_ssta.php">NOAA’s 5km Daily Global Satellite Sea Surface Temperature Anomaly v3.1</a>. SST data from 2008 to 2012 is used and averaged for this analysis. This averaging is necessary to account for year to year variations in SST.</p>
+<p>SST data was acquired from the <a href="https://coralreefwatch.noaa.gov/product/5km/index_5km_ssta.php">NOAA’s 5km Daily Global Satellite Sea Surface Temperature Anomaly v3.1</a>. Since this is raster data we use the <code>terra</code> package to read in the data. SST data from 2008 to 2012 is used and averaged for this analysis. This averaging is necessary to account for year to year variations in SST.</p>
 <p>We stack all of the SST data for each year to make a single raster.</p>
 <div class="cell">
 <details open class="code-fold">
@@ -4425,7 +4425,7 @@ border: 0;
 <p>Here are some preliminary maps to assess differences between suitable locations based on depth, SST, and both depth and SST.</p>
 <p>Intermediate mapping allows us to see if what we think we are doing is what we’re doing in reality.</p>
 <div class="cell">
-<details open class="code-fold">
+<details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># suitable depth for oyster aquaculture</span></span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tm_basemap</span>(<span class="st">&quot;Esri.OceanBasemap&quot;</span>) <span class="sc">+</span></span>
@@ -4451,7 +4451,7 @@ border: 0;
 </figure>
 </div>
 </div>
-<details open class="code-fold">
+<details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># suitable depth for oyster aquaculture</span></span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tm_shape</span>(depth_classified) <span class="sc">+</span></span>
@@ -4476,7 +4476,7 @@ border: 0;
 </figure>
 </div>
 </div>
-<details open class="code-fold">
+<details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># suitable locations for oyster aquaculture</span></span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tm_basemap</span>(<span class="st">&quot;Esri.OceanBasemap&quot;</span>) <span class="sc">+</span></span>
@@ -4507,6 +4507,8 @@ border: 0;
 <section id="how-much-suitable-aquaculture-space-is-there-in-each-exclusive-economic-zone-eez" class="level1">
 <h1>How much suitable aquaculture space is there in each Exclusive Economic Zone (EEZ)?</h1>
 <p>Find the suitable aquaculture locations for each EEZ.</p>
+<p>We rasterize the vetor data so that the operations can be applied smoothly between the two objects. Since we’re only interested in the suitable habitat within the Exclusive Economic Zones so we crop the suitable oyster aquaculture zones by the EEZ object.</p>
+<p>We’re then interested in the size of the cells that are quitable in each EEZ area so we use the <code>zonal</code> function to calculate the suitable areas.</p>
 <div class="cell">
 <details open class="code-fold">
 <summary>Code</summary>
@@ -4544,6 +4546,7 @@ border: 0;
 </details>
 </div>
 <p>The total amount of space in the Exclusive Economic Zones (EEZ) on the West Coast that are suitable for oyster aquaculture based on suitable sea surface temperature and suitable bathymetry is 1.1799613^{4} km^2.</p>
+<p>Here’s a final map with the coloration of the EEZ zones signifying the total suiatable aquaculture area that each zone contains.</p>
 <div class="cell">
 <details open class="code-fold">
 <summary>Code</summary>
@@ -4579,8 +4582,9 @@ border: 0;
 </div>
 </div>
 </div>
+<p>We also make a polished table to visualize the differences in suitable aquaculture area and verify the map above is accurate.</p>
 <div class="cell">
-<details open class="code-fold">
+<details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>eez_kable <span class="ot">&lt;-</span> eez_sf <span class="sc">|&gt;</span> </span>
 <span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">st_drop_geometry</span>() <span class="sc">|&gt;</span> </span>
@@ -4631,7 +4635,7 @@ border: 0;
 </section>
 <section id="potential-aquaculture-locations-for-different-species" class="level1">
 <h1>Potential aquaculture locations for different species</h1>
-<p>We can combine all the steps we conducted above to make a function that can work on any species. We replace variables that would be different for different species in a function.</p>
+<p>We can combine all the steps we conducted above to make a function that can work on calculating potential aquaculture areas for any species. We replace variables that would vary for different species in a by making those arguments in a function. Function arguments should also include all of the necessary data frames for clarity. In the <code>potent_aqu</code> function we need to use three data frames. The SST, EEZ, and depth data frames. Additionally, we need to change the minimum and maximum values for the suitable SST and depth of each species. Species name is also an argument for clarity and to add the name to the title of the plot.</p>
 <div class="cell">
 <details open class="code-fold">
 <summary>Code</summary>

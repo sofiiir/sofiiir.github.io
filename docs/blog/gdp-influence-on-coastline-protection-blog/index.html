@@ -4363,7 +4363,9 @@ window.Quarto = {
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(patchwork)</span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(glmmTMB)</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(kableExtra)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(kableExtra)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">12</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 <section id="purpose" class="level1">
@@ -4442,7 +4444,7 @@ logit(\mu) &amp;= \beta_0 + \beta_1 \text{GDP}+ \beta_2 \text{TotalArea}+ \beta_
 <span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="co"># total_area &lt;- seq(from = 0, to = 68100, by = 500)</span></span>
 <span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="co"># simulate numeric predictor values </span></span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>gdp <span class="ot">&lt;-</span> <span class="fu">runif</span>(<span class="dv">1000</span>, <span class="fl">0.433</span>, <span class="fl">0.71</span>)</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>gdp <span class="ot">&lt;-</span> <span class="fu">runif</span>(<span class="dv">10000</span>, <span class="fl">0.433</span>, <span class="fl">0.71</span>)</span>
 <span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="co"># linkspace equation</span></span>
 <span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>logit_mu <span class="ot">&lt;-</span> beta0 <span class="sc">+</span> beta1 <span class="sc">*</span> gdp</span>
@@ -4463,7 +4465,7 @@ logit(\mu) &amp;= \beta_0 + \beta_1 \text{GDP}+ \beta_2 \text{TotalArea}+ \beta_
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>shape2 <span class="ot">&lt;-</span> phi <span class="sc">-</span> shape1</span>
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="co"># simulate response data based on parameters assigned above </span></span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>proportion_protected_sim <span class="ot">&lt;-</span> <span class="fu">rbeta</span>(<span class="dv">1000</span>, <span class="at">shape1 =</span> shape1, <span class="at">shape2 =</span> shape2)</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>proportion_protected_sim <span class="ot">&lt;-</span> <span class="fu">rbeta</span>(<span class="dv">10000</span>, <span class="at">shape1 =</span> shape1, <span class="at">shape2 =</span> shape2)</span>
 <span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="co"># create a dataframe with all of the variables</span></span>
 <span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>sim_df <span class="ot">&lt;-</span> <span class="fu">tibble</span>(proportion_protected_sim, gdp)</span>
@@ -4482,15 +4484,15 @@ Formula:          proportion_protected_sim ~ gdp
 Data: sim_df
 
       AIC       BIC    logLik -2*log(L)  df.resid 
-  -2209.3   -2194.5    1107.6   -2215.3       997 
+ -21546.7  -21525.1   10776.4  -21552.7      9997 
 
 
-Dispersion parameter for beta family (): 16.1 
+Dispersion parameter for beta family (): 14.9 
 
 Conditional model:
             Estimate Std. Error z value Pr(&gt;|z|)    
-(Intercept)   0.5314     0.1416   3.753 0.000174 ***
-gdp           2.0297     0.2488   8.158  3.4e-16 ***
+(Intercept)  0.58824    0.04586   12.83   &lt;2e-16 ***
+gdp          1.91642    0.08035   23.85   &lt;2e-16 ***
 ---
 Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
 </div>

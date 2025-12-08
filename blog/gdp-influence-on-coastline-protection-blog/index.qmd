@@ -31,6 +31,8 @@ library(tidyverse)
 library(patchwork)
 library(glmmTMB)
 library(kableExtra)
+
+set.seed(12)
 ```
 
 # Purpose
@@ -93,7 +95,7 @@ beta1 <- 1.9
 # total_area <- seq(from = 0, to = 68100, by = 500)
 
 # simulate numeric predictor values 
-gdp <- runif(1000, 0.433, 0.71)
+gdp <- runif(10000, 0.433, 0.71)
 
 # linkspace equation
 logit_mu <- beta0 + beta1 * gdp
@@ -112,7 +114,7 @@ shape1 <- mu * phi
 shape2 <- phi - shape1
 
 # simulate response data based on parameters assigned above 
-proportion_protected_sim <- rbeta(1000, shape1 = shape1, shape2 = shape2)
+proportion_protected_sim <- rbeta(10000, shape1 = shape1, shape2 = shape2)
 
 # create a dataframe with all of the variables
 sim_df <- tibble(proportion_protected_sim, gdp)

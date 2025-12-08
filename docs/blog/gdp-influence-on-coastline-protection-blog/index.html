@@ -4421,7 +4421,7 @@ window.Quarto = {
 <p>Here is our proposed model based on our understanding of the variable interactions. <span class="math display">\[
 \begin{align}
 \text{ProportionProtected} &amp;\sim BetaRegression(\mu, \phi) \\
-logit(\mu) &amp;= \beta_0 + \beta_1 \text{GDP}+ \beta_2 \text{TotalArea}+ \beta_3 \text{Ecosystem}
+logit(\mu) &amp;= \beta_0 + \beta_1 \text{GDP}+ \beta_2 \text{TotalArea}+ \beta_3 \text{Mangroves} + \beta_4 \text{Saltmarshes}+ \beta_5 \text{Seagrass}+ \beta_6 \text{Warmwater Corals}
 \end{align}
 \]</span></p>
 </section>
@@ -4443,19 +4443,15 @@ logit(\mu) &amp;= \beta_0 + \beta_1 \text{GDP}+ \beta_2 \text{TotalArea}+ \beta_
 <span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="co"># simulate numeric predictor values </span></span>
 <span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>gdp <span class="ot">&lt;-</span> <span class="fu">runif</span>(<span class="dv">1000</span>, <span class="fl">0.433</span>, <span class="fl">0.71</span>)</span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>total_area <span class="ot">&lt;-</span> <span class="fu">runif</span>(<span class="dv">1000</span>, <span class="dv">0</span>, <span class="dv">16</span>)</span>
-<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a><span class="co"># simulate categorical predictor vales</span></span>
-<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>ecosystem <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">&#39;coldwater_coral&#39;</span>, <span class="st">&#39;mangrove&#39;</span>, <span class="st">&#39;saltmarsh&#39;</span>, <span class="st">&#39;seagrass&#39;</span>, <span class="st">&#39;warmwater_coral&#39;</span>), <span class="at">length.out =</span> <span class="dv">1000</span>)</span>
-<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a><span class="co"># linkspace equation</span></span>
-<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>logit_mu <span class="ot">&lt;-</span> beta0 <span class="sc">+</span> beta1 <span class="sc">*</span> gdp</span>
-<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a><span class="co"># assign value to phi </span></span>
-<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>phi <span class="ot">&lt;-</span> <span class="dv">15</span> <span class="co"># this is shape1+shape2</span></span>
-<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a><span class="co"># calculate mu based on betas and simulated data </span></span>
-<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a>mu <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">/</span> (<span class="dv">1</span> <span class="sc">+</span> <span class="fu">exp</span>(<span class="sc">-</span>logit_mu)) <span class="co"># this is shape1/(shape1+shape2)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="co"># linkspace equation</span></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>logit_mu <span class="ot">&lt;-</span> beta0 <span class="sc">+</span> beta1 <span class="sc">*</span> gdp</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a><span class="co"># assign value to phi </span></span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>phi <span class="ot">&lt;-</span> <span class="dv">15</span> <span class="co"># this is shape1+shape2</span></span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a><span class="co"># calculate mu based on betas and simulated data </span></span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>mu <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">/</span> (<span class="dv">1</span> <span class="sc">+</span> <span class="fu">exp</span>(<span class="sc">-</span>logit_mu)) <span class="co"># this is shape1/(shape1+shape2)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 <p>To simulate values for the response variable we use <code>rbeta</code>. This requires the above parameters we have already assigned. According to the documentation, <code>shape1</code> and <code>shape2</code> are two variables that need to be calculated.</p>
@@ -4470,10 +4466,10 @@ logit(\mu) &amp;= \beta_0 + \beta_1 \text{GDP}+ \beta_2 \text{TotalArea}+ \beta_
 <span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>proportion_protected_sim <span class="ot">&lt;-</span> <span class="fu">rbeta</span>(<span class="dv">1000</span>, <span class="at">shape1 =</span> shape1, <span class="at">shape2 =</span> shape2)</span>
 <span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="co"># create a dataframe with all of the variables</span></span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>sim_df <span class="ot">&lt;-</span> <span class="fu">tibble</span>(proportion_protected_sim, gdp , total_area, ecosystem)</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>sim_df <span class="ot">&lt;-</span> <span class="fu">tibble</span>(proportion_protected_sim, gdp)</span>
 <span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="co"># simulate the model based on the simulated data </span></span>
-<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>sim_model <span class="ot">&lt;-</span> <span class="fu">glmmTMB</span>(proportion_protected_sim <span class="sc">~</span> gdp <span class="sc">+</span> total_area <span class="sc">+</span> ecosystem,</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>sim_model <span class="ot">&lt;-</span> <span class="fu">glmmTMB</span>(proportion_protected_sim <span class="sc">~</span> gdp,</span>
 <span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> sim_df,</span>
 <span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>  <span class="at">family =</span> <span class="fu">beta_family</span>(<span class="at">link =</span> <span class="st">&quot;logit&quot;</span>))</span>
 <span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a></span>
@@ -4482,24 +4478,19 @@ logit(\mu) &amp;= \beta_0 + \beta_1 \text{GDP}+ \beta_2 \text{TotalArea}+ \beta_
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code> Family: beta  ( logit )
-Formula:          proportion_protected_sim ~ gdp + total_area + ecosystem
+Formula:          proportion_protected_sim ~ gdp
 Data: sim_df
 
       AIC       BIC    logLik -2*log(L)  df.resid 
-  -2216.2   -2177.0    1116.1   -2232.2       992 
+  -2209.3   -2194.5    1107.6   -2215.3       997 
 
 
-Dispersion parameter for beta family (): 15.7 
+Dispersion parameter for beta family (): 16.1 
 
 Conditional model:
-                          Estimate Std. Error z value Pr(&gt;|z|)    
-(Intercept)               0.528416   0.160351   3.295 0.000983 ***
-gdp                       1.867295   0.259247   7.203  5.9e-13 ***
-total_area                0.008645   0.004427   1.953 0.050857 .  
-ecosystemmangrove         0.098182   0.063936   1.536 0.124628    
-ecosystemsaltmarsh       -0.010284   0.063114  -0.163 0.870558    
-ecosystemseagrass         0.061524   0.063623   0.967 0.333544    
-ecosystemwarmwater_coral  0.139450   0.064377   2.166 0.030301 *  
+            Estimate Std. Error z value Pr(&gt;|z|)    
+(Intercept)   0.5314     0.1416   3.753 0.000174 ***
+gdp           2.0297     0.2488   8.158  3.4e-16 ***
 ---
 Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
 </div>

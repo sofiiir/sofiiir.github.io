@@ -380,7 +380,7 @@ Create a dataframe with the confidence interval values.
 
 CI_df <- tibble(
   Variable = c("Intercept", "GDP", "Total Area", "Mangroves", "Saltmarsh", "Seagrass", "Warm-water Coral"),
-  Betas = c(beta0, beta1, beta2, beta3_mangroves, beta3_saltmarsh, beta3_seagrass, beta3_warmwater_coral),
+  BetaValues = c(beta0, beta1, beta2, beta3_mangroves, beta3_saltmarsh, beta3_seagrass, beta3_warmwater_coral),
   LowerCI = c(beta0_CI_lwr, beta1_CI_lwr, beta2_CI_lwr, beta3_man_CI_lwr, beta3_salt_CI_lwr, beta3_seag_CI_lwr, beta3_wwc_CI_lwr),
   UpperCI =c(beta0_CI_upr, beta1_CI_upr, beta2_CI_upr, beta3_man_CI_upr, beta3_salt_CI_upr, beta3_seag_CI_upr, beta3_wwc_CI_upr)
 ) 

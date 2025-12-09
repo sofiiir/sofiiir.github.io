@@ -4820,7 +4820,7 @@ Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>CI_df <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">Variable =</span> <span class="fu">c</span>(<span class="st">&quot;Intercept&quot;</span>, <span class="st">&quot;GDP&quot;</span>, <span class="st">&quot;Total Area&quot;</span>, <span class="st">&quot;Mangroves&quot;</span>, <span class="st">&quot;Saltmarsh&quot;</span>, <span class="st">&quot;Seagrass&quot;</span>, <span class="st">&quot;Warm-water Coral&quot;</span>),</span>
-<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">Betas =</span> <span class="fu">c</span>(beta0, beta1, beta2, beta3_mangroves, beta3_saltmarsh, beta3_seagrass, beta3_warmwater_coral),</span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">BetaValues =</span> <span class="fu">c</span>(beta0, beta1, beta2, beta3_mangroves, beta3_saltmarsh, beta3_seagrass, beta3_warmwater_coral),</span>
 <span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">LowerCI =</span> <span class="fu">c</span>(beta0_CI_lwr, beta1_CI_lwr, beta2_CI_lwr, beta3_man_CI_lwr, beta3_salt_CI_lwr, beta3_seag_CI_lwr, beta3_wwc_CI_lwr),</span>
 <span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">UpperCI =</span><span class="fu">c</span>(beta0_CI_upr, beta1_CI_upr, beta2_CI_upr, beta3_man_CI_upr, beta3_salt_CI_upr, beta3_seag_CI_upr, beta3_wwc_CI_upr)</span>
 <span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>) </span>
@@ -4834,7 +4834,7 @@ Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&
 <thead>
 <tr class="header">
 <th style="text-align: left;" data-quarto-table-cell-role="th">Variable</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">Betas</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">BetaValues</th>
 <th style="text-align: right;" data-quarto-table-cell-role="th">LowerCI</th>
 <th style="text-align: right;" data-quarto-table-cell-role="th">UpperCI</th>
 </tr>

@@ -22,6 +22,22 @@ execute:
 image: beach.png
 ---
 
+
+# Purpose
+This repository investigates the hypothesis that nations with higher per capita GDP are more likely to protect their coastal ecosystems. This hypothesis is derived from the general knowledge that protecting ecosystems takes a large amount of resources. Policy must be put in place to create these protected areas. Countries with a higher per capita GDP would, in theory, have a greater amount of resources to spend on creating these zones. 
+
+The type of ecosystem and the total area of a specific type of coastal ecosystem are also included in this analysis as they are confounding variables. The directed acyclic graph shows that the ecosystem type affects the proportion that is protected. Some ecosystems are more valuable for a nation monetarily if they are not protected. Additionally, depending on the type of protection of an ecosystem, officially protecting an area may be implausible as surrounding communities may be reliant on the ecosystem to make a living and/or eat. Total area is another confounding variable for proportion protected area as the more area a nation has of a specific ecosystem the less area they need to protect to achieve a higher percentage of proportion protected area. One example in which I would expect this to largely influence proportion protected area is in small island nations where they have a large area of coastal ecosystems. Even if they protect a greater area than another nation their proportion of protected area may be low. 
+
+![DAG: Total area of an ecosystem, ecosystem type, and GDP per capita of a country all influence proportion of protected coastline.](data/DAG.png)
+
+# Data
+The original data comes from the [Ocean+Habitats](https://habitats.oceanplus.org/) webpage which works to inform policy about the state of our oceans coastline focusing on metrics concerning ocean protection. This analysis focuses on the five ecosystems for which data is available. The five ecosystems are cold-water corals, mangroves, seagrasses, saltmarshes, and warm-water corals.
+
+Per capita GDP data was acquired from the International Monetary Fund.
+
+Data cleaning was performed in a separate file. The data cleaning file can be accessed at the full repository for this project. The final product of the data cleaning file is a clean dataframe that contains only the appropriate variables for this analysis. 
+
+First we load in all of the  necessary libraries.
 ```{r}
 #| output: false
 
@@ -35,37 +51,31 @@ library(kableExtra)
 set.seed(12)
 ```
 
-# Purpose
-This repository investigates the hypothesis that nations with higher per capita GDP are more likely to protect their coastlines. 
-
-![DAG: Total area of an ecosystem, ecosystem type, and GDP per capita of a country all influence proportion of protected coastline.](data/DAG.png)
-
-# Data
-The original data comes from the [Ocean+Habitats](https://habitats.oceanplus.org/) webpage which works to inform policy about the state of our oceans coastline focusing on metrics concerning ocean protection. This analysis focuses on the five ecosystems for which data is available. The five ecosystems are cold-water corals, mangroves, seagrasses, saltmarshes, and warm-water corals.
-
-Per capita GDP data was acquired from the International Monetary Fund.
-
-Data cleaning was performed in a separate file with the final product being a clean dataframe that contains only the appropriate variables for this analysis.
-
+Read in the clean data. 
 ```{r}
 #| ouput: false 
 
-# read in clean data
 coastal_ecosystem <- read_csv(here::here("blog", "gdp-influence-on-coastline-protection-blog","data","gdp_coastal_ecosystem.csv"))
 ```
 
-Initial plot of visualizing how GDP influences percent protected areas divided into ecosystems.
+Let's create a visual for the data distribution. Initial plot visualizing how GDP influences percent protected areas differentiating between ecosystems.
 ```{r}
 ggplot(data = coastal_ecosystem, aes(x = pc_gdp_2016, 
                                      y = percent_protected, 
                                      color = ecosystem)) +
   geom_point() +
-  scale_color_manual(values = c("#773344", 
+  scale_color_manual(name = "Ecosystem",
+                     values = c("#D51977", 
                                 "forestgreen", 
                                 "#273E47", 
                                 "#9BC1BC", 
-                                "#ED6A5A"))+
-  labs(x= "GDP",
+                                "#FEA82F"),
+                     labels = c("Cold-water coral",
+                                "Mangroves", 
+                                "Salt marsh",
+                                "Seagrass",
+                                "Warm-water coral")) +
+  labs(x= "Per Capita GDP ($USD)",
        y = "Percent protected",
        title = print("2016 Percent Protected Areas by GDP")) +
   theme_classic()
@@ -81,9 +91,9 @@ logit(\mu) &= \beta_0 + \beta_1 \text{GDP}+ \beta_2 \text{TotalArea}+ \beta_3 \t
 $$
 
 # Simulating data
-We simulate data to make sure we understand the model before using the model on our real world data. To ensure we truly understand the model we want to simulate data that outputs similar values to those we use to calculate data. 
+We simulate data to make sure we understand the model before using the model on our real world data. To ensure we truly understand the model we want to simulate data that outputs similar values to those we use to simulate data. 
 
-The model has three additive predictors. All of these predictors should have their own simulated values. For numeric predictors we can use the `runif` function to create a certain number of variable values within a given set of values. For categorical data we use the `rep` function that will create a list of the categorical values repeating through them until we get a list of the length we desire. 
+We only simulate data for the per capita GDP variable as our hypothesis is that per capita GDP is positively influencing proportion protected area. Since per capita GDP is a numeric predictor we can use the `runif` function to create a certain number of variable values within a given set of values.
 ```{r}
 # assign values to our intercept and slope
 beta0 <- 0.6
@@ -92,7 +102,6 @@ beta1 <- 1.9
 
 # simulate the predictor data
 # gdp <- seq(from = 433, to = 71000, by = 500)
-# total_area <- seq(from = 0, to = 68100, by = 500)
 
 # simulate numeric predictor values 
 gdp <- runif(10000, 0.433, 0.71)
@@ -130,6 +139,15 @@ summary(sim_model)
 
 Our model outputs values close to the values we originally assigned to the variables. We understand our model enough to move onto fitting the model on our own data!
 
+# Hypothesis
+
+$$
+\begin{align}
+H_0 &: \beta_1 = 0 \\
+H_A &: \beta_1 != 0
+\end{align}
+$$
+
 # Data preparation
 
 The Beta Regression model only works on proportion so here we change `percent_protected` to `proportion_protected`.
@@ -161,15 +179,6 @@ logit(\mu) &= \beta_0 + \beta_1 \text{GDP}+ \beta_2 \text{TotalArea}+ \beta_3 \t
 \end{align}
 $$
 
-### Hypothesis
-
-$$
-\begin{align}
-H_0 &: \beta_1 = 0 \\
-H_A &: \beta_1 != 0
-\end{align}
-$$
-
 ## Fit a Beta Regression model. 
 The Beta Regression model is useful when the response is a proportion. Since the protected areas is between 0 and 100 percent this model will assess whether there is any relationship between the predictors and the response. 
 ```{r}
@@ -187,32 +196,54 @@ mean(coastal_ecosystem$pc_gdp_2016, na.rm = TRUE)
 ```
 
 
-Now that we have run the Beta Regression let's create a best fit line. We create data that shows the spread of the potential values for GDP. Here we use `seq()` to create values from our lowest value to our highest value by a specific interval. We want to keep the rest of the variables constant so we use the mean of the numeric variables and choose one of the categorical options to hold as the constant. R chooses categorical reference variables by alphabetical order so we're doing the same here. 
+
+Now that we ran the Beta Regression with the `glmmTMB` function let's create prediction lines based on ecosystem. We create data that shows the spread of the potential values for per capita GDP. Here we use `seq()` to create values from our lowest value to our highest value by a specific interval. We also want all of the ecosystems in the prediction grid. Every unique variation between the sequenced along per capita GDP values and different ecosystem type is included in the prediction grid. We keep the total area variable constant by using the mean since the values is numeric. 
 
 ```{r}
-pred_grid <- expand_grid(pc_gdp_2016 = seq(from = 433, to = 71000, by = 500)) |> 
-  mutate(total_area = mean(coastal_ecosystem$total_area, na.rm = TRUE),
-         ecosystem = 'coldwater_coral')
+pred_grid <- expand_grid(pc_gdp_2016 = seq(from = 433, to = 71000, by = 500),
+                            ecosystem = unique(coastal_ecosystem$ecosystem)) |> 
+  mutate(total_area = mean(coastal_ecosystem$total_area, na.rm = TRUE))
 ```
 
-Run the model to predict expected protected proportion based when holding all variables constant but one. 
+Here we run the model to predict expected protected proportion based on the different combinations of possible per capita GDP and ecosystems holding total area constant. 
+
 ```{r}
-pred <- pred_grid |> 
+coastal_model_pred <- pred_grid |> 
   mutate(predict =  predict(object = coastal_ecosystem_model,
                           newdata = pred_grid,
                           type = "response"))
 ```
-
+ 
 Let's plot the predictions.
 ```{r}
-ggplot(data = pred, aes(x = pc_gdp_2016, y = predict)) +
-  geom_line()
+ggplot(data = coastal_model_pred, aes(x = pc_gdp_2016, y = predict)) +
+  geom_line(aes(color = ecosystem))+
+  scale_color_manual(name = "Ecosystem",
+                     values = c("#D51977", 
+                                "forestgreen", 
+                                "#273E47", 
+                                "#9BC1BC", 
+                                "#FEA82F"),
+                     labels = c("Cold-water coral",
+                                "Mangroves", 
+                                "Salt marsh",
+                                "Seagrass",
+                                "Warm-water coral")) +
+  labs(x= "Per Capita GDP ($USD)",
+       y = "Percent protected",
+       title = print("2016 Percent Protected Areas by GDP")) +
+  theme_minimal()
 ```
+
 #### What does this mean?
-As GDP increases the expected proportion of protected area increases.
+
+The predictions are broken up by ecosystem. Across the board, all of the ecosystems are more likely to be protected the higher the per capita GDP is in a country. Saltmarshes are the most likely to be protected followed by mangroves, warm-water coral, and seagrass. Cold-water corrals are the least likely to be protected.
+
+Overall, as GDP increases the expected proportion of protected areas increases, regardless of the ecosystem type.
+
 
 ### Confidence Interval
-Typically, we can use the predict function to calculate confidence intervals. Unfortunately, the Beta Regression models do not allow us to create confidence intervals using the predict function so we calculate these by hand below.
+Typically, we can use the predict function to calculate confidence intervals.  Unfortunately, the various models that run beta regressions do not allow us to create confidence intervals using the predict function so we calculate these by hand below.
 ```{r}
 #| eval: false
 
@@ -223,8 +254,81 @@ beta_model_se <- predict(object = coastal_ecosystem_model,
 
 ```
 
+# Confidence Intervals
+### Prediction confidence intervals
+#### Bootstrap
+
+We can calculate the confidence intervals for predictions by constructing bootstraps. Bootstraps by definition are run on our original data. Samples are selected from the original data with replacement. Since we have 446 rows of data in our data frame, we can choose to select 446 samples in the boot per bootstrap calculated. Below we are running a bootstrap 1000 times. 
+
+```{r}
+boot <-  map_dfr(1:1000, \(i) {
+
+  boot_sample <- slice_sample(coastal_ecosystem, n=446, replace = TRUE)
+  
+  boot_mod <- glmmTMB(adj_proportion_protected ~ pc_gdp_2016 + total_area + ecosystem,
+                      family = beta_family(link = "logit"),
+                      data = boot_sample)
+
+    # add a prediction step
+  mutate(pred_grid,
+         adj_prop_protected = predict(object = boot_mod,
+                          newdata = pred_grid,
+                          type = "response"),
+         boot = i)
+})
+```
+
+Create a data frame from the bootstrapped values that contains the confidence intervals for each ecosystem at each per capita GDP value created for the prediction grid. 
+```{r}
+boot_ci <- boot |> group_by(pc_gdp_2016, ecosystem) |> 
+  summarise(adj_prop_protected_lwr = quantile(adj_prop_protected, 0.025),
+            adj_prop_protected_upr = quantile(adj_prop_protected, 0.975))
+```
+
+Plot the confidence intervals for the predictions differentiating for ecosystems. 
+
+```{r}
+ggplot(coastal_model_pred, aes(x = pc_gdp_2016)) +
+  geom_ribbon(data = boot_ci, 
+              aes(ymin = adj_prop_protected_lwr, 
+                         ymax = adj_prop_protected_upr, 
+                         fill = ecosystem), 
+              alpha = 0.2) +
+  scale_color_manual(name = "Ecosystem",
+                     values = c(coldwater_coral = "#D51977", 
+                                mangroves = "forestgreen", 
+                                saltmarshes = "#273E47", 
+                                seagrasses = "#9BC1BC", 
+                                warm_coral = "#FEA82F"),
+                     labels = c("Cold-water coral",
+                                "Mangroves", 
+                                "Salt marsh",
+                                "Seagrass",
+                                "Warm-water coral")) +
+  scale_fill_manual(name = "Ecosystem",
+                     values = c(coldwater_coral = "#D51977", 
+                               mangroves = "forestgreen", 
+                                saltmarshes = "#273E47", 
+                               seagrasses = "#9BC1BC", 
+                                warm_coral = "#FEA82F"),
+                     labels = c("Cold-water coral",
+                                "Mangroves", 
+                                "Salt marsh",
+                                "Seagrass",
+                                "Warm-water coral")) +
+  geom_line(aes(color = ecosystem, y = predict)) +
+  labs(x= "Per Capita GDP ($USD)",
+       y = "Percent protected",
+       title = print("2016 Percent Protected Areas by GDP")) +
+  theme_minimal()
+```
+The confidence intervals on the predictions are showing the confidence intervals when all of the variables influences are accounted for in the computation. On the other hand the confidence intervals of the individual predictors show the confidence interval only based on that one variable. 
+
+#### Construct Confidence Intervals for the Betas
 The values from our summary model are utilized to create this data.
 ```{r}
+#| code-fold: true
+
 beta0 <- sum_coastal_ecosystem_mod$coefficients$cond[1]
 beta1 <- sum_coastal_ecosystem_mod$coefficients$cond[2]
 beta2 <- sum_coastal_ecosystem_mod$coefficients$cond[3]
@@ -238,6 +342,8 @@ se <- sum_coastal_ecosystem_mod$coefficients$cond[, "Std. Error"]
 
 Confidence intervals are then calculated subtracting and adding one standard error from each beta value.
 ```{r}
+#| code-fold: true
+
 # Beta 0 confidence intervals
 beta0_CI_lwr <- beta0 - se[1]
 beta0_CI_upr <- beta0 + se[1]
@@ -270,6 +376,8 @@ beta3_wwc_CI_upr <- beta3_warmwater_coral + se[7]
 
 Create a dataframe with the confidence interval values.
 ```{r}
+#| code-fold: true
+
 CI_df <- tibble(
   Variable = c("Intercept", "GDP", "Total Area", "Mangroves", "Saltmarsh", "Seagrass", "Warm-water Coral"),
   Betas = c(beta0, beta1, beta2, beta3_mangroves, beta3_saltmarsh, beta3_seagrass, beta3_warmwater_coral),

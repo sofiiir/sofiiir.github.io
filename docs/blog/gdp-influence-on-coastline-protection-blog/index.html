@@ -4350,10 +4350,10 @@ window.Quarto = {
   <li><a href="#predictions" id="toc-predictions" class="nav-link" data-scroll-target="#predictions">Predictions</a></li>
   </ul></li>
   </ul></li>
-  <li><a href="#confidence-interval" id="toc-confidence-interval" class="nav-link" data-scroll-target="#confidence-interval">Confidence Interval</a>
+  <li><a href="#confidence-intervals" id="toc-confidence-intervals" class="nav-link" data-scroll-target="#confidence-intervals">Confidence Intervals</a>
   <ul class="collapse">
-  <li><a href="#betas-individual-confidence-intervals" id="toc-betas-individual-confidence-intervals" class="nav-link" data-scroll-target="#betas-individual-confidence-intervals">Beta’s individual Confidence Intervals</a></li>
-  <li><a href="#prediction-lines-confidence-intervals" id="toc-prediction-lines-confidence-intervals" class="nav-link" data-scroll-target="#prediction-lines-confidence-intervals">Prediction Lines Confidence Intervals</a>
+  <li><a href="#betas-individual-confidence-intervals" id="toc-betas-individual-confidence-intervals" class="nav-link" data-scroll-target="#betas-individual-confidence-intervals">Beta’s Individual Confidence Intervals</a></li>
+  <li><a href="#prediction-lines-confidence-intervals" id="toc-prediction-lines-confidence-intervals" class="nav-link" data-scroll-target="#prediction-lines-confidence-intervals">Prediction Lines’ Confidence Intervals</a>
   <ul class="collapse">
   <li><a href="#bootstrap-data" id="toc-bootstrap-data" class="nav-link" data-scroll-target="#bootstrap-data">Bootstrap Data</a></li>
   </ul></li>
@@ -4761,12 +4761,12 @@ H_A &amp;: \beta_1 &gt; 0
 </section>
 </section>
 </section>
-<section id="confidence-interval" class="level1">
-<h1>Confidence Interval</h1>
+<section id="confidence-intervals" class="level1">
+<h1>Confidence Intervals</h1>
 <p>Confidence intervals show where we expect 95% of the time we will find the range for the parameter in question. For beta regression when analyzing the confidence interval for betas we expect the beta’s value to fall within the confidence interval 95% of the time. When analyzing the prediction’s confidence interval, it shows that the <code>mu</code> is expected to fall within the confidence interval 95% of the time.</p>
 <p>Typically, we can use the <code>predict()</code> function to calculate confidence intervals. Unfortunately, the various models that run beta regressions do not allow us to create confidence intervals using the predict function so we calculate these by hand below and by bootstrapping.</p>
 <section id="betas-individual-confidence-intervals" class="level2">
-<h2 class="anchored" data-anchor-id="betas-individual-confidence-intervals">Beta’s individual Confidence Intervals</h2>
+<h2 class="anchored" data-anchor-id="betas-individual-confidence-intervals">Beta’s Individual Confidence Intervals</h2>
 <p>The values from our summary model are utilized to create the confidence intervals for the individual beta values.</p>
 <p>First, we’ll access the individual beta values from the summary table as well as the standard error values from the summary table.</p>
 <div class="cell">
@@ -4894,7 +4894,7 @@ H_A &amp;: \beta_1 &gt; 0
 <p>The ecosystem’s beta values’ confidence interval ranges are all positive and do not include zero. <code>R</code> uses the first ecosystem alphabetically as the reference. In this case the reference is cold-water coral. The confidence intervals are the constructed for mangroves, salt marshes, sea grasses, and warm-water coral. The confidence interval ranges indicate, similarly to the prediction lines calculated by applying the <code>predict ()</code> function, that all of the other ecosystems are more likely to be protected than cold-water corals. The confidence intervals for mangroves, salt marshes, sea grasses, and warm-water coral overlap. This signifies the differences between mangroves, salt marshes, sea grasses, and warm-water coral are likely not significant but additional analysis would be necessary to confirm this statement.</p>
 </section>
 <section id="prediction-lines-confidence-intervals" class="level2">
-<h2 class="anchored" data-anchor-id="prediction-lines-confidence-intervals">Prediction Lines Confidence Intervals</h2>
+<h2 class="anchored" data-anchor-id="prediction-lines-confidence-intervals">Prediction Lines’ Confidence Intervals</h2>
 <section id="bootstrap-data" class="level3">
 <h3 class="anchored" data-anchor-id="bootstrap-data">Bootstrap Data</h3>
 <p>We can calculate the confidence intervals for predictions by constructing bootstraps. Bootstraps are run by sampling our original data with replacement. Since we have 446 rows of data in our data frame, we can choose to select 446 samples in the boot per bootstrap calculated for consistency. Below we are running a bootstrap 1000 times.</p>
@@ -4987,8 +4987,10 @@ H_A &amp;: \beta_1 &gt; 0
 </section>
 <section id="references" class="level1">
 <h1>References</h1>
-<p>IMF. 2023. World Economic Outlook, October 2023. Washington, DC: International Monetary Fund. ©IMF. https://doi.org/10.5089/9798400235801.081</p>
-<p>UNEP-WCMC (2025). Ocean+ Habitats [On-line], [Downloaded: October 2025]. Available at: <a href="habitats.oceanplus.org">habitats.oceanplus.org</a></p>
+<p>Brooks, M., Kristensen K., Maechler M., Magnusson A., McGillycuddy M., Skaug H., Nielsen A., Berg C., van Bentham K., Sadat N., Lüdecke D., Lenth R., O’Brien J., Geyer C.J., Jagan M., Wiernik B., Stouffer D.B., Agronah M., Akdur H.T.K., Bové D.S., and Krieger N. Package ‘glmmTMB’ (CRAN). (Oct. 9, 2025). Available at: <a href="https://cran.r-project.org/web/packages/glmmTMB/glmmTMB.pdf">https://cran.r-project.org/web/packages/glmmTMB/glmmTMB.pdf</a></p>
+<p>Czapanskiy, M. and Grimes N. EDS 222: Statistics for Environmental Data Science. Available at: <a href="https://eds-222-stats-f25.github.io/">https://eds-222-stats-f25.github.io/</a></p>
+<p>IMF. (2023). World Economic Outlook, October 2023. Washington, DC: International Monetary Fund. ©IMF. Available at: https://doi.org/10.5089/9798400235801.081</p>
+<p>UNEP-WCMC. (2025). Ocean+ Habitats [On-line], [Downloaded: October 2025]. Available at: <a href="habitats.oceanplus.org">habitats.oceanplus.org</a></p>
 
 
 </section>

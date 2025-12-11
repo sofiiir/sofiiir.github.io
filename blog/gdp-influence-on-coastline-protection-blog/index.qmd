@@ -475,7 +475,7 @@ Cold-water coral is less likely to be protected than the other ecosystems. At ap
 
 # Conclusion 
 
-Per capita GDP has a positive effect on proportion protected area regardless of the ecosystem type. Cold-water coral is less likely to be protected than mangroves, salt marshes, sea grass, and warm-water coral. The difference in expected proportion protected area between the ecosystems is reduced at approximately $50,000 USD. 
+Per capita GDP has a positive effect on proportion protected area regardless of the ecosystem type. Cold-water coral is less likely to be protected than mangroves, salt marshes, sea grass, and warm-water coral. The difference in expected proportion protected area between cold-water coral and the other analyzed ecosystems is reduced at approximately $50,000 USD. The difference in proportion of protected areas not being high between the ecosystems makes sense logically since a nation that protects some of its ecosystems is more likely to protect their other ecosystems. 
 
 # References
 

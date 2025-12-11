@@ -288,8 +288,9 @@ tm_shape(suit_oyster_aqu) +
             palette = c( "red"),
             labels = c("suitable area"),
             title = "Aquaculture suitability") + 
-  tm_title(text = "Suitable Oyster Aquaculture Locations based on depth and SST",
+  tm_title(text = "Suitable Oyster Aquaculture Locations",
            size = 12) +
+  tm_title("Based on depth and SST", size=12) +
   tm_compass() +
   tm_scalebar() +
   tm_layout(fontsize = 2,

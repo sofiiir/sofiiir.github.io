@@ -256,7 +256,7 @@ tm_shape(sst_classified) +
             labels = c("unsuitable", "suitable"),
             title = "Sea Surface Temperature (SST)") + 
   tm_title(text = "Suitable Sea Surface Temperatures for Oyster Aquaculture",
-           size = 2) +
+           size = 10) +
   tm_compass() +
   tm_scalebar() +
   tm_layout(fontsize = 2,
@@ -272,7 +272,7 @@ tm_shape(depth_classified) +
             labels = c("unsuitable", "suitable"),
             title = "Depth suitability") + 
   tm_title(text = "Suitable Depths for Oyster Aquaculture",
-           size = 3) + 
+           size = 10) + 
   tm_compass() +
   tm_scalebar() +
   tm_layout(fontsize = 2,
@@ -289,7 +289,7 @@ tm_shape(suit_oyster_aqu) +
             labels = c("suitable area"),
             title = "Aquaculture suitability") + 
   tm_title(text = "Suitable Locations for Oyster Aquaculture based on bathymetry and sea surface temperature",
-           size = 4) +
+           size = 10) +
   tm_compass() +
   tm_scalebar() +
   tm_layout(fontsize = 2,

@@ -497,7 +497,7 @@ tm_shape(spec_area_eez) +
   tm_compass() +
   tm_scalebar() +
   tm_title( paste("Suitable Aquaculture Area in Exclusive Economic Zones (EEZ): ", species_name), 
-           size = 2) +
+           size = 1.5) +
   tm_layout(fontsize = 2,
             scale = 0.5,
             compass.position = tm_pos_in("left", "bottom"),

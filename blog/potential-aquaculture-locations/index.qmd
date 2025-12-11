@@ -375,11 +375,12 @@ tm_shape(eez_sf) +
   tm_compass() +
   tm_scalebar() +
   tm_title("Suitable Oyster Aquaculture Area in Exclusive Economic Zones (EEZ)",
-           size = 3) +
+           size = 1.5) +
   tm_layout(fontsize = 2,
             scale = 0.5,
             compass.position = tm_pos_in("left", "bottom"),
-            scalebar.position = tm_pos_in("left", "bottom")) 
+            scalebar.position = tm_pos_in("left", "bottom")) +
+    tm_layout(component.autoscale = FALSE)
 ```
 
 We also make a polished table to visualize the differences in suitable aquaculture area and verify the map above is accurate. 

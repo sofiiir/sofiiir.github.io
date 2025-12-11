@@ -502,7 +502,8 @@ tm_shape(spec_area_eez) +
             scale = 0.5,
             compass.position = tm_pos_in("left", "bottom"),
             scalebar.position = tm_pos_in("left", "bottom")
-            ) 
+            ) +
+    tm_layout(component.autoscale = FALSE)
 }
 ```
 # Additional species of interest: **Red Sea Urchin**, *Mesocentrotus franciscanus*

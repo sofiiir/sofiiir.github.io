@@ -263,7 +263,8 @@ tm_shape(sst_classified) +
             scale = 0.5,
             compass.position = tm_pos_in("left", "bottom"),
             scalebar.position = tm_pos_in("left", "bottom")
-            ) 
+            ) +
+   tm_layout(component.autoscale = FALSE)
 
 # suitable depth for oyster aquaculture
 tm_shape(depth_classified) +
@@ -279,7 +280,8 @@ tm_shape(depth_classified) +
             scale = 0.5,
             compass.position = tm_pos_in("left", "bottom"),
             scalebar.position = tm_pos_in("left", "bottom")
-            ) 
+            ) +
+   tm_layout(component.autoscale = FALSE)
 
 # suitable locations for oyster aquaculture
 tm_basemap("Esri.OceanBasemap") +
@@ -297,7 +299,8 @@ tm_shape(suit_oyster_aqu) +
             scale = 0.5,
             compass.position = tm_pos_in("left", "bottom"),
             scalebar.position = tm_pos_in("left", "bottom")
-            ) 
+            ) +
+   tm_layout(component.autoscale = FALSE)
 
 
 ```

@@ -20,7 +20,7 @@ GitHub repository: [https://github.com/sofiiir/eds220-hwk4.git](https://github.c
 
 **Purpose:** 
 
-- Demonstrate mapping NASA and USGS Landsat8 data and National Interagency Fire Center (NIFC) fire boundaries data depicting the Eaton and Palisades Fires that occured in January of 2025. The resultiing false color map clearly shows colorations of the fire scars with an overlay of the official fire boundaries. Additionally, this blog exhibits environmental justice data in the Eaton Canyon and Palisades regions. This blog only shows the highlights of this exploration. See the GitHub repository above for the whole analysis.
+- Demonstrate mapping NASA and USGS Landsat8 data and National Interagency Fire Center (NIFC) fire boundaries data depicting the Eaton and Palisades Fires that occured in January of 2025. The resulting false color map clearly shows colorations of the fire scars with an overlay of the official fire boundaries. Additionally, this blog exhibits environmental justice data in the Eaton Canyon and Palisades regions. This blog only shows the highlights of this exploration. See the GitHub repository above for the whole analysis.
 
 
 **Highlights:** 
@@ -31,7 +31,7 @@ GitHub repository: [https://github.com/sofiiir/eds220-hwk4.git](https://github.c
 
 - False color Landsat maps are created by selecting the short-wave infrared (swir22), near-infrared, and red variables (in that order). This map best depicts the fire scars on the landscape. The final map shows the fire scars with the additional boundaries of the fires being included for clarity. 
 
-- Vector data can be utilized to clip raster data. In the case of this analysis the fire perimeter data is used to crop Environmental Justice Index (EJI) data. This data is then used to analyze potential differences and similarities in environmental justice information in the fire perimeter zones.
+- Vector data can be utilized to clip raster data. In the case of this analysis, the fire perimeter data is used to crop Environmental Justice Index (EJI) data. This data is then used to analyze potential differences and similarities in environmental justice information in the fire perimeter zones.
 
 **Datasets descriptions:** 
 
@@ -39,7 +39,7 @@ GitHub repository: [https://github.com/sofiiir/eds220-hwk4.git](https://github.c
 
 - **Landsat8:** NASA Landsat satellites in conjunction with USGS acquire data using 11 bands through the use of Operational Land Imager (OLI) and the Thermal Infrared Sensor (TIRS). Landsat satellites orbit earth at a rate of 16 days per cycle making imaging availability satellite location dependent. This data is publicly available.
 
-- **Environmental Justice Index:** ATSDR environmental justice data was contains data by census tract and is used to explore EJI differences in the Eaton and Palisades fire areas. 
+- **Environmental Justice Index:** ATSDR environmental justice data contains data by census tract and is used to explore EJI differences in the Eaton and Palisades fire areas. 
 
 ### Load Necessary Packages
 
@@ -96,7 +96,7 @@ landsat = landsat.rio.write_crs(landsat.spatial_ref.crs_wkt)
 ```
 
 ### Map the True Color Landsat map 
-To plot Landsat data let's also make sure that none of the bands contain NA values.
+To plot Landsat data, let's also make sure that none of the bands contain NA values.
 
 ```{python}
 # Fill nan values for the RGB bands
@@ -115,7 +115,7 @@ False color maps use bands to create spectral visualizations that are different 
 
 In order to accurately map the data with the fire boundaries, the CRS must all match.
 
-Since the Landsat data is a raster the CRS is checked with `.rio.crs` as opposed to `.crs` which checks the CRS of `GeoPandas` data.
+Since the Landsat data is a raster, the CRS is checked with `.rio.crs` as opposed to `.crs` which checks the CRS of `GeoPandas` data.
 
 ```{python}
 # Check the CRSs

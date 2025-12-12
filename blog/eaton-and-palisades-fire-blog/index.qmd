@@ -230,13 +230,22 @@ assert eji.crs == palisades_fire.crs
 assert eji.crs == eaton_fire.crs
 ```
 
+We join the fire perimeter data with the EJI data leaving the default `intersects` parameter. The EJI data is cropped to areas where the  intersection overlaps with the fire perimeters. We'll save these as their own objects to use for mapping below. 
+
+```{python}
+# Join the Palisades perimeter and eji data and make sure CRS match
+pali_eji = gpd.sjoin(eji, palisades_fire)
+
+# Join the Eaton perimeter and eji data and make sure CRS match
+eaton_eji = gpd.sjoin(eji, eaton_fire)
+```
 
 Let's look at how the fire perimeters overlap with the census tracts. 
 ```{python}
 fig, ax = plt.subplots(figsize=(11, 5))
 ax.axis('off')
 
-eji.plot('TRACTCE', 
+pali_eji.plot('TRACTCE', 
               ax = ax)
 
 palisades_fire.plot(ax=ax,
@@ -252,7 +261,7 @@ plt.title('Census tracts overlapping Palisades fire perimeter')
 fig, ax = plt.subplots(figsize=(11, 5))
 ax.axis('off')
 
-eji.plot('TRACTCE', 
+eaton_eji.plot('TRACTCE', 
               ax = ax)
 
 eaton_fire.plot(ax=ax,

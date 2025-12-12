@@ -23,7 +23,9 @@ image: oyster.png
 ---
 ## Introduction
 
-Aquaculture is a viable solution to help address over-fishing while providing ocean foods to communities that rely on them. It additionally creates a job sector increasing local employment opportunities. Though there are many factors in choosing suitable locations for aquaculture, sea surface temperature (SST) and bathymetry are two key considerations. This analysis focuses on creating a function that identifies potential aquaculture locations based on SST and bathymetry species requirements. Further, the findings of potential aquaculture locations for each species is broken into Exclusive Economic Zones (EEZ). EEZs are areas off of countries' coasts extending approximately 200 nautical miles into open water. These areas are controlled by the coastal countries which maintain control over the resources and happenings in these zones. For this analysis these EEZs are further divided into state regions. 
+Aquaculture is a viable solution to help address over-fishing while providing ocean foods to communities that rely on them. It additionally creates a job sector increasing local employment opportunities. Though there are many factors in choosing suitable locations for aquaculture, sea surface temperature (SST) and bathymetry are two key considerations. 
+
+This analysis focuses on creating a function that identifies potential aquaculture locations based on SST and bathymetry species requirements. Further, the findings of potential aquaculture locations for each species is broken into Exclusive Economic Zones (EEZ). EEZs are areas off of countries' coasts extending approximately 200 nautical miles into open water. These areas are controlled by the coastal countries which maintain control over the resources and happenings in these zones. For this analysis these EEZs are further divided into state regions. 
 
 Fun fact: According to the National Oceanic and Atmospheric Administration, the EEZs of the United States are larger than the land area of the 50 states combined!
 
@@ -522,8 +524,11 @@ Sea surface temperature is adequate for red sea urchins in the range of 6.75-13.
 # run the function to identify potential suitable areas for red sea urchin aquaculture 
 potent_aqu(sst, eez_sf, depth, 6.75, 13.02, -125, 0, "Mesocentrotus franciscanus")
 ```
-# Reflection
 
+Washington and Oregon have the most suitable aquaculture locations for red sea urchin based on SST and depth. Central California has the third most suitable locations for red sea urchin aquaculture based on SST and depth. Northern California and Southern California have the least amount of suitable red sea urchin aquaculture locations. 
+
+
+# Reflection
 
 Analyzing potential aquaculture locations based on SST and bathymetry is only the first step in finding suitable locations for new aquaculture endeavors. One limitation of the above analysis is that SST is an average taken from 2008 to 2012. With climate change shifting temperatures, projection data would be important to include in analyzing best future aquaculture sites. Referencing species native ranges is also essential to reducing any potential negative outcomes of introducing non-native species. 
 

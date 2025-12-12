@@ -1,12 +1,12 @@
 ---
 title: "Exploring the Eaton and Palisades Fire in Python"
-description: "Using Landsat and environmental justice data to explore the Eaton and Palisades Fire that took place in the Los Angeles area January 2025."
+description: "Using Landsat and environmental justice data to explore the Eaton and Palisades Fire that took place in the Los Angeles area during January 2025."
 author: 
   - name: Sofia Rodas
     url: https://sofiiir.github.io/
     affiliation: The Bren School MEDS
     affiliation-url: https://bren.ucsb.edu/masters-programs/master-environmental-data-science/academics-meds-program
-date: 2025-12-3
+date: 2025-12-12
 categories: [MEDS, Python, Data-viz]
 citation: 
   url: https://sofiiir.github.io/blog/gdp-influence-on-coastline-protection-blog/
@@ -20,7 +20,7 @@ GitHub repository: [https://github.com/sofiiir/eds220-hwk4.git](https://github.c
 
 **Purpose:** 
 
-- Demonstrate mapping NASA and USGS Landsat8 data and National Interagency Fire Center (NIFC) fire boundaries data depicting the Eaton and Palisades Fires that occured in January of 2025. The resultiing false color map clearly shows colorations of the fire scars with an overlay of the official fire boundaries. Additionally, this blog exhibits environmental justice data in the Eaton Canyon and Palisades regions. This blog only shows the highlights of this exploration. See the github repository above for the whole analysis.
+- Demonstrate mapping NASA and USGS Landsat8 data and National Interagency Fire Center (NIFC) fire boundaries data depicting the Eaton and Palisades Fires that occured in January of 2025. The resultiing false color map clearly shows colorations of the fire scars with an overlay of the official fire boundaries. Additionally, this blog exhibits environmental justice data in the Eaton Canyon and Palisades regions. This blog only shows the highlights of this exploration. See the GitHub repository above for the whole analysis.
 
 
 **Highlights:** 
@@ -33,11 +33,11 @@ GitHub repository: [https://github.com/sofiiir/eds220-hwk4.git](https://github.c
 
 **Datasets descriptions:** 
 
-- **Eaton and Palisades Fire perimeters:** The fire perimeter data was acquired from the City of Los Angeles official GeoHub. This City of Los Angeles GIS data is originally from the National Interagency Fire Center (NIFC) through the Fire Integrated Real-time Intelligence System (FIRIS). Eaton fire and Palisades fire perimeters are included in this download. This data is publicly available.
+- **Eaton and Palisades Fire perimeters:** The fire perimeter data was acquired from the City of Los Angeles official GeoHub. This City of Los Angeles GIS data is originally from the National Inter-agency Fire Center (NIFC) through the Fire Integrated Real-time Intelligence System (FIRIS). Eaton fire and Palisades fire perimeters are included in this download. This data is publicly available.
 
-- **Landsat8:** NASA Landsat satellites in conjunction with USGS acquire data using 11 bands through the use of Operational Land Imager (OLI) and the Thermal Infrared Sensor (TIRS). Landsat satellites orbit earth at a rate of 16 days per cycle making imaging availability satelite location dependent. This data is publicly available.
+- **Landsat8:** NASA Landsat satellites in conjunction with USGS acquire data using 11 bands through the use of Operational Land Imager (OLI) and the Thermal Infrared Sensor (TIRS). Landsat satellites orbit earth at a rate of 16 days per cycle making imaging availability satellite location dependent. This data is publicly available.
 
-- **Environmental Justice Index:** ATSDR environemntal justice data was contains data by census tract and is used to explore EJI differences in the Eaton and Palisades fire areas. 
+- **Environmental Justice Index:** ATSDR environmental justice data was contains data by census tract and is used to explore EJI differences in the Eaton and Palisades fire areas. 
 
 ### Load necessary packages
 
@@ -56,7 +56,7 @@ import contextily as ctx
 ```
 
 ### Import fire perimeter data 
-Use the GeoPandas library to import geospatial data. 
+Use the `GeoPandas` library to import geospatial data. 
 
 ```{python}
 fp = os.path.join('data', 'eaton_fire_perimeter', 'Eaton_Perimeter_20250121.shp')
@@ -68,7 +68,7 @@ palisades_fire = gpd.read_file(fp)
 ```
 
 ### Import Landsat data with NetCDF
-Use the xarray library to import Landsat data. 
+Use the `xarray` library to import Landsat data. 
 
 ```{python}
 fp = os.path.join('data', 'landsat8-2025-02-23-palisades-eaton.nc')
@@ -101,7 +101,7 @@ To plot Landsat data let's also make sure that none of the bands contain NA valu
 landsat_clean = landsat[['red', 'green', 'blue']].to_array().fillna(value = 0)
 ```
 
-Some cloud cover is present in the Landsat data which would skew our plotting. Add the argument `robust = True` to remove the outliers from the plot. This uses the 2nd and 98th percentiles of the data to calculate the color limits according to the xarray documentation. 
+Some cloud cover is present in the Landsat data which would skew our plotting. Add the argument `robust = True` to remove the outliers from the plot. This uses the 2nd and 98th percentiles of the data to calculate the color limits according to the `xarray` documentation. 
 
 ```{python}
 landsat_clean.plot.imshow(robust = True)
@@ -109,7 +109,7 @@ landsat_clean.plot.imshow(robust = True)
 
 ## Map a False Color Image 
 
-Create a map showing the shortwave infrared/near-infrared/red false color image together with both fire perimeters. Customize it appropriately including, at least, an informative title and legend. You may also want to include text on the map to identify which fire is which.
+False color maps are created by showing the shortwave infrared/near-infrared/red false color image together with both fire perimeters. Customize it appropriately including, at least, an informative title and legend. You may also want to include text on the map to identify which fire is which.
 
 In order to accurately map the data with the fire boundaries, the CRS must all match.
 

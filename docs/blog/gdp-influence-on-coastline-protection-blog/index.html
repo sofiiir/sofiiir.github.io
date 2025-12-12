@@ -4394,7 +4394,7 @@ window.Quarto = {
 </section>
 <section id="data-processing" class="level2">
 <h2 class="anchored" data-anchor-id="data-processing">Data Processing</h2>
-<p>Data cleaning was performed in a separate file with the final product being a clean dataframe that contains only the appropriate variables for this analysis.</p>
+<p>Data cleaning was performed in a separate file with the final product being a clean data frame that contains only the appropriate variables for this analysis. The data cleaning file can be found on the full repository for this project at <a href="https://github.com/sofiiir/gdp-influence-on-coastline-protection">https://github.com/sofiiir/gdp-influence-on-coastline-protection</a>.</p>
 <p>First we’ll load in the necessary libraries.</p>
 <div class="cell">
 <details open class="code-fold">
@@ -4407,7 +4407,7 @@ window.Quarto = {
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">12</span>) <span class="co"># so the outputs are the same for data generation</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
-<p>Let’s read in the data.</p>
+<p>Let’s read in the clean data.</p>
 <div class="cell" data-ouput="false">
 <details open class="code-fold">
 <summary>Code</summary>
@@ -4454,7 +4454,7 @@ window.Quarto = {
 <p>Here is our proposed model based on our understanding of the variable interactions. The ecosystems are individual predictors in this model since they are dummy variables. Cold-water corals are the reference level since <code>R</code> defines the reference alphabetically. Therefore, there is no dummy variable for cold-water coral. <span class="math display">\[
 \begin{align}
 \text{ProportionProtected} &amp;\sim BetaRegression(\mu, \phi) \\
-logit(\mu) &amp;= \beta_0 + \beta_1 \text{GDP}+ \beta_2 \text{TotalArea}+ \beta_3 \text{Mangroves} + \beta_4 \text{Saltmarshes}+ \beta_5 \text{Seagrass}+ \beta_6 \text{Warmwater Corals}
+logit(\mu) &amp;= \beta_0 + \beta_1 \text{GDP}+ \beta_2 \text{TotalArea}+ \beta_3 \text{Mangroves} + \beta_4 \text{Saltmarshes}+ \beta_5 \text{Seagrass}+ \beta_6 \text{WarmwaterCorals}
 \end{align}
 \]</span></p>
 </section>
@@ -4503,7 +4503,7 @@ logit(\mu) &amp;= \beta_0 + \beta_1 \text{GDP}+ \beta_2 \text{TotalArea}+ \beta_
 <span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>  <span class="at">family =</span> <span class="fu">beta_family</span>(<span class="at">link =</span> <span class="st">&quot;logit&quot;</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
-<p>Let’s make sure the values are the same as the ones we assigned to the simulation.</p>
+<p>Let’s make sure the output values are the same as the ones we assigned to the simulation.</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
@@ -4584,7 +4584,7 @@ logit(\mu) &amp;= \beta_0 + \beta_1 \text{GDP}+ \beta_2 \text{TotalArea}+ \beta_
 <p><span class="math display">\[
 \begin{align}
 \text{ProportionProtected} &amp;\sim BetaRegression(\mu, \phi) \\
-logit(\mu) &amp;= \beta_0 + \beta_1 \text{GDP}+ \beta_2 \text{TotalArea}+ \beta_3 \text{Mangroves} + \beta_4 \text{Saltmarshes}+ \beta_5 \text{Seagrass}+ \beta_6 \text{Warmwater Corals}
+logit(\mu) &amp;= \beta_0 + \beta_1 \text{GDP}+ \beta_2 \text{TotalArea}+ \beta_3 \text{Mangroves} + \beta_4 \text{Saltmarshes}+ \beta_5 \text{Seagrass}+ \beta_6 \text{WarmwaterCorals}
 \end{align}
 \]</span></p>
 <section id="hypothesis-statistical-notation" class="level2">
@@ -4697,12 +4697,12 @@ H_A &amp;: \beta_1 &gt; 0
 <section id="additional-findings" class="level4">
 <h4 class="anchored" data-anchor-id="additional-findings">Additional findings</h4>
 <p>Total area per ecosystem is not statistically significant. It is not statistically influencing the proportion of protected area. It is still important to keep total area per ecosystem in the model as it is a confounding variable as presented in the DAG above.</p>
-<p>All of the ecosystem’s proportion protected values are statistically significant when comparing proportion protected to the cold-water coral reference values. Mangroves, salt marshes, sea grasses, and warm-water coral are all more likely to be protected than cold-water corals.</p>
+<p>All of the ecosystem’s proportion protected values are statistically significant when comparing proportion protected area to the cold-water coral reference values. Mangroves, salt marshes, sea grasses, and warm-water coral are all more likely to be protected than cold-water corals.</p>
 </section>
 <section id="predictions" class="level3">
 <h3 class="anchored" data-anchor-id="predictions">Predictions</h3>
 <p>Now that we ran the beta regression with the <code>glmmTMB</code> function let’s create prediction lines based on ecosystem. We create data that shows the spread of the expected values for per capita GDP.</p>
-<p>Here we use <code>seq()</code> to create values in the range of our real world data by a specific interval. We also want all of the ecosystems in the prediction grid. Every unique variation between the sequenced along per capita GDP values and different ecosystem type is included in the prediction grid. We keep the total area variable constant by using the mean since the values are numeric.</p>
+<p>Here we use <code>seq()</code> to create values in the range of our real world data by a specific interval. We also want all of the ecosystems in the prediction grid. Every unique combination between the sequenced along per capita GDP values and different ecosystem type is included in the prediction grid. We keep the total area variable constant by using the mean since the values are numeric.</p>
 <div class="cell">
 <details open class="code-fold">
 <summary>Code</summary>

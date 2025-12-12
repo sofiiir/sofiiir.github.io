@@ -4217,9 +4217,10 @@ border: 0;
 
 <section id="introduction" class="level2">
 <h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
-<p>Aquaculture is a viable solution to help address over-fishing while providing ocean foods to communities that rely on them. It additionally creates a job sector increasing local employment opportunities. Though there are many factors in choosing suitable locations for aquaculture, sea surface temperature (SST) and bathymetry are two key considerations. This analysis focuses on creating a function that identifies potential aquaculture locations based on SST and bathymetry species requirements. Further, the findings of potential aquaculture locations for each species is broken into Exclusive Economic Zones (EEZ).</p>
+<p>Aquaculture is a viable solution to help address over-fishing while providing ocean foods to communities that rely on them. It additionally creates a job sector increasing local employment opportunities. Though there are many factors in choosing suitable locations for aquaculture, sea surface temperature (SST) and bathymetry are two key considerations. This analysis focuses on creating a function that identifies potential aquaculture locations based on SST and bathymetry species requirements. Further, the findings of potential aquaculture locations for each species is broken into Exclusive Economic Zones (EEZ). EEZs are areas off of countries’ coasts extending approximately 200 nautical miles into open water. These areas are controlled by the coastal countries which maintain control over the resources and happenings in these zones. For this analysis these EEZs are further divided into state regions.</p>
+<p>Fun fact: According to the National Oceanic and Atmospheric Administration, the EEZs of the United States are larger than the land area of the 50 states combined!</p>
 <div class="cell" data-ouput="false">
-<details class="code-fold">
+<details open class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># load in necessary libraries</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
@@ -4241,7 +4242,8 @@ border: 0;
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>eez_sf <span class="ot">&lt;-</span> <span class="fu">read_sf</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">&quot;blog&quot;</span>, <span class="st">&quot;potential-aquaculture-locations&quot;</span>,<span class="st">&quot;data&quot;</span>,<span class="st">&quot;wc_regions_clean.shp&quot;</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
-<p>Bathymetry data is available through the <a href="https://www.gebco.net/data-products/gridded-bathymetry-data#area">General Bathymetric Chart of the Oceans (GEBCO)</a>. Since this is raster data we use the <code>terra</code> package to read in the data. Note: The word depth is used throughout this analysis and refers to bathymetry.</p>
+<p>Bathymetry data is available through the <a href="https://www.gebco.net/data-products/gridded-bathymetry-data#area">General Bathymetric Chart of the Oceans (GEBCO)</a>. Since this is raster data we use the <code>terra</code> package to read in the data.</p>
+<p>Note: Bethymetry and depth are used interchangeably throughout this analysis. They refer to the same data set and concept.</p>
 <div class="cell">
 <details open class="code-fold">
 <summary>Code</summary>
@@ -4249,7 +4251,7 @@ border: 0;
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>depth <span class="ot">&lt;-</span> <span class="fu">rast</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">&quot;blog&quot;</span>, <span class="st">&quot;potential-aquaculture-locations&quot;</span>, <span class="st">&quot;data&quot;</span>, <span class="st">&quot;depth.tif&quot;</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
-<p>SST data was acquired from the <a href="https://coralreefwatch.noaa.gov/product/5km/index_5km_ssta.php">NOAA’s 5km Daily Global Satellite Sea Surface Temperature Anomaly v3.1</a>. Since this is raster data we use the <code>terra</code> package to read in the data. SST data from 2008 to 2012 is used and averaged for this analysis. This averaging is necessary to account for year to year variations in SST.</p>
+<p>SST data was acquired from the <a href="https://coralreefwatch.noaa.gov/product/5km/index_5km_ssta.php">NOAA’s 5km Daily Global Satellite Sea Surface Temperature Anomaly v3.1</a>. SST data from 2008 to 2012 is used and averaged for this analysis. This averaging is necessary to account for year to year variations in SST. Since this is raster data we use the <code>terra</code> package to read in the data.</p>
 <p>We stack all of the SST data for each year to make a single raster.</p>
 <div class="cell">
 <details open class="code-fold">
@@ -4275,9 +4277,9 @@ border: 0;
 </section>
 <section id="check-crs" class="level2">
 <h2 class="anchored" data-anchor-id="check-crs">Check CRS</h2>
-<p>CRS is one of the three components that is essential to check before plotting. CRS must match for all of the data to accurately perform functions on different data.</p>
+<p>CRS is one of the three components that is essential to check before plotting. CRSs must match for all of the data to accurately perform functions on different data.</p>
 <p>To check the CRS of a raster use <code>crs</code> and to check the CRS of a simple feature object use <code>st_crs</code>.</p>
-<p>Warning messages are especially useful as they’ll alert when the specification is not met.</p>
+<p>Warning messages are especially useful as they’ll alert when the specification is not met. I add warning messages to assert that essential components match. Here I add a warning message to check the CRS for SST and depth match.</p>
 <div class="cell">
 <details open class="code-fold">
 <summary>Code</summary>
@@ -4291,7 +4293,7 @@ border: 0;
 <pre><code>Warning: still not a match</code></pre>
 </div>
 </div>
-<p>Since not all of the CRS match we need to change some of the CRS. Make all of the CRS match the SST CRS. From personal experience matching the CRS of raster data is less prone to causing errors down the road due to incorrect CRS.</p>
+<p>Since not all of the CRSs match we need to change some of the CRSs. I chose to make all of the CRS match the SST CRS. From personal experience matching the CRS of raster data is less prone to causing errors down the road due to incorrect CRS .</p>
 <div class="cell">
 <details open class="code-fold">
 <summary>Code</summary>
@@ -4299,7 +4301,7 @@ border: 0;
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>eez_sf <span class="ot">&lt;-</span> <span class="fu">st_transform</span>(eez_sf, <span class="fu">crs</span>(sst))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
-<p>We use warning messages again to make sure the CRS alterations were successful. They were!</p>
+<p>I use warning messages again to make sure the CRS alterations were successful. They were!</p>
 <div class="cell">
 <details open class="code-fold">
 <summary>Code</summary>
@@ -4316,7 +4318,7 @@ border: 0;
 </section>
 <section id="data-processing" class="level2">
 <h2 class="anchored" data-anchor-id="data-processing">Data processing</h2>
-<p>This analysis works based on the mean of Sea Surface Temperature (SST) measured between 2008 and 2012 so we use map algebra to calculate the mean. This analysis is also based on Celsius so we subtract 273 to convert all of the values from the Kelvin scale to the Celsius scale with a global operation.</p>
+<p>This analysis works based on the mean of Sea Surface Temperature (SST) measured between 2008 and 2012 so I use map algebra to calculate the mean. This analysis is also based on Celsius so I subtract 273 to convert all of the values from the Kelvin scale to the Celsius scale with a global operation.</p>
 <div class="cell">
 <details open class="code-fold">
 <summary>Code</summary>
@@ -4327,7 +4329,7 @@ border: 0;
 <span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>mean_sst <span class="ot">&lt;-</span> mean_sst <span class="sc">-</span> <span class="dv">273</span> </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
-<p>To reiterate, the three important aspects when working with spatial data is that the extent, resolution, and positions. For this analysis SST and depth need to have the same extent, resolution, and positions. Let’s crop to make sure the extent of the rasters are the same.</p>
+<p>To reiterate, the three important aspects when working with spatial data is that the extent, resolution, and positions match. For this analysis SST and depth need to have the same extent, resolution, and positions. I crop to make sure the extent of the rasters are the same.</p>
 <div class="cell">
 <details open class="code-fold">
 <summary>Code</summary>
@@ -4335,14 +4337,14 @@ border: 0;
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>depth <span class="ot">&lt;-</span> <span class="fu">crop</span>(depth, mean_sst)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
-<p>Then we resample to make sure that the resolutions of the rasters are the same.</p>
+<p>Then I resample to make sure that the resolutions of the rasters are the same.</p>
 <div class="cell">
 <details open class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>depth <span class="ot">&lt;-</span> <span class="fu">resample</span>(depth, mean_sst)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
-<p>Let’s add another warning message to make sure the extents and resolutions match for the SST and depth data frames.</p>
+<p>I also add another warning message to make sure the extents and resolutions match for the SST and depth data frames.</p>
 <div class="cell">
 <details open class="code-fold">
 <summary>Code</summary>
@@ -4370,9 +4372,13 @@ border: 0;
 </section>
 <section id="find-cells-where-conditions-are-satisfied-for-both-the-sst-and-depth-for-specific-species." class="level1">
 <h1>Find cells where conditions are satisfied for both the SST and depth for specific species.</h1>
-<p>The steps to finding locations that satisfy conditions for a specific species based on SST and depth are: 1. Make a matrix 2. Reclassify based on that matrix</p>
-<p>Sea surface temperature is adequate for oysters in the range of 11-30°C. Classify sea surface temperature to find those areas that are potential zones for oyster aquaculture.</p>
-<p>We assign anything less than 11 degrees Celsius and anything more that 30 degrees Celsius to 0 since these areas are not suitable for oyster aquaculture. Anything between the range of 11 and 30 degrees Celsius we assign a 1 to signify these areas are suitable for oyster aquaculture.</p>
+<p>The steps to finding locations that satisfy conditions for a specific species based on SST and depth are:</p>
+<ol type="1">
+<li>Make a matrix</li>
+<li>Reclassify based on that matrix</li>
+</ol>
+<p>Sea surface temperature is adequate for oysters in the range of 11-30°C. I classify sea surface temperature to find those areas that are potential zones for oyster aquaculture.</p>
+<p>I assign anything less than 11 degrees Celsius and anything more that 30 degrees Celsius to 0 since these areas are not suitable for oyster aquaculture. Anything between the range of 11 and 30 degrees Celsius I assign a 1 to signify these areas are suitable for oyster aquaculture.</p>
 <div class="cell">
 <details open class="code-fold">
 <summary>Code</summary>
@@ -4386,8 +4392,8 @@ border: 0;
 <span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>sst_classified <span class="ot">&lt;-</span> <span class="fu">classify</span>(mean_sst, <span class="at">rcl =</span> sst_matrix)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
-<p>Oysters can survive between the depths of 70 and 0 meters below the sea surface. Classify depth to find those areas that are potential zones for oyster aquaculture.</p>
-<p>We assign anything below 70 meters and anything above sea level to 0 since these areas are not suitable for oyster aquaculture. Anything between the range of 70 meters deep and sea level we assign a 1 to signify these areas are suitable for oyster aquaculture.</p>
+<p>Oysters can survive between the depths of 70 and 0 meters below the sea surface. I classify depth to find those areas that are potential zones for oyster aquaculture.</p>
+<p>I assign anything below 70 meters and anything above sea level to 0 since these areas are not suitable for oyster aquaculture. Anything between the range of 70 meters deep and sea level I assign a 1 to signify these areas are suitable for oyster aquaculture.</p>
 <div class="cell">
 <details open class="code-fold">
 <summary>Code</summary>
@@ -4401,7 +4407,7 @@ border: 0;
 <span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>depth_classified <span class="ot">&lt;-</span> <span class="fu">classify</span>(depth, <span class="at">rcl =</span> depth_matrix)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
-<p>Create a function to determine what locations are suited for oyster aquaculture based on both sea surface temperature and depth.</p>
+<p>I then create a function to determine what locations suitable for oyster aquaculture based on both sea surface temperature and depth.</p>
 <p>Anywhere a zero is present for either depth or SST will result in a 0 since anything times zero is zero. Only areas where there is a one for both depth and SST will be left.</p>
 <div class="cell">
 <details open class="code-fold">
@@ -4412,7 +4418,7 @@ border: 0;
 <span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
-<p>Apply the function to determine what areas that are suitable based on both SST and depth for oyster aquaculture. Then we set anything that is a zero to NA to avoid any analysis issues moving forward.</p>
+<p>I apply the function to determine what areas are suitable based on both SST and depth for oyster aquaculture. Then I set anything that is a zero to NA to avoid any analysis issues moving forward.</p>
 <div class="cell">
 <details open class="code-fold">
 <summary>Code</summary>
@@ -4422,8 +4428,8 @@ border: 0;
 <span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>suit_oyster_aqu[suit_oyster_aqu <span class="sc">==</span> <span class="dv">0</span>] <span class="ot">&lt;-</span> <span class="cn">NA</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
-<p>Here are some preliminary maps to assess differences between suitable locations based on depth, SST, and both depth and SST.</p>
-<p>Intermediate mapping allows us to see if what we think we are doing is what we’re doing in reality.</p>
+<p>Here are some preliminary maps to assess any differences between suitable locations based on depth, SST, and both depth and SST.</p>
+<p>I like to use intermediate mapping to see if what I think I’m doing is actually what I’m doing in reality.</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
@@ -4513,9 +4519,9 @@ border: 0;
 </section>
 <section id="how-much-suitable-aquaculture-space-is-there-in-each-exclusive-economic-zone-eez" class="level1">
 <h1>How much suitable aquaculture space is there in each Exclusive Economic Zone (EEZ)?</h1>
-<p>Find the suitable aquaculture locations for each EEZ.</p>
-<p>We rasterize the vetor data so that the operations can be applied smoothly between the two objects. Since we’re only interested in the suitable habitat within the Exclusive Economic Zones so we crop the suitable oyster aquaculture zones by the EEZ object.</p>
-<p>We’re then interested in the size of the cells that are quitable in each EEZ area so we use the <code>zonal</code> function to calculate the suitable areas.</p>
+<p>The final step is to find the suitable oyster aquaculture locations in each EEZ. States only have jurisdiction over their EEZs. To reiterate this is within 200 nautical miles off of the coast. I want to see the amount of area in each EEZ region that can be used for oyster aquaculture. This can help with creating policy to make these potential aquaculture ventures a reality or inform possible aquaculturalists of where they might find the most success when pursuing aquaculture.</p>
+<p>I rasterize the vector data so that the operations can be applied smoothly between the two objects. Since I’m only interested in the suitable habitat within the Exclusive Economic Zones, I crop the suitable oyster aquaculture zones by the EEZ object.</p>
+<p>I’m then interested in the size of the cells that are suitable in each EEZ area so I use the <code>zonal</code> function to calculate the suitable areas.</p>
 <div class="cell">
 <details open class="code-fold">
 <summary>Code</summary>
@@ -4545,7 +4551,7 @@ border: 0;
 </div>
 <section id="how-much-suitable-space-is-there-for-oyster-aquaculture" class="level4">
 <h4 class="anchored" data-anchor-id="how-much-suitable-space-is-there-for-oyster-aquaculture">How much suitable space is there for oyster aquaculture?</h4>
-<p>We can see the amount of area that is suitable throughout the West Coast. This is an interesting metric for any stakeholders who might be interested in seeing whether oyster aquaculture is something to pursue.</p>
+<p>I extract the amount of area that is suitable throughout the West Coast. This is an interesting metric for any stakeholders who might be interested in seeing whether oyster aquaculture is something to pursue.</p>
 <div class="cell">
 <details open class="code-fold">
 <summary>Code</summary>
@@ -4590,7 +4596,7 @@ border: 0;
 </div>
 </div>
 </div>
-<p>We also make a polished table to visualize the differences in suitable aquaculture area and verify the map above is accurate.</p>
+<p>I also make polished tables to visualize the differences in suitable aquaculture area and verify the map above is accurate.</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
@@ -4639,6 +4645,7 @@ border: 0;
 </table>
 </div>
 </div>
+<p>Central California has the most amount of suitable area for oyster aquaculture based on depth and SST. Washington and Southern California are close behind in the amount of suitable oyster aquaculture area based on depth and SST. Oregon and Northern California have the least amount of suitable oyster aquaculture are based on depth and SST.</p>
 </section>
 </section>
 <section id="potential-aquaculture-locations-for-different-species" class="level1">
@@ -4778,6 +4785,7 @@ border: 0;
 <p>GEBCO Compilation Group (2022) GEBCO_2022 Grid (doi:10.5285/e0f0bb80-ab44-2739-e053-6c86abc0289c).</p>
 <p>Hall, S. J., Delaporte, A., Phillips, M. J., Beveridge, M. &amp; O’Keefe, M. Blue Frontiers: Managing the Environmental Costs of Aquaculture (The WorldFish Center, Penang, Malaysia, 2011).</p>
 <p>NOAA Coral Reef Watch. 2019, updated daily. NOAA’s 5km Daily Global Satellite Sea Surface Temperature Anomaly v3.1 for the West Coast, 2008 - 2012. College Park, Maryland, USA: NOAA Coral Reef Watch. Data set accessed 2025-11-14 at <a href="https://coralreefwatch.noaa.gov/product/5km/index_5km_ssta.php">https://coralreefwatch.noaa.gov/product/5km/index_5km_ssta.php</a>.</p>
+<p>NOAA Ocean Exploration. What is the EEZ?. Accessed 2025-12-11 at <a href="https://oceanexplorer.noaa.gov/ocean-fact/useez/">https://oceanexplorer.noaa.gov/ocean-fact/useez/</a>.</p>
 <p>Palomares, M.L.D. and D. Pauly. Editors. 2025. SeaLifeBase. World Wide Web electronic publication. www.sealifebase.org, version (04/2025).</p>
 
 

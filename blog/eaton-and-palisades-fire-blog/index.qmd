@@ -111,7 +111,7 @@ landsat_clean.plot.imshow(robust = True)
 
 ## Map a False Color Image 
 
-False color maps are created by showing the shortwave infrared/near-infrared/red false color image together with both fire perimeters. Customize it appropriately including, at least, an informative title and legend. You may also want to include text on the map to identify which fire is which.
+False color maps use bands to create spectral visualizations that are different than those visible to the human eye. Here we are create a false color map by showing the shortwave infrared/near-infrared/red false color images together in that order. The false color map clearly shows the fire scars from the Eaton and Palisades fires. Both fire perimeters are also included in the map below to highlight the areas of interest.
 
 In order to accurately map the data with the fire boundaries, the CRS must all match.
 
@@ -316,7 +316,7 @@ ax2.set_title('Eaton Fire Perimeter')
 ax2.axis('off')
 
 # Add overall title
-fig.suptitle('Percentile rank of the probability of contracting cancer over a lifetime due to air toxins exposure - Fire Areas Comparison')
+fig.suptitle('Fire Areas Comparison - Percentile rank: probability of contracting cancer over a lifetime due to air toxins exposure')
 
 # Add shared colorbar at the bottom
 sm = plt.cm.ScalarMappable( norm=plt.Normalize(vmin=vmin, vmax=vmax))
@@ -339,6 +339,9 @@ The Eaton Fire area has an overall higher percentile rate of the probability of 
 - City of Los Angeles GeoHub / NIFC FIRIS(2025).Palisades and Eaton Dissolved Fire Perimeters (2025) [Shapefile]. Available: https://egis-lacounty.hub.arcgis.com/maps/ad51845ea5fb4eb483bc2a7c38b2370c/about. [Retrieved November 17, 2025]
   
 - Earth Resources Observation and Science (EROS) Center. (2020). Landsat 8-9 Operational Land Imager / Thermal Infrared Sensor Level-2, Collection 2 [dataset]. U.S. Geological Survey. https://doi.org/10.5066/P9OGBGM6. Available: https://www.usgs.gov/centers/eros/science/usgs-eros-archive-landsat-archives-landsat-8-9-olitirs-collection-2-level-2. [Accessed November 17 ,2025]
+
+- Humboldt State GeoSpatial Online - GeoSpatial Lessons: Natural and False Color Composites. Available: https://gsp.humboldt.edu/olm/Courses/GSP_216/lessons/composites.html#:~:text=False%20color%20images%20are%20a%20representation%20of,human%20eye%20can%20not%20see%20(i.e.%20near%2Dinfrared). [Accessed December 12 ,2025]
+
 
 - NASA Earth Observatory. (2014, Mar. 4). Why is that forest red and that cloud blue? How to interpret a false-color satellite image. Available: https://earthobservatory.nasa.gov/features/FalseColor.
 [Accessed: November 18, 2025]

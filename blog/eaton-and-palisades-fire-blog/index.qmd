@@ -201,7 +201,7 @@ plt.show()
 
 ####  False Color Map Analysis
 
-The map above depicts false color imagery for the Eaton and Palisades Fires that took place in January 2025. Landsat raster data was mapped using the shortwave infrared, near-infrared, and red bands to create a false color imagery map. The red on the map despicts fire scars caused by the Eaton and Palisades Fires as the labels show. The green in the map above shows the areas without burn scars while bright green depicts vegetation. Bodies of water including the Pacific Ocean are shown in black in this false imagery. False imagery is being used to more dramatically show the effects of fire on the landscape. 
+The map above depicts false color imagery for the Eaton and Palisades Fires that took place in January 2025. Landsat raster data was mapped using the shortwave infrared, near-infrared, and red bands to create a false color imagery map. The red on the map depicts fire scars caused by the Eaton and Palisades Fires as the labels show. The green in the map above shows the areas without burn scars while bright green depicts vegetation. Bodies of water including the Pacific Ocean are shown in black in this false imagery. False imagery is being used to more dramatically show the effects of fire on the landscape. 
 
 
 # Social Dimensions of the Eaton and Palisades Fires
@@ -212,7 +212,7 @@ The data frame denotes this column as:
 
 - EPL_TOTCR : Percentile rank of the probability of contracting cancer over the course of a lifetime, assuming continuous exposure.
 
-### Import Environmental Justice Idex (EJI) Data
+### Import Environmental Justice Index (EJI) Data
 
 ```{python}
 fp_eji = os.path.join('data', 'EJI_2024_California', 'EJI_2024_California.gdb')
@@ -282,7 +282,7 @@ eaton_clip = gpd.clip(eaton_eji, eaton_fire)
 
 # Plot the EJI Data within the Fire Perimeters
 
-Finally, let's plot the fire perimeters mapping the percentile rank of the probability of contracting cancer over the course of a lifetime, assuming continuous exposure to toxic air particulate matters including PM2.5, ozone, and diesel particulate matter.
+Finally, let's plot the fire perimeters mapping the percentile rank of the probability of contracting cancer over the course of a lifetime, assuming continuous exposure to toxic air particulate matters, including PM2.5, ozone, and diesel particulate matter.
 ```{python}
 fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(10, 5))
 

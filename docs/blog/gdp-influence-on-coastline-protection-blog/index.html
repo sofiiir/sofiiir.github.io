@@ -4339,13 +4339,13 @@ window.Quarto = {
   <li><a href="#data-access" id="toc-data-access" class="nav-link" data-scroll-target="#data-access">Data Access</a></li>
   <li><a href="#data-processing" id="toc-data-processing" class="nav-link" data-scroll-target="#data-processing">Data Processing</a></li>
   </ul></li>
-  <li><a href="#simulating-data" id="toc-simulating-data" class="nav-link" data-scroll-target="#simulating-data">Simulating data</a></li>
-  <li><a href="#data-preparation" id="toc-data-preparation" class="nav-link" data-scroll-target="#data-preparation">Data preparation</a></li>
+  <li><a href="#simulating-data" id="toc-simulating-data" class="nav-link" data-scroll-target="#simulating-data">Simulating Data</a></li>
+  <li><a href="#data-preparation" id="toc-data-preparation" class="nav-link" data-scroll-target="#data-preparation">Data Preparation</a></li>
   <li><a href="#beta-regression" id="toc-beta-regression" class="nav-link" data-scroll-target="#beta-regression">Beta Regression</a>
   <ul class="collapse">
-  <li><a href="#hypothesis-statistical-notation" id="toc-hypothesis-statistical-notation" class="nav-link" data-scroll-target="#hypothesis-statistical-notation">Hypothesis statistical notation</a></li>
-  <li><a href="#fit-a-beta-regression-model" id="toc-fit-a-beta-regression-model" class="nav-link" data-scroll-target="#fit-a-beta-regression-model">Fit a beta regression model</a></li>
-  <li><a href="#hypothesis-test" id="toc-hypothesis-test" class="nav-link" data-scroll-target="#hypothesis-test">Hypothesis test</a>
+  <li><a href="#hypothesis-statistical-notation" id="toc-hypothesis-statistical-notation" class="nav-link" data-scroll-target="#hypothesis-statistical-notation">Hypothesis Statistical Notation</a></li>
+  <li><a href="#fit-a-beta-regression-model" id="toc-fit-a-beta-regression-model" class="nav-link" data-scroll-target="#fit-a-beta-regression-model">Fit a Beta Regression Model</a></li>
+  <li><a href="#hypothesis-test" id="toc-hypothesis-test" class="nav-link" data-scroll-target="#hypothesis-test">Hypothesis Test</a>
   <ul class="collapse">
   <li><a href="#predictions" id="toc-predictions" class="nav-link" data-scroll-target="#predictions">Predictions</a></li>
   </ul></li>
@@ -4460,7 +4460,7 @@ logit(\mu) &amp;= \beta_0 + \beta_1 \text{GDP}+ \beta_2 \text{TotalArea}+ \beta_
 </section>
 </section>
 <section id="simulating-data" class="level1">
-<h1>Simulating data</h1>
+<h1>Simulating Data</h1>
 <p>We simulate data to make sure we understand the model before using the model on our real world data. To ensure we truly understand the model we want to simulate data, then run the beta regression with the output being similar values to those we gave it when first creating the data parameters.</p>
 <p>We only simulate data for the per capita GDP variable as our hypothesis is that per capita GDP is positively influencing proportion protected area. Since per capita GDP is a numeric predictor we can use the <code>runif</code> function to create variable values within a given range.</p>
 <div class="cell">
@@ -4549,7 +4549,7 @@ logit(\mu) &amp;= \beta_0 + \beta_1 \text{GDP}+ \beta_2 \text{TotalArea}+ \beta_
 <p>Running a beta regression model on the simulated data outputs values that are close to those values we originally assigned to the variables. This is a sign we understand our model enough to move onto fitting the model on our own data!</p>
 </section>
 <section id="data-preparation" class="level1">
-<h1>Data preparation</h1>
+<h1>Data Preparation</h1>
 <p>The beta regression model only works on proportion so here we change <code>percent_protected</code> to <code>proportion_protected</code>.</p>
 <div class="cell">
 <details open class="code-fold">
@@ -4588,7 +4588,7 @@ logit(\mu) &amp;= \beta_0 + \beta_1 \text{GDP}+ \beta_2 \text{TotalArea}+ \beta_
 \end{align}
 \]</span></p>
 <section id="hypothesis-statistical-notation" class="level2">
-<h2 class="anchored" data-anchor-id="hypothesis-statistical-notation">Hypothesis statistical notation</h2>
+<h2 class="anchored" data-anchor-id="hypothesis-statistical-notation">Hypothesis Statistical Notation</h2>
 <p><span class="math display">\[
 \begin{align}
 H_0 &amp;: \beta_1 = 0 \\
@@ -4598,7 +4598,7 @@ H_A &amp;: \beta_1 &gt; 0
 <p>The hypothesis as described in full detail in the introduction is that per capita GDP has a positive effect on the proportion of protected area. The null hypothesis is that per capita GDP does not have an effect on the proportion of protected area.</p>
 </section>
 <section id="fit-a-beta-regression-model" class="level2">
-<h2 class="anchored" data-anchor-id="fit-a-beta-regression-model">Fit a beta regression model</h2>
+<h2 class="anchored" data-anchor-id="fit-a-beta-regression-model">Fit a Beta Regression Model</h2>
 <p>Again to reiterate, the beta regression model is useful when the response is a proportion. Since the protected areas are between the proportions of 0 and 1 this model will assess whether there is any relationship between the predictors, per capita GDP, total area per ecosystem, and ecosystem type, and the response, proportion protected area per ecosystem.</p>
 <div class="cell">
 <details open class="code-fold">
@@ -4692,7 +4692,7 @@ H_A &amp;: \beta_1 &gt; 0
 </div>
 </section>
 <section id="hypothesis-test" class="level2">
-<h2 class="anchored" data-anchor-id="hypothesis-test">Hypothesis test</h2>
+<h2 class="anchored" data-anchor-id="hypothesis-test">Hypothesis Test</h2>
 <p>We reject the null hypothesis that per capita GDP does not have an effect on the proportion of protected area. The beta value for per capita GDP is low but positive at 1.8455077^{-5}. This value makes sense logically since per capita GDP changes by the thousands. The p-value is less than 0.05 meaning that the likelihood that these findings are due to random chance are extremely low. The effect of per capita GDP on proportion protected area is positive and statistically significant.</p>
 <section id="additional-findings" class="level4">
 <h4 class="anchored" data-anchor-id="additional-findings">Additional findings</h4>

@@ -314,7 +314,7 @@ ax2.set_title('Eaton Fire Perimeter')
 ax2.axis('off')
 
 # Add overall title
-fig.suptitle('Fire Areas Comparison - Estiamte of the Percentage of Individuals with Cancer')
+fig.suptitle('Fire Areas Comparison - Estimate of the Percentage of Individuals with Cancer')
 
 # Add shared colorbar at the bottom
 sm = plt.cm.ScalarMappable( norm=plt.Normalize(vmin=vmin, vmax=vmax))

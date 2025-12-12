@@ -401,12 +401,13 @@ eez_kable |>
   kbl(caption = "Suitable Oyster Aquaculture areas on the West Coast based on Exclusive Economic Zones (EEZ).") |>
   kable_styling()
 ```
-Central California has the most amount of suitable area for oyster aquaculture based on depth and SST. Washington and Southern California are close behind in the amount of suitable oyster aquaculture area based on depth and SST. Oregon and Northern California have the least amount of suitable oyster aquaculture are based on depth and SST. 
+Central California has the most amount of suitable area for oyster aquaculture based on depth and SST. Washington and Southern California are close behind in the amount of suitable oyster aquaculture area based on depth and SST. Oregon and Northern California have the least amount of suitable oyster aquaculture are based on depth and SST. The tables' suitable area values match our map.
 
 # Potential aquaculture locations for different species
 
-We can combine all the steps we conducted above to make a function that can work on calculating potential aquaculture areas for any species. We replace variables that would vary for different species in a by making those arguments in a function. Function arguments should also include all of the necessary data frames for clarity. 
-In the `potent_aqu` function we need to use three data frames. The SST, EEZ, and depth data frames. Additionally, we need to change the minimum and maximum values for the suitable SST and depth of each species. Species name is also an argument for clarity and to add the name to the title of the plot. 
+I combine all the steps conducted above to make a function that can work on calculating potential aquaculture areas for any species. I replace variables that would vary for different species by making those variables the arguments in a function. Function arguments should also include all of the necessary data frames for clarity. 
+
+In the `potent_aqu` function I add three data frames as arguments. The SST, EEZ, and depth data frames are all required. Additionally, I add a variable to change the minimum and maximum values for the suitable SST and depth of each species. Species name is also an argument for clarity that allows me to add the name of the species to the title of the plot. 
 
 ```{r}
 #| label: potential aquaculture location function
@@ -522,6 +523,8 @@ Sea surface temperature is adequate for red sea urchins in the range of 6.75-13.
 potent_aqu(sst, eez_sf, depth, 6.75, 13.02, -125, 0, "Mesocentrotus franciscanus")
 ```
 # Reflection
+
+
 Analyzing potential aquaculture locations based on SST and bathymetry is only the first step in finding suitable locations for new aquaculture endeavors. One limitation of the above analysis is that SST is an average taken from 2008 to 2012. With climate change shifting temperatures, projection data would be important to include in analyzing best future aquaculture sites. Referencing species native ranges is also essential to reducing any potential negative outcomes of introducing non-native species. 
 
 # References 

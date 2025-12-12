@@ -4645,12 +4645,13 @@ border: 0;
 </table>
 </div>
 </div>
-<p>Central California has the most amount of suitable area for oyster aquaculture based on depth and SST. Washington and Southern California are close behind in the amount of suitable oyster aquaculture area based on depth and SST. Oregon and Northern California have the least amount of suitable oyster aquaculture are based on depth and SST.</p>
+<p>Central California has the most amount of suitable area for oyster aquaculture based on depth and SST. Washington and Southern California are close behind in the amount of suitable oyster aquaculture area based on depth and SST. Oregon and Northern California have the least amount of suitable oyster aquaculture are based on depth and SST. The tables’ suitable area values match our map.</p>
 </section>
 </section>
 <section id="potential-aquaculture-locations-for-different-species" class="level1">
 <h1>Potential aquaculture locations for different species</h1>
-<p>We can combine all the steps we conducted above to make a function that can work on calculating potential aquaculture areas for any species. We replace variables that would vary for different species in a by making those arguments in a function. Function arguments should also include all of the necessary data frames for clarity. In the <code>potent_aqu</code> function we need to use three data frames. The SST, EEZ, and depth data frames. Additionally, we need to change the minimum and maximum values for the suitable SST and depth of each species. Species name is also an argument for clarity and to add the name to the title of the plot.</p>
+<p>I combine all the steps conducted above to make a function that can work on calculating potential aquaculture areas for any species. I replace variables that would vary for different species by making those variables the arguments in a function. Function arguments should also include all of the necessary data frames for clarity.</p>
+<p>In the <code>potent_aqu</code> function I add three data frames as arguments. The SST, EEZ, and depth data frames are all required. Additionally, I add a variable to change the minimum and maximum values for the suitable SST and depth of each species. Species name is also an argument for clarity that allows me to add the name of the species to the title of the plot.</p>
 <div class="cell">
 <details open class="code-fold">
 <summary>Code</summary>

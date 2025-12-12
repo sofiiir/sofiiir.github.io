@@ -111,11 +111,11 @@ landsat_clean.plot.imshow(robust = True)
 
 ## Map a False Color Image 
 
-False color maps use bands to create spectral visualizations that are different than those visible to the human eye. Here we are create a false color map by showing the shortwave infrared/near-infrared/red false color images together in that order. The false color map clearly shows the fire scars from the Eaton and Palisades fires. Both fire perimeters are also included in the map below to highlight the areas of interest.
+False color maps use bands to create spectral visualizations that are different than those visible to the human eye. Here we  create a false color map by showing the shortwave infrared/near-infrared/red false color images together in that order. The false color map clearly shows the fire scars from the Eaton and Palisades Fires. Both fire perimeters are also included in the map below to highlight the areas of interest.
 
 In order to accurately map the data with the fire boundaries, the CRS must all match.
 
-Since the Landsat data is a raster the CRS is checked with `.rio.crs` as opposed to `.crs` which checks the CRS of `geopandas` data.
+Since the Landsat data is a raster the CRS is checked with `.rio.crs` as opposed to `.crs` which checks the CRS of `GeoPandas` data.
 
 ```{python}
 # Check the CRSs
@@ -232,7 +232,7 @@ assert eji.crs == palisades_fire.crs
 assert eji.crs == eaton_fire.crs
 ```
 
-We join the fire perimeter data with the EJI data leaving the default `intersects` parameter. The EJI data is cropped to areas where the  intersection overlaps with the fire perimeters. We'll save these as their own objects to use for mapping below. 
+We join the fire perimeter data with the EJI data leaving the default `intersects` parameter. The EJI data is cropped to areas where the EJI rater intersects with the fire perimeters. We'll save these as their own objects to use for mapping below. 
 
 ```{python}
 # Join the Palisades perimeter and eji data and make sure CRS match
@@ -274,13 +274,11 @@ eaton_fire.plot(ax=ax,
 plt.title('Census tracts overlapping Eaton fire perimeter')
 ```
 
-The only Environmental Justice Index areas of interest are those within the fire perimeters. Let's clip the Environmental Justice data by the perimeters and save them to new objects for mapping purposes.
+Some of the census tracts were only partially within the fire perimeter. The only Environmental Justice Index areas of interest are those within the fire perimeters. Let's clip the Environmental Justice data by the perimeters and save them to new objects for mapping purposes.
 ```{python}
 palisades_clip = gpd.clip(pali_eji, palisades_fire)
 eaton_clip = gpd.clip(eaton_eji, eaton_fire)
 ```
-
-
 
 # Plot the EJI Data within the Fire Perimeters
 
@@ -316,7 +314,7 @@ ax2.set_title('Eaton Fire Perimeter')
 ax2.axis('off')
 
 # Add overall title
-fig.suptitle('Fire Areas Comparison - Percentile rank: probability of contracting cancer over a lifetime due to air toxins exposure')
+fig.suptitle('Fire Areas Comparison - Percentile rank: probability of contracting cancer over a lifetime due to air toxins')
 
 # Add shared colorbar at the bottom
 sm = plt.cm.ScalarMappable( norm=plt.Normalize(vmin=vmin, vmax=vmax))

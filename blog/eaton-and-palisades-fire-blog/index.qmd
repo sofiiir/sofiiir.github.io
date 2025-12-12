@@ -122,16 +122,13 @@ print('Eaton fire CRS: ', eaton_fire.crs)
 print('Palisades fire CRS: ', palisades_fire.crs)
 ```
 
-Not all of the CRSs match. Adjust the CRS before mapping.
+Not all of the CRSs match. Adjust the CRS before mapping. Then use assert statements to ensure all of the CRSs match. 
 
 ```{python}
-# Reproject fire perimeter to the Landsat to crs
+# Reproject fire perimeter to the Landsat CRS
 eaton_fire = eaton_fire.to_crs(landsat.rio.crs)
 palisades_fire = palisades_fire.to_crs(landsat.rio.crs)
-```
 
-Use assert statements to ensure all of the CRS match. 
-```{python}
 # Confirm the CRSs all match
 assert eaton_fire.crs == landsat.rio.crs
 assert palisades_fire.crs == landsat.rio.crs
@@ -222,17 +219,48 @@ eji = gpd.read_file(fp_eji)
 
 ### Data wrangling
 
-Again, all of the CRS must match to accurately map the intended regions. Since we have already confirmed that the Eaton and Palisades Fires, we can just use the CRS of one of the fire perimeters to change the CRS of our Environmental Justice data.
+Again, all of the CRS must match to accurately map the intended regions. Since we have already confirmed that the Eaton and Palisades Fires, we can just use the CRS of one of the fire perimeters to change the CRS of our Environmental Justice data. Then we can make sure that the CRS are the same using an assert statement. 
 
 ```{python}
 # Change CRS of eji
 eji = eji.to_crs(palisades_fire.crs)
-```
 
-We can make sure that the CRS are the same using an assert statement. 
-```{python}
+# Make sure CRS are the same 
 assert eji.crs == palisades_fire.crs
 assert eji.crs == eaton_fire.crs
+```
+
+
+Let's look at how the fire perimeters overlap with the census tracts. 
+```{python}
+fig, ax = plt.subplots(figsize=(11, 5))
+ax.axis('off')
+
+eji.plot('TRACTCE', 
+              ax = ax)
+
+palisades_fire.plot(ax=ax,
+                    color = 'none', 
+                    edgecolor='red',
+                    linewidth = 1.5)
+
+plt.title('Census tracts overlapping Palisades fire perimeter')
+```
+
+
+```{python}
+fig, ax = plt.subplots(figsize=(11, 5))
+ax.axis('off')
+
+eji.plot('TRACTCE', 
+              ax = ax)
+
+eaton_fire.plot(ax=ax,
+                    color = 'none', 
+                    edgecolor='red',
+                    linewidth = 1.5)
+
+plt.title('Census tracts overlapping Eaton fire perimeter')
 ```
 
 The only Environmental Justice Index areas of interest are those within the fire perimeters. Let's clip the Environmental Justice data by the perimeters and save them to new variables for mapping purposes.
@@ -245,13 +273,12 @@ eaton_clip = gpd.clip(eji, eaton_fire)
 
 # Plot the EJI Data within the fire perimeters
 
-
-Finally, let's plot the fire perimeters mapping the percentile ranks of domain consisting of ozone, PM2.5, air toxics cancer risk, and diesel particulate matter.
+Finally, let's plot the fire perimeters mapping the percentile rank of the probability of contracting cancer over the course of a lifetime, assuming continuous exposure to toxic air particulate matters including PM2.5, ozone, diesel particulate matter.
 ```{python}
 fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(10, 5))
 
-# RPL_EBM_DOM1 : Percentile rank of domain consisting of ozone, PM2.5, air toxics cancer risk, and diesel particulate matter.
-eji_variable = 'RPL_EBM_DOM1'
+# EPL_TOTCR : Percentile rank of the probability of contracting cancer over the course of a lifetime, assuming continuous exposure
+eji_variable = 'EPL_TOTCR'
 
 # Find common min/max for legend range
 vmin = min(palisades_clip[eji_variable].min(), eaton_clip[eji_variable].min())
@@ -278,13 +305,13 @@ ax2.set_title('Eaton Fire Perimeter')
 ax2.axis('off')
 
 # Add overall title
-fig.suptitle('Percentile rank of PM2.5, ozone, air toxics cancer risk, and diesel PM - Fire Areas Comparison')
+fig.suptitle('Percentile rank of the probability of contracting cancer over the course of a lifetime, assuming continuous exposure - Fire Areas Comparison')
 
 # Add shared colorbar at the bottom
 sm = plt.cm.ScalarMappable( norm=plt.Normalize(vmin=vmin, vmax=vmax))
 cbar_ax = fig.add_axes([0.25, 0.08, 0.5, 0.02])  # [left, bottom, width, height]
 cbar = fig.colorbar(sm, cax=cbar_ax, orientation='horizontal')
-cbar.set_label('Percentile rank of PM2.5, ozone, air toxics cancer risk, and diesel PM')
+cbar.set_label('Percentile rank of the probability of contracting cancer over the course of a lifetime')
 
 plt.show()
 ```

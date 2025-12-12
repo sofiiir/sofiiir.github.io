@@ -41,7 +41,7 @@ GitHub repository: [https://github.com/sofiiir/eds220-hwk4.git](https://github.c
 
 - **Environmental Justice Index:** ATSDR environmental justice data was contains data by census tract and is used to explore EJI differences in the Eaton and Palisades fire areas. 
 
-### Load necessary packages
+### Load Necessary Packages
 
 ```{python}
 import os 
@@ -57,7 +57,7 @@ from matplotlib_map_utils.core.north_arrow import NorthArrow, north_arrow
 import contextily as ctx
 ```
 
-### Import fire perimeter data 
+### Import Fire Perimeter Data 
 Use the `GeoPandas` library to import geospatial data. 
 
 ```{python}
@@ -69,7 +69,7 @@ palisades_fire = gpd.read_file(fp)
 
 ```
 
-### Import Landsat data with NetCDF
+### Import Landsat Data with NetCDF
 Use the `xarray` library to import Landsat data. 
 
 ```{python}
@@ -95,7 +95,7 @@ The Landsat CRS is stored in the `spatial_ref` data variable. Let's reassign thi
 landsat = landsat.rio.write_crs(landsat.spatial_ref.crs_wkt)
 ```
 
-### Map the true color Landsat map 
+### Map the True Color Landsat map 
 To plot Landsat data let's also make sure that none of the bands contain NA values.
 
 ```{python}
@@ -199,12 +199,12 @@ north_arrow(ax=ax, location="lower right", rotation={"crs":32611, "reference":"c
 plt.show()
 ```
 
-####  False Color Map analysis
+####  False Color Map Analysis
 
 The map above depicts false color imagery for the Eaton and Palisades Fires that took place in January 2025. Landsat raster data was mapped using the shortwave infrared, near-infrared, and red bands to create a false color imagery map. The red on the map despicts fire scars caused by the Eaton and Palisades Fires as the labels show. The green in the map above shows the areas without burn scars while bright green depicts vegetation. Bodies of water including the Pacific Ocean are shown in black in this false imagery. False imagery is being used to more dramatically show the effects of fire on the landscape. 
 
 
-# Social dimensions of the Eaton and Palisades Fires
+# Social Dimensions of the Eaton and Palisades Fires
 
 Let's explore some of the Environmental Justice Index data. The dataframe includes a variety of environmental justice indices. The aspect of greatest interest to me is the percentile rank of the probability of contracting cancer over the course of a lifetime, assuming continuous exposure to toxic air particulate matters including exposure to PM2.5, ozone, and diesel particulate matter.
 
@@ -212,16 +212,16 @@ The data frame denotes this column as:
 
 - EPL_TOTCR : Percentile rank of the probability of contracting cancer over the course of a lifetime, assuming continuous exposure.
 
-### Import Environmental Justice Idex (EJI) data
+### Import Environmental Justice Idex (EJI) Data
 
 ```{python}
 fp_eji = os.path.join('data', 'EJI_2024_California', 'EJI_2024_California.gdb')
 eji = gpd.read_file(fp_eji)
 ```
 
-### Data wrangling
+### Data Wrangling
 
-Again, all of the CRS must match to accurately map the intended regions. Since we have already confirmed that the Eaton and Palisades Fires, we can just use the CRS of one of the fire perimeters to change the CRS of our Environmental Justice data. Then we can make sure that the CRS are the same using an assert statement. 
+Again, all of the CRSs must match to accurately map the intended regions. Since we have already confirmed that the Eaton and Palisades Fires CRS match, we can just use the CRS of one of the fire perimeters to change the CRS of our Environmental Justice data. Then we can make sure that the CRS are the same using an assert statement. 
 
 ```{python}
 # Change CRS of eji
@@ -276,13 +276,13 @@ plt.title('Census tracts overlapping Eaton fire perimeter')
 
 The only Environmental Justice Index areas of interest are those within the fire perimeters. Let's clip the Environmental Justice data by the perimeters and save them to new objects for mapping purposes.
 ```{python}
-palisades_clip = gpd.clip(eji, palisades_fire)
-eaton_clip = gpd.clip(eji, eaton_fire)
+palisades_clip = gpd.clip(pali_eji, palisades_fire)
+eaton_clip = gpd.clip(eaton_eji, eaton_fire)
 ```
 
 
 
-# Plot the EJI Data within the fire perimeters
+# Plot the EJI Data within the Fire Perimeters
 
 Finally, let's plot the fire perimeters mapping the percentile rank of the probability of contracting cancer over the course of a lifetime, assuming continuous exposure to toxic air particulate matters including PM2.5, ozone, and diesel particulate matter.
 ```{python}

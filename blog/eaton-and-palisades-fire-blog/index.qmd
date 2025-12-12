@@ -206,11 +206,11 @@ The map above depicts false color imagery for the Eaton and Palisades Fires that
 
 # Social Dimensions of the Eaton and Palisades Fires
 
-Let's explore some of the Environmental Justice Index data. The dataframe includes a variety of environmental justice indices. The aspect of greatest interest to me is the percentile rank of the probability of contracting cancer over the course of a lifetime, assuming continuous exposure to toxic air particulate matters including exposure to PM2.5, ozone, and diesel particulate matter.
+Let's explore some of the Environmental Justice Index data. The dataframe includes a variety of environmental justice indices. The aspect of greatest interest to me is the estimate of the percentage of individuals with cancer. Based on my prior studies this is particularly informative to show environmental justice risks because it is a result of a variety of envrionmental toxins. 
 
 The data frame denotes this column as: 
 
-- EPL_TOTCR : Percentile rank of the probability of contracting cancer over the course of a lifetime, assuming continuous exposure.
+- E_CANCER: Percentage of individuals with cancer.
 
 ### Import Environmental Justice Index (EJI) Data
 
@@ -282,12 +282,12 @@ eaton_clip = gpd.clip(eaton_eji, eaton_fire)
 
 # Plot the EJI Data within the Fire Perimeters
 
-Finally, let's plot the fire perimeters mapping the percentile rank of the probability of contracting cancer over the course of a lifetime, assuming continuous exposure to toxic air particulate matters, including PM2.5, ozone, and diesel particulate matter.
+Finally, let's plot the fire perimeters mapping the estimate of the percentage of individuals with cancer.
 ```{python}
 fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(10, 5))
 
-# EPL_TOTCR : Percentile rank of the probability of contracting cancer over the course of a lifetime, assuming continuous exposure
-eji_variable = 'EPL_TOTCR'
+# E_CANCER: Percentage of individuals with cancer
+eji_variable = 'E_CANCER'
 
 # Find common min/max for legend range
 vmin = min(palisades_clip[eji_variable].min(), eaton_clip[eji_variable].min())
@@ -314,20 +314,20 @@ ax2.set_title('Eaton Fire Perimeter')
 ax2.axis('off')
 
 # Add overall title
-fig.suptitle('Fire Areas Comparison - Percentile rank: probability of contracting cancer over a lifetime due to air toxins')
+fig.suptitle('Fire Areas Comparison - Estiamte of the Percentage of Individuals with Cancer')
 
 # Add shared colorbar at the bottom
 sm = plt.cm.ScalarMappable( norm=plt.Normalize(vmin=vmin, vmax=vmax))
 cbar_ax = fig.add_axes([0.25, 0.08, 0.5, 0.02])  # [left, bottom, width, height]
 cbar = fig.colorbar(sm, cax=cbar_ax, orientation='horizontal')
-cbar.set_label('Percentile rank of the probability of contracting cancer over a lifetime due to PM2.5, ozone, and diesel particulate matter')
+cbar.set_label('Estimate of the percentage of individuals with cancer')
 
 plt.show()
 ```
 
 #### EJI Map Analysis
 
-The Eaton Fire area has an overall higher percentile rate of the probability of contracting cancer over the course of a lifetime due to air toxins than the Palisades Fire area. The outskirts of the Palisades Fire area does have an equal percentile rate of the probability of contracting cancer over the course of a lifetime due to air toxins as the Eaton Fire area. However, this is a small portion of the tract.
+The Eaton Fire area has an overall higher percentile rate of the probability of contracting cancer over the course of a lifetime due to air toxins than the Palisades Fire area. The outskirts of the Palisades Fire area does have an equal percentile rate of the probability of contracting cancer over the course of a lifetime due to air toxins as the Eaton Fire area. However, this is a small portion of the tract. Those areas with the highest rates of percentile of probability of contracting cancer seem extremely high at approximately 0.5. 
 
  Knowing the demographics of these areas, the Eaton Canyon community is composed of more people of color and is a historically black community. The Palisades community is largely white and of higher economic status. Further analysis mapping the socioeconomic makeup of these communities can illustrate how cancer risk in the form of continuous exposure to ozone, PM2.5, and diesel particulate matter is correlated with additional socio-economic factors. These vast differences within the percentile probability of contracting cancer over the course of a lifetime in the fire perimeters show that communities suffering from destructive fires do not follow a clear pattern related to this analysis of environmental justice. Further, this analysis shows that natural disasters can effect anyone regardless of socioeconomic status. 
 

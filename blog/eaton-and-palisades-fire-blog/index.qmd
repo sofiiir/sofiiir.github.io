@@ -316,7 +316,7 @@ ax2.set_title('Eaton Fire Perimeter')
 ax2.axis('off')
 
 # Add overall title
-fig.suptitle('Percentile rank of the probability of contracting cancer over the course of a lifetime due to air toxins exposure - Fire Areas Comparison')
+fig.suptitle('Percentile rank of the probability of contracting cancer over a lifetime due to air toxins exposure - Fire Areas Comparison')
 
 # Add shared colorbar at the bottom
 sm = plt.cm.ScalarMappable( norm=plt.Normalize(vmin=vmin, vmax=vmax))

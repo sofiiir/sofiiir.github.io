@@ -316,7 +316,7 @@ ax2.set_title('Eaton Fire Perimeter')
 ax2.axis('off')
 
 # Add overall title
-fig.suptitle('Percentile rank of the probability of contracting cancer over the course of a lifetime, assuming continuous exposure to air toxins - Fire Areas Comparison')
+fig.suptitle('Percentile rank of the probability of contracting cancer over the course of a lifetime due to air toxins exposure - Fire Areas Comparison')
 
 # Add shared colorbar at the bottom
 sm = plt.cm.ScalarMappable( norm=plt.Normalize(vmin=vmin, vmax=vmax))
@@ -328,7 +328,7 @@ plt.show()
 ```
 
 #### EJI Map Analysis
-The Eaton Fire area has a higher percentile rate of the probability of contracting cancer over the course of a lifetime, assuming continuous exposure than the Palisades Fire area. Knowing the demographics of these areas the Eaton Canyon community is composed of more people of color and is a historically black community. The Palisades community is largely white and of higher economic status. Further analysis mapping the socioeconomic makeup of these communities can illustrate how cancer risk in the form of continuous exposure to ozone, PM2.5, and diesel particulate matter is correlated with other socio-economic factors. These differences within the percentile probability of contracting cancer over the course of a lifetime in the fire perimeters show that communities suffering from destructive fires does not follow a clear pattern related to this analysis of environmental justice.  Further, this analysis shows that natural disasters can effect anyone regardless of socioeconomic status. 
+The Eaton Fire area has an overall higher percentile rate of the probability of contracting cancer over the course of a lifetime, assuming continuous exposure than the Palisades Fire area. Knowing the demographics of these areas the Eaton Canyon community is composed of more people of color and is a historically black community. The Palisades community is largely white and of higher economic status. Further analysis mapping the socioeconomic makeup of these communities can illustrate how cancer risk in the form of continuous exposure to ozone, PM2.5, and diesel particulate matter is correlated with other socio-economic factors. These differences within the percentile probability of contracting cancer over the course of a lifetime in the fire perimeters show that communities suffering from destructive fires does not follow a clear pattern related to this analysis of environmental justice.  Further, this analysis shows that natural disasters can effect anyone regardless of socioeconomic status. 
 
 ## References
 

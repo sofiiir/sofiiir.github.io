@@ -320,7 +320,7 @@ fig.suptitle('Fire Areas Comparison - Percentile rank: probability of contractin
 sm = plt.cm.ScalarMappable( norm=plt.Normalize(vmin=vmin, vmax=vmax))
 cbar_ax = fig.add_axes([0.25, 0.08, 0.5, 0.02])  # [left, bottom, width, height]
 cbar = fig.colorbar(sm, cax=cbar_ax, orientation='horizontal')
-cbar.set_label('Percentile rank of the probability of contracting cancer over the course of a lifetime due to air toxins')
+cbar.set_label('Percentile rank of the probability of contracting cancer over a lifetime due to PM2.5, ozone, and diesel particulate matter')
 
 plt.show()
 ```

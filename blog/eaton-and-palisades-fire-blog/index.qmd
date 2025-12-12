@@ -335,20 +335,20 @@ The Eaton Fire area has an overall higher percentile rate of the probability of 
 
 ## References
 
-- ATSDR, Place and Health - Geospatial Research, Analysis, and Services Program (GRASP), EJI Data Download . (n.d.) Available: https://www.atsdr.cdc.gov/place-health/php/eji/eji-data-download.html. [Accessed November 17, 2025]
+- ATSDR, Place and Health - Geospatial Research, Analysis, and Services Program (GRASP), EJI Data Download . (n.d.) Available: [https://www.atsdr.cdc.gov/place-health/php/eji/eji-data-download.html](https://www.atsdr.cdc.gov/place-health/php/eji/eji-data-download.html). [Accessed November 17, 2025]
 
 - C. Galaz Garcia and A. Adams, EDS 220 - Working with Environmental Datasets. (n.d.) Available: https://meds-eds-220.github.io/MEDS-eds-220-course/. [Accessed November 17, 2025]
 
-- City of Los Angeles GeoHub / NIFC FIRIS(2025).Palisades and Eaton Dissolved Fire Perimeters (2025) [Shapefile]. Available: https://egis-lacounty.hub.arcgis.com/maps/ad51845ea5fb4eb483bc2a7c38b2370c/about. [Retrieved November 17, 2025]
+- City of Los Angeles GeoHub / NIFC FIRIS(2025).Palisades and Eaton Dissolved Fire Perimeters (2025) [Shapefile]. Available: [https://egis-lacounty.hub.arcgis.com/maps/ad51845ea5fb4eb483bc2a7c38b2370c/about](https://egis-lacounty.hub.arcgis.com/maps/ad51845ea5fb4eb483bc2a7c38b2370c/about). [Retrieved November 17, 2025]
   
-- Earth Resources Observation and Science (EROS) Center. (2020). Landsat 8-9 Operational Land Imager / Thermal Infrared Sensor Level-2, Collection 2 [dataset]. U.S. Geological Survey. https://doi.org/10.5066/P9OGBGM6. Available: https://www.usgs.gov/centers/eros/science/usgs-eros-archive-landsat-archives-landsat-8-9-olitirs-collection-2-level-2. [Accessed November 17 ,2025]
+- Earth Resources Observation and Science (EROS) Center. (2020). Landsat 8-9 Operational Land Imager / Thermal Infrared Sensor Level-2, Collection 2 [dataset]. U.S. Geological Survey. https://doi.org/10.5066/P9OGBGM6. Available: [https://www.usgs.gov/centers/eros/science/usgs-eros-archive-landsat-archives-landsat-8-9-olitirs-collection-2-level-2](https://www.usgs.gov/centers/eros/science/usgs-eros-archive-landsat-archives-landsat-8-9-olitirs-collection-2-level-2). [Accessed November 17 ,2025]
 
-- Humboldt State GeoSpatial Online - GeoSpatial Lessons: Natural and False Color Composites. Available: https://gsp.humboldt.edu/olm/Courses/GSP_216/lessons/composites.html#:~:text=False%20color%20images%20are%20a%20representation%20of,human%20eye%20can%20not%20see%20(i.e.%20near%2Dinfrared). [Accessed December 12 ,2025]
+- Humboldt State GeoSpatial Online - GeoSpatial Lessons: Natural and False Color Composites. Available: [https://gsp.humboldt.edu/olm/Courses/GSP_216/lessons/composites.html](https://gsp.humboldt.edu/olm/Courses/GSP_216/lessons/composites.html#:~:text=False%20color%20images%20are%20a%20representation%20of,human%20eye%20can%20not%20see%20(i.e.%20near%2Dinfrared)). [Accessed December 12 ,2025]
 
 
-- NASA Earth Observatory. (2014, Mar. 4). Why is that forest red and that cloud blue? How to interpret a false-color satellite image. Available: https://earthobservatory.nasa.gov/features/FalseColor.
+- NASA Earth Observatory. (2014, Mar. 4). Why is that forest red and that cloud blue? How to interpret a false-color satellite image. Available: [https://earthobservatory.nasa.gov/features/FalseColor](https://earthobservatory.nasa.gov/features/FalseColor).
 [Accessed: November 18, 2025]
 
-- U.S. Geological Survey. (n.d.). What are the band designations for the Landsat satellites? Available: https://www.usgs.gov/faqs/what-are-band-designations-landsat-satellites. [Accessed: November 18, 2025]
+- U.S. Geological Survey. (n.d.). What are the band designations for the Landsat satellites? Available: [https://www.usgs.gov/faqs/what-are-band-designations-landsat-satellites](https://www.usgs.gov/faqs/what-are-band-designations-landsat-satellites). [Accessed: November 18, 2025]
 
-- U.S. Geological Survey. (2021, Nov. 12). Common Landsat band combinations. Available: https://www.usgs.gov/media/images/common-landsat-band-combinations. [Accessed: November 18, 2025]
+- U.S. Geological Survey. (2021, Nov. 12). Common Landsat band combinations. Available: [https://www.usgs.gov/media/images/common-landsat-band-combinations](https://www.usgs.gov/media/images/common-landsat-band-combinations). [Accessed: November 18, 2025]

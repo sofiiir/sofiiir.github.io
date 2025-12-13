@@ -21,9 +21,11 @@ execute:
   error: false
 image: oyster.png
 ---
-## Introduction
+# Introduction
 
-Aquaculture is a viable solution to help address over-fishing while providing ocean foods to communities that rely on them. It additionally creates a job sector increasing local employment opportunities. Though there are many factors in choosing suitable locations for aquaculture, sea surface temperature (SST) and bathymetry are two key considerations. 
+When established and regulated in a sustainable manner aquaculture is a viable solution to help address over-fishing while providing ocean foods to communities that rely on them (Smith et al., 2010). It additionally has the capacity to create a job sector increasing local employment opportunities (Engle et al., 2025). Though there are many factors in choosing suitable locations for aquaculture, sea surface temperature (SST) and bathymetry are two key considerations. 
+
+# Purpose 
 
 This analysis focuses on creating a function that identifies potential aquaculture locations based on SST and bathymetry species requirements. Further, the findings of potential aquaculture locations for each species is broken into Exclusive Economic Zones (EEZ). EEZs are areas off of countries' coasts extending approximately 200 nautical miles into open water. These areas are controlled by the coastal countries which maintain control over the resources and happenings in these zones (NOAA Ocean Exploration). For this analysis these EEZs are divided into state regions. 
 
@@ -513,9 +515,9 @@ tm_shape(spec_area_eez) +
     tm_layout(component.autoscale = FALSE)
 }
 ```
-# Additional species of interest: **Red Sea Urchin**, *Mesocentrotus franciscanus* (formerly *Strongylocentrotus franciscanus*)
+# Additional species of interest: **Red Sea Urchin**, *Mesocentrotus franciscanus** 
 
-#### Why would red sea urchin be reared? 
+#### Why would red sea urchin be a species to rear? 
 Red sea urchin are prized for their gonads which are eaten under the name uni. Uni is popular in sushi establishments and fine dining worldwide. Because of their relatively higher price these may be an economically advantageous choice for aspiring aquaculturists. The natural red sea urchin stocks are well managed on the west coast (Sea Grant California). However, the moratorium on limits for harvesting red sea urchin may not keep up with demand. 
 
 Let's try out our function!
@@ -534,11 +536,19 @@ Washington and Oregon have the most suitable aquaculture locations for red sea u
 
 Analyzing potential aquaculture locations based on SST and bathymetry is only the first step in finding suitable locations for new aquaculture endeavors. One limitation of the above analysis is that SST is an average taken from 2008 to 2012. With climate change shifting temperatures, projection data would be important to include in analyzing best future aquaculture sites. Referencing species native ranges is also essential to reducing any potential negative outcomes of introducing non-native species. 
 
+There is a vast amount of potential suitable aquaculture area for both oyster and red sea urchin aquaculture. If aquaculture is sustainably actualized it could increase the job market in these areas. It could also reduce the pressures on wild fish stocks in the case of the red sea urchin. According to Sea Grant California, in certain areas without rocky surfaces juvenile red sea urchin use the spines of mature sea urchins for protection. These areas likely have fewer red sea urchins due to harvesting as the more mature red sea urchin are not present to aid in populating these areas with young sea urchin. This is one case study however, species dependent analysis are necessary to avoid drawbacks from creating environmentally detrimental aquaculture systems.
+
 # GitHub
 
 The repository containing all of the code for this analysis can be found [here](https://github.com/sofiiir/aquaculture-exclusive-economic-zones).
 
+# Notes
+
+* Red sea urchin was formerly *Strongylocentrotus franciscanus*.
+
 # References 
+
+Engle, C. R., Senten, J. V., Fong Q., Good, M. (July 2025) The economic contribution of aquaculture to the U.S. Western Region. North American Journal of Aquaculture. Volume 87, Issue 3, Pages 155–167. https://doi.org/10.1093/naaqua/vraf008
 
 Flanders Marine Institute (2025): MarineRegions.org. Available online at www.marineregions.org. Consulted on 2025-11-14.
 
@@ -547,6 +557,8 @@ Gentry, R. R., Froehlich, H. E., Grimm, D., Kareiva, P., Parke, M., Rust, M., Ga
 GEBCO Compilation Group (2022) GEBCO_2022 Grid (doi:10.5285/e0f0bb80-ab44-2739-e053-6c86abc0289c).
 
 Hall, S. J., Delaporte, A., Phillips, M. J., Beveridge, M. & O’Keefe, M. Blue Frontiers: Managing the Environmental Costs of Aquaculture (The WorldFish Center, Penang, Malaysia, 2011).
+
+Smith, M. D.,  Roheim, C. A., Crowder, L. B., Halpern, B. S., Turnipseed, M., Anderson, J. L.,  Asche, F.,  Bourillón, L., Guttormsen, A. G., Khan, A., Liguori, L. A., McNevin, A., O’Connor, M. I., Squires, D., Tyedmers, P., Brownstein, C., Carden, K., Klinger, D. H., Sagarin, R., Selkoe, K. A. (2010). Sustainability and Global Seafood. Science 327, 784–786. [DOI: 10.1126/science.1185345](https://www.science.org/doi/10.1126/science.1185345)
 
 NOAA Coral Reef Watch. 2019, updated daily. NOAA’s 5km Daily Global Satellite Sea Surface Temperature Anomaly v3.1 for the West Coast, 2008 - 2012. College Park, Maryland, USA: NOAA Coral Reef Watch. Data set accessed 2025-11-14 at [https://coralreefwatch.noaa.gov/product/5km/index_5km_ssta.php](https://coralreefwatch.noaa.gov/product/5km/index_5km_ssta.php).
 

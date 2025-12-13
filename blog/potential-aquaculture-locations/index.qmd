@@ -530,7 +530,7 @@ Sea surface temperature is adequate for red sea urchins in the range of 6.75-13.
 potent_aqu(sst, eez_sf, depth, 6.75, 13.02, -125, 0, "Mesocentrotus franciscanus")
 ```
 
-Washington and Oregon have the largest potential suitable aquaculture areas for red sea urchins based on SST and depth. Central California has the third most potential suitable areas for red sea urchin aquaculture based on SST and depth. Northern California and Southern California have the least amount of potential suitable aquaculture areas for red sea urchins.
+Washington and Oregon have the largest potential suitable aquaculture areas for red sea urchins based on SST and depth. Central California has the third most potential suitable aquaculture areas for red sea urchins  based on SST and depth. Northern California and Southern California have the least amount of potentially suitable aquaculture areas for red sea urchins.
 
 # Reflection
 
@@ -550,13 +550,13 @@ The repository containing all of the code for this analysis can be found [here](
 
 # References 
 
-Engle, C. R., Senten, J. V., Fong Q., Good, M. (July 2025) The economic contribution of aquaculture to the U.S. Western Region. North American Journal of Aquaculture. Volume 87, Issue 3, Pages 155–167. https://doi.org/10.1093/naaqua/vraf008
+Engle, C. R., Senten, J. V., Fong Q., Good, M. (July 2025) The economic contribution of aquaculture to the U.S. Western Region. North American Journal of Aquaculture. Volume 87, Issue 3, Pages 155–167. [https://doi.org/10.1093/naaqua/vraf008](https://academic.oup.com/naja/article/87/3/155/8210510)
 
-Flanders Marine Institute (2025): MarineRegions.org. Available online at www.marineregions.org. Consulted on 2025-11-14.
+Flanders Marine Institute (2025): MarineRegions.org. Available online at [www.marineregions.org](https://www.marineregions.org/). Consulted on 2025-11-14.
 
 Gentry, R. R., Froehlich, H. E., Grimm, D., Kareiva, P., Parke, M., Rust, M., Gaines, S. D., & Halpern, B. S. Mapping the global potential for marine aquaculture. Nature Ecology & Evolution, 1, 1317-1324 (2017).
 
-GEBCO Compilation Group (2022) GEBCO_2022 Grid (doi:10.5285/e0f0bb80-ab44-2739-e053-6c86abc0289c).
+GEBCO Compilation Group (2022) GEBCO_2022 Grid [doi:10.5285/e0f0bb80-ab44-2739-e053-6c86abc0289c](https://www.gebco.net/data-products/gridded-bathymetry-data/gebco-2022).
 
 Hall, S. J., Delaporte, A., Phillips, M. J., Beveridge, M. & O’Keefe, M. Blue Frontiers: Managing the Environmental Costs of Aquaculture (The WorldFish Center, Penang, Malaysia, 2011).
 

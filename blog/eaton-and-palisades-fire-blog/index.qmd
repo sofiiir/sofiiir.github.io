@@ -14,7 +14,7 @@ bibliography: references.bib
 image: eatonfire.png
 ---
 
-GitHub repository: [https://github.com/sofiiir/eds220-hwk4.git](https://github.com/sofiiir/eds220-hwk4.git)
+GitHub repository: [https://github.com/sofiiir/investigating-eaton-and-palisades-fires](https://github.com/sofiiir/investigating-eaton-and-palisades-fires)
 
 ## About
 

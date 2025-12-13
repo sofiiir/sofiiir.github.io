@@ -335,7 +335,7 @@ The Palisades Fire area has a higher number of estimated percentage of individua
 
 - ATSDR, Place and Health - Geospatial Research, Analysis, and Services Program (GRASP), EJI Data Download . (n.d.) Available: [https://www.atsdr.cdc.gov/place-health/php/eji/eji-data-download.html](https://www.atsdr.cdc.gov/place-health/php/eji/eji-data-download.html). [Accessed November 17, 2025]
 
-- C. Galaz Garcia and A. Adams, EDS 220 - Working with Environmental Datasets. (n.d.) Available: https://meds-eds-220.github.io/MEDS-eds-220-course/. [Accessed November 17, 2025]
+- C. Galaz Garcia and A. Adams, EDS 220 - Working with Environmental Datasets. (n.d.) Available: [https://meds-eds-220.github.io/MEDS-eds-220-course/](https://meds-eds-220.github.io/MEDS-eds-220-course/). [Accessed November 17, 2025]
 
 - City of Los Angeles GeoHub / NIFC FIRIS(2025).Palisades and Eaton Dissolved Fire Perimeters (2025) [Shapefile]. Available: [https://egis-lacounty.hub.arcgis.com/maps/ad51845ea5fb4eb483bc2a7c38b2370c/about](https://egis-lacounty.hub.arcgis.com/maps/ad51845ea5fb4eb483bc2a7c38b2370c/about). [Retrieved November 17, 2025]
   

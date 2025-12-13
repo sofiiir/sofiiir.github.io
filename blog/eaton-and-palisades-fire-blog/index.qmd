@@ -27,11 +27,11 @@ GitHub repository: [https://github.com/sofiiir/eds220-hwk4.git](https://github.c
 
 - Landsat data is read in with NetCDF. No CRS is originally assigned to the entire Landsat data. The CRS is held in the `spatial_ref` variable. The GeoSpatial data must be restored by using the CRS from the `spatial_ref` variable. 
 
-- Landsat data is versatile. Landsat 8 has 11 bands that can be selected to make a variety of coloration maps. For example, the red, green, and blue bands (in that order) can be selected in that order to create a true coloration map. 
+- Landsat data is versatile. Landsat 8 has 11 bands that can be selected to make a variety of coloration maps. For example, the red, green, and blue bands can be selected in that order to create a true coloration map. 
 
-- False color Landsat maps are created by selecting the short-wave infrared (swir22), near-infrared, and red variables (in that order). This map best depicts the fire scars on the landscape. The final map shows the fire scars with the additional boundaries of the fires being included for clarity. 
+- False color Landsat maps are created by selecting the short-wave infrared (swir22), near-infrared, and red variables (in that order). The false color map best depicts the fire scars on the landscape. Additionally, the false color map includes the fire boundaries for clarity. 
 
-- Vector data can be utilized to clip raster data. In the case of this analysis, the fire perimeter data is used to crop Environmental Justice Index (EJI) data. This data is then used to analyze potential differences and similarities in environmental justice information in the fire perimeter zones.
+- Vector data can be utilized to clip raster data. In the case of this analysis, the fire perimeter data is used to crop Environmental Justice Index (EJI) data. This data is then used to analyze potential differences and similarities in environmental justice information in the fire perimeter zones by census tracts.
 
 **Datasets descriptions:** 
 
@@ -39,7 +39,7 @@ GitHub repository: [https://github.com/sofiiir/eds220-hwk4.git](https://github.c
 
 - **Landsat8:** NASA Landsat satellites in conjunction with USGS acquire data using 11 bands through the use of Operational Land Imager (OLI) and the Thermal Infrared Sensor (TIRS). Landsat satellites orbit earth at a rate of 16 days per cycle making imaging availability satellite location dependent. This data is publicly available.
 
-- **Environmental Justice Index:** ATSDR environmental justice data contains data by census tract and is used to explore EJI differences in the Eaton and Palisades fire areas. 
+- **Environmental Justice Index:** ATSDR environmental justice data contains data by census tract and is used to explore EJI differences in the Eaton and Palisades fire areas. This data is publicly available.
 
 ### Load Necessary Packages
 
@@ -124,7 +124,7 @@ print('Eaton fire CRS: ', eaton_fire.crs)
 print('Palisades fire CRS: ', palisades_fire.crs)
 ```
 
-Not all of the CRSs match. Adjust the CRS before mapping. Then use assert statements to ensure all of the CRSs match. 
+Not all of the CRSs match. Adjust the CRSs before mapping. Then use assert statements to ensure all of the CRSs match. 
 
 ```{python}
 # Reproject fire perimeter to the Landsat CRS
@@ -232,7 +232,7 @@ assert eji.crs == palisades_fire.crs
 assert eji.crs == eaton_fire.crs
 ```
 
-We join the fire perimeter data with the EJI data leaving the default `intersects` parameter. The EJI data is cropped to areas where the EJI rater intersects with the fire perimeters. We'll save these as their own objects to use for mapping below. 
+We join the fire perimeter data with the EJI data. The default is to only keep the portions of the data that intersect. The EJI data is cropped to areas where the EJI raster intersects with the fire perimeters. We'll save these as their own objects to use for mapping below. 
 
 ```{python}
 # Join the Palisades perimeter and eji data and make sure CRS match
@@ -327,9 +327,9 @@ plt.show()
 
 #### EJI Map Analysis
 
-The Palisades Fire area has a higher number of estimated percentage of individuals who have cancer than the Eaton Fire area. The Eaton Fire area estimate of percentage of individuals who have cancer ranges from approximately from five to eleven percent. The Palisades Fire area estimate of percentage of individauls who have cancer ranges from approximately ten to twelve percent. 
+The Palisades Fire area has a higher number of estimated percentage of individuals who have cancer than the Eaton Fire area. The Eaton Fire area estimate of percentage of individuals who have cancer ranges approximately from five to eleven percent. The Palisades Fire area estimate of percentage of individauls who have cancer ranges from approximately ten to twelve percent. Though these values and the differences may seem small the reality of one person having cancer is catastrophic for communities.
 
- These findings are interesting as they are contrary to what would have been expected based on prior knowledge of these communities. The Eaton Canyon community is composed of more people of color and is a historically black community. The Palisades community is largely white and of higher economic status. Further analysis mapping the socioeconomic makeup of these communities can illustrate a breader variety of socio-economic factors. These differences in the estimates of the percentage of individuals that have cancer show that communities suffering from destructive fires do not follow a clear pattern related to this analysis of environmental justice. Further, this analysis shows that natural disasters can effect anyone regardless of socioeconomic status. 
+ These findings are interesting as they are contrary to the expected differences between the Eaton and Palisades Fires areas based on prior knowledge of these communities. The Eaton Canyon community is composed of more people of color and is a historically black community. The Palisades community is largely white and of higher economic status. Further analysis mapping the socioeconomic makeup of these communities can illustrate a broader variety of socio-economic factors. These differences in the estimates of the percentage of individuals that have cancer show that communities suffering from destructive fires do not follow a clear pattern related to this analysis of environmental justice. Further, this analysis shows that natural disasters can effect anyone regardless of socioeconomic status. 
 
 ## References
 

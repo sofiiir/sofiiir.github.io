@@ -25,7 +25,7 @@ image: oyster.png
 
 Aquaculture is a viable solution to help address over-fishing while providing ocean foods to communities that rely on them. It additionally creates a job sector increasing local employment opportunities. Though there are many factors in choosing suitable locations for aquaculture, sea surface temperature (SST) and bathymetry are two key considerations. 
 
-This analysis focuses on creating a function that identifies potential aquaculture locations based on SST and bathymetry species requirements. Further, the findings of potential aquaculture locations for each species is broken into Exclusive Economic Zones (EEZ). EEZs are areas off of countries' coasts extending approximately 200 nautical miles into open water. These areas are controlled by the coastal countries which maintain control over the resources and happenings in these zones. For this analysis these EEZs are further divided into state regions. 
+This analysis focuses on creating a function that identifies potential aquaculture locations based on SST and bathymetry species requirements. Further, the findings of potential aquaculture locations for each species is broken into Exclusive Economic Zones (EEZ). EEZs are areas off of countries' coasts extending approximately 200 nautical miles into open water. These areas are controlled by the coastal countries which maintain control over the resources and happenings in these zones (NOAA Ocean Exploration). For this analysis these EEZs are divided into state regions. 
 
 Fun fact: According to the National Oceanic and Atmospheric Administration, the EEZs of the United States are larger than the land area of the 50 states combined!
 
@@ -315,7 +315,7 @@ tm_shape(suit_oyster_aqu) +
 
 # How much suitable aquaculture space is there in each Exclusive Economic Zone (EEZ)?
 
-The final step is to find the suitable oyster aquaculture locations in each EEZ. States only have jurisdiction over their EEZs. To reiterate this is within 200 nautical miles off of the coast. I want to see the amount of area in each EEZ region that can be used for oyster aquaculture. This can help with creating policy to make these potential aquaculture ventures a reality or inform possible aquaculturalists of where they might find the most success when pursuing aquaculture.
+The final step is to find the suitable oyster aquaculture locations in each EEZ. States only have jurisdiction over their respective EEZs. To reiterate this is within 200 nautical miles off of the coast. I want to see the amount of area in each EEZ region that can be used for oyster aquaculture. This can help with creating policy to make these potential aquaculture ventures a reality or inform possible aquaculturists of where they might find the most success when pursuing oyster aquaculture.
 
 I rasterize the vector data so that the operations can be applied smoothly between the two objects. Since I'm only interested in the suitable habitat within the Exclusive Economic Zones, I crop the suitable oyster aquaculture zones by the EEZ object. 
 
@@ -513,7 +513,10 @@ tm_shape(spec_area_eez) +
     tm_layout(component.autoscale = FALSE)
 }
 ```
-# Additional species of interest: **Red Sea Urchin**, *Mesocentrotus franciscanus*
+# Additional species of interest: **Red Sea Urchin**, *Mesocentrotus franciscanus* (formerly *Strongylocentrotus franciscanus*)
+
+#### Why would red sea urchin be reared? 
+Red sea urchin are prized for their gonads which are eaten under the name uni. Uni is popular in sushi establishments and fine dining worldwide. Because of their relatively higher price these may be an economically advantageous choice for aspiring aquaculturists. The natural red sea urchin stocks are well managed on the west coast (Sea Grant California). However, the moratorium on limits for harvesting red sea urchin may not keep up with demand. 
 
 Let's try out our function!
 
@@ -525,14 +528,13 @@ Sea surface temperature is adequate for red sea urchins in the range of 6.75-13.
 potent_aqu(sst, eez_sf, depth, 6.75, 13.02, -125, 0, "Mesocentrotus franciscanus")
 ```
 
-Washington and Oregon have the most suitable aquaculture locations for red sea urchin based on SST and depth. Central California has the third most suitable locations for red sea urchin aquaculture based on SST and depth. Northern California and Southern California have the least amount of suitable red sea urchin aquaculture locations. 
-
+Washington and Oregon have the most suitable aquaculture locations for red sea urchin based on SST and depth. Central California has the third most suitable locations for red sea urchin aquaculture based on SST and depth. Northern California and Southern California have the least amount of suitable red sea urchin aquaculture locations.
 
 # Reflection
 
 Analyzing potential aquaculture locations based on SST and bathymetry is only the first step in finding suitable locations for new aquaculture endeavors. One limitation of the above analysis is that SST is an average taken from 2008 to 2012. With climate change shifting temperatures, projection data would be important to include in analyzing best future aquaculture sites. Referencing species native ranges is also essential to reducing any potential negative outcomes of introducing non-native species. 
 
-#GitHub
+# GitHub
 
 The repository containing all of the code for this analysis can be found [here](https://github.com/sofiiir/aquaculture-exclusive-economic-zones).
 
@@ -551,3 +553,5 @@ NOAA Coral Reef Watch. 2019, updated daily. NOAA’s 5km Daily Global Satellite 
 NOAA Ocean Exploration. What is the EEZ?. Accessed 2025-12-11 at [https://oceanexplorer.noaa.gov/ocean-fact/useez/](https://oceanexplorer.noaa.gov/ocean-fact/useez/).
 
 Palomares, M.L.D. and D. Pauly. Editors. 2025. SeaLifeBase. World Wide Web electronic publication. www.sealifebase.org, version (04/2025).
+
+Sea Grant California. Red Sea Urchin. Accessed 2025-12-12 at [https://caseagrant.ucsd.edu/seafood-profiles/red-sea-urchin](https://caseagrant.ucsd.edu/seafood-profiles/red-sea-urchin).

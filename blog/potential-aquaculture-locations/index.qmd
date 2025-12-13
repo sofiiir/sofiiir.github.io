@@ -9,7 +9,7 @@ author:
 date: 2025-12-12
 categories: [MEDS, R, Data-viz]
 citation: 
-  url: https://sofiiir.github.io/blog/gdp-influence-on-coastline-protection-blog/
+  url: https://sofiiir.github.io/blog/potential-aquaculture-locations/
 format: 
   html: 
     code-fold: show

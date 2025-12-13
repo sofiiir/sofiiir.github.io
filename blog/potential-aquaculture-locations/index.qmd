@@ -515,7 +515,7 @@ tm_shape(spec_area_eez) +
     tm_layout(component.autoscale = FALSE)
 }
 ```
-# Additional species of interest: **Red Sea Urchin**, *Mesocentrotus franciscanus** 
+# Additional species of interest: **Red Sea Urchin**, *Mesocentrotus franciscanus*
 
 #### Why would red sea urchin be a species to rear? 
 Red sea urchin are prized for their gonads which are eaten under the name uni. Uni is popular in sushi establishments and fine dining worldwide. Because of their relatively higher price these may be an economically advantageous choice for aspiring aquaculturists. The natural red sea urchin stocks are well managed on the west coast (Sea Grant California). However, the moratorium on limits for harvesting red sea urchin may not keep up with demand. 
@@ -536,7 +536,9 @@ Washington and Oregon have the most suitable aquaculture locations for red sea u
 
 Analyzing potential aquaculture locations based on SST and bathymetry is only the first step in finding suitable locations for new aquaculture endeavors. One limitation of the above analysis is that SST is an average taken from 2008 to 2012. With climate change shifting temperatures, projection data would be important to include in analyzing best future aquaculture sites. Referencing species native ranges is also essential to reducing any potential negative outcomes of introducing non-native species. 
 
-There is a vast amount of potential suitable aquaculture area for both oyster and red sea urchin aquaculture. If aquaculture is sustainably actualized it could increase the job market in these areas. It could also reduce the pressures on wild fish stocks in the case of the red sea urchin. According to Sea Grant California, in certain areas without rocky surfaces juvenile red sea urchin use the spines of mature sea urchins for protection. These areas likely have fewer red sea urchins due to harvesting as the more mature red sea urchin are not present to aid in populating these areas with young sea urchin. This is one case study however, species dependent analysis are necessary to avoid drawbacks from creating environmentally detrimental aquaculture systems.
+There is a vast amount of potential suitable aquaculture area for both oyster and red sea urchin aquaculture. Aquaculture ventures would increase the job market in these areas. If aquaculture is sustainably actualized it could also reduce the pressures on wild stocks. 
+
+Red sea urchin are sustainably managed presently. However, according to Sea Grant California, in certain areas without rocky surfaces juvenile red sea urchin use the spines of mature sea urchins for protection. These areas likely have fewer red sea urchins due to harvesting as the more mature red sea urchin are not present to aid in populating these areas with young sea urchin. This is one case study. Species dependent analysis are necessary to avoid drawbacks from creating environmentally detrimental aquaculture systems. 
 
 # GitHub
 
@@ -567,3 +569,5 @@ NOAA Ocean Exploration. What is the EEZ?. Accessed 2025-12-11 at [https://oceane
 Palomares, M.L.D. and D. Pauly. Editors. 2025. SeaLifeBase. World Wide Web electronic publication. www.sealifebase.org, version (04/2025).
 
 Sea Grant California. Red Sea Urchin. Accessed 2025-12-12 at [https://caseagrant.ucsd.edu/seafood-profiles/red-sea-urchin](https://caseagrant.ucsd.edu/seafood-profiles/red-sea-urchin).
+
+Longo, S.B., York, R., Why aquaculture may not conserve wild fish. (2024) Sci. Adv.10,eado3269.[DOI:10.1126/sciadv.ado3269](https://www.science.org/doi/10.1126/sciadv.ado3269)

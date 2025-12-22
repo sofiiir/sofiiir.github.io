@@ -22,7 +22,7 @@ execute:
 image: beach.png
 ---
 
-GitHub repository: (https://github.com/sofiiir/gdp-influence-on-coastline-protection)[https://github.com/sofiiir/gdp-influence-on-coastline-protection]
+GitHub repository: [https://github.com/sofiiir/gdp-influence-on-coastline-protection](https://github.com/sofiiir/gdp-influence-on-coastline-protection)
 
 # Introduction
 

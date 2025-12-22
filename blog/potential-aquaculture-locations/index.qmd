@@ -22,7 +22,7 @@ execute:
 image: oyster.png
 ---
 
-GitHub repository: (https://github.com/sofiiir/aquaculture-exclusive-economic-zones)[https://github.com/sofiiir/aquaculture-exclusive-economic-zones]
+GitHub repository: [https://github.com/sofiiir/aquaculture-exclusive-economic-zones](https://github.com/sofiiir/aquaculture-exclusive-economic-zones)
 
 # Introduction
 

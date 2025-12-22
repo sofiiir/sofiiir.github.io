@@ -22,6 +22,8 @@ execute:
 image: beach.png
 ---
 
+GitHub repository: (https://github.com/sofiiir/gdp-influence-on-coastline-protection)[https://github.com/sofiiir/gdp-influence-on-coastline-protection]
+
 # Introduction
 
 This blog post investigates the hypothesis that nations with higher per capita GDP are more likely to protect their coastal ecosystems. This hypothesis is derived from the general knowledge that protecting ecosystems takes a large amount of resources. Policy must be put in place to create these protected areas. Countries with a higher per capita GDP would, in theory, have a greater amount of resources to spend on creating these zones.

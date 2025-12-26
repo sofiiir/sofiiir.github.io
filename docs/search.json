@@ -11,21 +11,21 @@
     "href": "about.html",
     "title": "About",
     "section": "",
-    "text": "Here’s where I descibe what I do professionally"
+    "text": "I enjoy synthesizing policy, science, data, and socio-economic data into actionable reports. My background completing my degree in environmental studies from Vassar College focused in marine conservation, biology, and anthropology. Adding data analysis skills to my portfolio will allow me to better address complex environmental issues. I am excited to apply my new found data skills to my passion of environmental investigations."
   },
   {
-    "objectID": "about.html#what-i-do-for-work",
-    "href": "about.html#what-i-do-for-work",
+    "objectID": "about.html#professional-aspirations",
+    "href": "about.html#professional-aspirations",
     "title": "About",
     "section": "",
-    "text": "Here’s where I descibe what I do professionally"
+    "text": "I enjoy synthesizing policy, science, data, and socio-economic data into actionable reports. My background completing my degree in environmental studies from Vassar College focused in marine conservation, biology, and anthropology. Adding data analysis skills to my portfolio will allow me to better address complex environmental issues. I am excited to apply my new found data skills to my passion of environmental investigations."
   },
   {
-    "objectID": "about.html#what-i-do-for-fun",
-    "href": "about.html#what-i-do-for-fun",
+    "objectID": "about.html#hobbies",
+    "href": "about.html#hobbies",
     "title": "About",
-    "section": "What I do for fun",
-    "text": "What I do for fun\nI love being outside!"
+    "section": "Hobbies",
+    "text": "Hobbies\nI love being outside! My favorite activities are swimming leisurely in the ocean, jogging to the beach, hiking, and kayaking. I also love art. I enjoy ceramics, print making, and collaging. One of my other great passions is travelling."
   },
   {
     "objectID": "blog/potential-aquaculture-locations/index.html",
@@ -60,7 +60,7 @@
     "href": "index.html",
     "title": "Sofia Rodas",
     "section": "",
-    "text": "Hi! I’m Sofia! I’m pursuing a Masters of Environmental Data Science at the Bren School of Environmental Science & Management."
+    "text": "Hi! I’m Sofia! I’m pursuing a Masters of Environmental Data Science at the Bren School of Environmental Science & Management. Previously, I worked as a field biologist and I am excited to broaden my scope of work to include more in depth data analysis. My career goal is to analyze multifaceted environmental problems while combatting environmental justice issues. I am most interested in marine conservation, toxins reduction, and equitable envvironmental resoucres for all."
   },
   {
     "objectID": "blog/gdp-influence-on-coastline-protection-blog/index.html",
@@ -149,7 +149,7 @@
   {
     "objectID": "resources.html",
     "href": "resources.html",
-    "title": "resources",
+    "title": "Resources",
     "section": "",
     "text": "Coding resources:\n\nR cookbook 2nd Edition W3Schools\n\nStudies of interest:\n\niea Gender and Energy Data Explorer\nUrban Displacement Project"
   }

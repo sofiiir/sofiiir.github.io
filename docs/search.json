@@ -4,7 +4,7 @@
     "href": "blog.html",
     "title": "Blog",
     "section": "",
-    "text": "Potential Aquaculture Locations within Exclusive Economic Zones\n\n\n\nMEDS\n\nR\n\nData-viz\n\n\n\nAnalysis of surface sea temperature and bathymetry to find suitable locations for aquaculture based on species parameters.\n\n\n\nSofia Rodas\n\n\nDec 12, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nExploring the Eaton and Palisades Fire in Python\n\n\n\nMEDS\n\nPython\n\nData-viz\n\n\n\nUsing Landsat and environmental justice data to explore the Eaton and Palisades Fire that took place in the Los Angeles area during January 2025.\n\n\n\nSofia Rodas\n\n\nDec 12, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nPer Capita GDP Influence on the Protection of Coastal Ecosystems\n\n\n\nMEDS\n\nR\n\n\n\nNation’s per capita GDP influence on coastal ecosystem protections, an exploration of the proportion of protected area of cold-water corals, mangroves, salt marshes, sea…\n\n\n\nSofia Rodas\n\n\nDec 11, 2025\n\n\n\n\n\n\nNo matching items"
+    "text": "Cave and karst residing bat infographic\n\n\n\n\n\n\nSofia Rodas\n\n\n\n\n\n\n\n\n\n\n\n\n\nPotential Aquaculture Locations within Exclusive Economic Zones\n\n\n\nMEDS\n\nR\n\nData-viz\n\n\n\nAnalysis of surface sea temperature and bathymetry to find suitable locations for aquaculture based on species parameters.\n\n\n\nSofia Rodas\n\n\nDec 12, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nExploring the Eaton and Palisades Fire in Python\n\n\n\nMEDS\n\nPython\n\nData-viz\n\n\n\nUsing Landsat and environmental justice data to explore the Eaton and Palisades Fire that took place in the Los Angeles area during January 2025.\n\n\n\nSofia Rodas\n\n\nDec 12, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nPer Capita GDP Influence on the Protection of Coastal Ecosystems\n\n\n\nMEDS\n\nR\n\n\n\nNation’s per capita GDP influence on coastal ecosystem protections, an exploration of the proportion of protected area of cold-water corals, mangroves, salt marshes, sea…\n\n\n\nSofia Rodas\n\n\nDec 11, 2025\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "about.html",
@@ -54,6 +54,27 @@
     "title": "Potential Aquaculture Locations within Exclusive Economic Zones",
     "section": "Data Processing",
     "text": "Data Processing\nThis analysis works based on the mean of Sea Surface Temperature (SST) measured between 2008 and 2012, so I use map algebra to calculate the mean. This analysis is also based on Celsius, so I subtract 273 to convert all of the values from the Kelvin scale to the Celsius scale with a global operation.\n\n\nCode\n# calculate the mean of sst \nmean_sst &lt;- mean(sst)\n\n# convert the units from kelvin to celsius\nmean_sst &lt;- mean_sst - 273 \n\n\nTo reiterate, the three important aspects when working with spatial data are that the extent, resolution, and positions match. For this analysis, SST and depth need to have the same extent, resolution, and positions. I crop to make sure the extents of the rasters are the same.\n\n\nCode\n# crop the depth raster \ndepth &lt;- crop(depth, mean_sst)\n\n\nThen I resample to make sure that the resolutions of the rasters are the same.\n\n\nCode\ndepth &lt;- resample(depth, mean_sst)\n\n\nI also add another warning message to make sure the extents and resolutions match for the SST and depth data frames.\n\n\nCode\n  if (ext(mean_sst)== ext(depth)){\n  print(\"extents match!\")\n}else {\n    warning(\"extents not a match\")\n}\n\n\n[1] \"extents match!\"\n\n\nCode\nif (res(mean_sst)[1]== res(depth)[1] & res(mean_sst)[2]== res(depth)[2]){\n   print(\"resolutions match!\")\n }else {\n     warning(\"resolutions not a match\")\n }\n\n\n[1] \"resolutions match!\""
+  },
+  {
+    "objectID": "blog/bat-infographic/index.html",
+    "href": "blog/bat-infographic/index.html",
+    "title": "Cave and karst residing bat infographic",
+    "section": "",
+    "text": "Bats are keystone species for caves and karsts acting as sources of nutrient resources from outside ecosystems (Tanalgo, 2022). These inputs are vital for the health of cave and karst ecosystems. However, conservation efforts often overlook these less researched and less prominent ecosystems. The database DarkCideS 1.0 aims to fill the gap in research by creating an open source database for information on cave and karst dwelling bats. The bats included in DarkCideS 1.0’s data includes bats that use caves and karsts at any point in their life cycle. My visual is intended to synthesize some of the information included in the DarkCideS 1.0 database to visualize the following questions.\n1. What regions have the most research on cave and karst bats and what regions are most threatened by densely populated and urban areas?\n2. What other ecosystems do cave and karst bats rely on? From which ecosystems are the nutrient sources and other resources entering caves and karsts?\n3. How are the populations of threatened and non-threatened bats changing?\nThe full repository for creating this infographic can be found here.\n\n\n\nBat Infographic exploring DarkCideS 1.0 data"
+  },
+  {
+    "objectID": "blog/bat-infographic/index.html#introduction",
+    "href": "blog/bat-infographic/index.html#introduction",
+    "title": "Cave and karst residing bat infographic",
+    "section": "",
+    "text": "Bats are keystone species for caves and karsts acting as sources of nutrient resources from outside ecosystems (Tanalgo, 2022). These inputs are vital for the health of cave and karst ecosystems. However, conservation efforts often overlook these less researched and less prominent ecosystems. The database DarkCideS 1.0 aims to fill the gap in research by creating an open source database for information on cave and karst dwelling bats. The bats included in DarkCideS 1.0’s data includes bats that use caves and karsts at any point in their life cycle. My visual is intended to synthesize some of the information included in the DarkCideS 1.0 database to visualize the following questions.\n1. What regions have the most research on cave and karst bats and what regions are most threatened by densely populated and urban areas?\n2. What other ecosystems do cave and karst bats rely on? From which ecosystems are the nutrient sources and other resources entering caves and karsts?\n3. How are the populations of threatened and non-threatened bats changing?\nThe full repository for creating this infographic can be found here.\n\n\n\nBat Infographic exploring DarkCideS 1.0 data"
+  },
+  {
+    "objectID": "blog/bat-infographic/index.html#design-elements",
+    "href": "blog/bat-infographic/index.html#design-elements",
+    "title": "Cave and karst residing bat infographic",
+    "section": "Design Elements",
+    "text": "Design Elements\nI made my graphic with a combination of ggplot and Affinity design. All text was added in Affinity to better manipulate fonts and spacing. The font was chosen to evoke a sense of being in a cave with hard edges being a focal point. Though it is typically advised to reduce the amount of ink for each graphic I chose to make the overall infographic dark to add to the overall cave feeling. Colors were selected to stand out on the dark background."
   },
   {
     "objectID": "index.html",

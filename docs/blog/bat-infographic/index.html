@@ -217,11 +217,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="introduction" class="level2">
 <h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
-<p>Bats are keystone species for caves and karsts acting as sources of nutrient resources from outside ecosystems (Tanalgo, 2022). These inputs are vital for the health of cave and karst ecosystems. However, conservation efforts often overlook these less researched and less prominent ecosystems. The database <a href="https://darkcides.wordpress.com/">DarkCideS 1.0</a> aims to fill the gap in research by creating an open source database for information on cave and karst dwelling bats. The bats included in DarkCideS 1.0’s data includes bats that use caves and karsts at any point in their life cycle. My visual is intended to synthesize some of the information included in the DarkCideS 1.0 database to visualize the following questions.</p>
+<p>Bats are keystone species for caves and karsts acting as sources of nutrient resources from outside ecosystems (Tanalgo, 2022). These inputs are vital for the health of cave and karst ecosystems. However, conservation efforts often overlook these less researched and less prominent ecosystems. <a href="https://darkcides.wordpress.com/">DarkCideS 1.0</a> aims to fill the gap in research by creating an open source database for information on cave and karst dwelling bats. The bats included in DarkCideS 1.0’s data includes bats that use caves and karsts at any point in their life cycle. My visual is intended to synthesize some of the information included in the DarkCideS 1.0 database to visualize the following questions.</p>
 <p><strong>1. What regions have the most research on cave and karst bats and what regions are most threatened by densely populated and urban areas?</strong></p>
 <p><strong>2. What other ecosystems do cave and karst bats rely on? From which ecosystems are the nutrient sources and other resources entering caves and karsts?</strong></p>
 <p><strong>3. How are the populations of threatened and non-threatened bats changing?</strong></p>
-<p>The full repository for creating this infographic can be found <a href="https://github.com/sofiiir/eds240-infographic">here</a>.</p>
+<p>You can explore the the <a href="https://github.com/sofiiir/eds240-infographic">full repository</a> and code used to create this infographic.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="final_viz/bat_infographic.png" class="img-fluid figure-img"></p>
@@ -231,7 +231,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="design-elements" class="level2">
 <h2 class="anchored" data-anchor-id="design-elements">Design Elements</h2>
-<p>I made my graphic with a combination of <code>ggplot</code> and Affinity design. All text was added in Affinity to better manipulate fonts and spacing. The font was chosen to evoke a sense of being in a cave with hard edges being a focal point. A deviation from typical chart conventions is the color choice for the entire infographic. It is typically advised to reduce the amount of ink for each graphic I chose to make the overall infographic dark to add to the overall cave feeling. Additionally, the colors were selected to stand out on the dark background.</p>
+<p>I made my graphic with a combination of {ggplot2} and Affinity design. All text was added in Affinity to better manipulate fonts and spacing. The font was chosen to evoke a sense of being in a cave with hard edges being a focal point. I chose to make the overall infographic dark to add to the overall cave feeling. The colors for each plot was selected to stand out on the dark background.</p>
 </section>
 <section id="map-and-distribution-plots" class="level1">
 <h1>Map and distribution plots</h1>
@@ -241,7 +241,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <figcaption>Bat distribution graphic</figcaption>
 </figure>
 </div>
-<p>My favorite graphic from my infographic is the map sandwiched between the two distribution plots. The original graphic of the distribution plots and the map were made using ggplot. The top distribution plot shows the distribution of cave and karst bats based on longitude location. This distribution plot correlates with the points on the map. Each point on the map depicts the location of individual bat observations. The distribution plot on the bottom shows the distribution of caves and karsts used by bats that are threatened by dense populations and urban areas. I made the distribution plots look like karsts and added a bat to further amplify the bat visual. I love this graphic form because it depicts a large amount of information in a relatively small amount of space.</p>
+<p>My favorite graphic from my infographic is the map sandwiched between the two distribution plots. The original graphic of the distribution plots and the map were made using {ggplot2}. The top distribution plot shows the distribution of cave and karst bats based on longitude location. This distribution plot correlates with the points on the map. Each point on the map depicts the location of individual bat observations. The distribution plot on the bottom shows the distribution of caves and karsts used by bats that are threatened by dense populations and urban areas. I made the distribution plots look like karsts and added a bat to further amplify the bat visual. I love this graphic form because it depicts a large amount of information in a relatively small amount of space.</p>
 <p>The distribution of cave and karst bats based on longitude location and the points on the map showing the individual observations of cave and karst bats are shown in the same color to denote that they are the same values depicted in different formats. The text was added in Affinity to manipulate the spacing and fonts. The arrow was also added in Affinity to better display what the points on the map show.</p>
 <p>My subheading discussing possible research gaps is intended to inform on the possible gaps in the data and show where resources can be deployed to gain a better understanding of bats globally.</p>
 </section>
@@ -253,8 +253,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <figcaption>Bat ecosystem graphic</figcaption>
 </figure>
 </div>
-<p>The importance of bats that use caves and karsts at some point of their life cycle is that they bring nutrients from other ecosystems into caves and karsts. This is vital for the health of the cave and karst ecosystems. The ecosystem use visual was made to look like bats flying into a cave. I also chose this visual form because the values are so divergent between the ecosystems. Making the plot a circular plot allows you to easily see all of the information reducing eye movement.</p>
-<p>Each bar is in a color that correlates with the ecosystem they were observed in. The length of each bar shows the number of observations in each ecosystem as does the size of the bats. I made the original visual in <code>ggplot</code> and added the bats in Affinity.</p>
+<p>The importance of bats that use caves and karsts at some point of their life cycle is that they bring nutrients from other ecosystems into caves and karsts. This is vital for the health of the cave and karst ecosystems. The ecosystem use visual was made to look like bats flying into a cave. I also chose this visual form because the values are so divergent between the ecosystems. Making the plot a circular plot allows you to easily see all of the information, while reducing eye movement.</p>
+<p>Each bar is in a color that correlates with the ecosystem they were observed in. The length of each bar shows the number of observations in each ecosystem as does the size of the bats. I made the original visual in {ggplot2} and added the bats in Affinity.</p>
 </section>
 <section id="bat-trends-population-graphic" class="level1">
 <h1>Bat trends population graphic</h1>
@@ -262,7 +262,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="explore-the-code" class="level1">
 <h1>Explore the code</h1>
-<p>Below is the code to make all of the elements of the infographic visual. This code gives the output in the ggplot form and can be manipulated in Affinity to recreate the infographic.</p>
+<p>Below is the code to make all of the elements of the infographic visual. This code gives the output in the {ggplot2} form and can be manipulated in Affinity to recreate the infographic.</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>

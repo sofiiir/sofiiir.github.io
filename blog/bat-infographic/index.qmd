@@ -8,7 +8,7 @@ warning: false
 message: false
 ---
 ## Introduction
-Bats are keystone species for caves and karsts acting as sources of nutrient resources from outside ecosystems (Tanalgo, 2022). These inputs are vital for the health of cave and karst ecosystems. However, conservation efforts often overlook these less researched and less prominent ecosystems. The database [DarkCideS 1.0](https://darkcides.wordpress.com/) aims to fill the gap in research by creating an open source database for information on cave and karst dwelling bats. The bats included in DarkCideS 1.0's data includes bats that use caves and karsts at any point in their life cycle. My visual is intended to synthesize some of the information included in the DarkCideS 1.0 database to visualize the following questions.   
+Bats are keystone species for caves and karsts acting as sources of nutrient resources from outside ecosystems (Tanalgo, 2022). These inputs are vital for the health of cave and karst ecosystems. However, conservation efforts often overlook these less researched and less prominent ecosystems. [DarkCideS 1.0](https://darkcides.wordpress.com/) aims to fill the gap in research by creating an open source database for information on cave and karst dwelling bats. The bats included in DarkCideS 1.0's data includes bats that use caves and karsts at any point in their life cycle. My visual is intended to synthesize some of the information included in the DarkCideS 1.0 database to visualize the following questions.   
 
 **1. What regions have the most research on cave and karst bats and what regions are most threatened by densely populated and urban areas?**  
 
@@ -17,19 +17,19 @@ Bats are keystone species for caves and karsts acting as sources of nutrient res
 **3. How are the populations of threatened and non-threatened bats changing?**   
  
 
-The full repository for creating this infographic can be found [here](https://github.com/sofiiir/eds240-infographic).
+You can explore the the [full repository](https://github.com/sofiiir/eds240-infographic) and code used to create this infographic.
 
  ![Bat Infographic exploring DarkCideS 1.0 data](final_viz/bat_infographic.png)
  
 ## Design Elements
 
-I made my graphic with a combination of `ggplot` and Affinity design. All text was added in Affinity to better manipulate fonts and spacing. The font was chosen to evoke a sense of being in a cave with hard edges being a focal point. A deviation from typical chart conventions is the color choice for the entire infographic. It is typically advised to reduce the amount of ink for each graphic I chose to make the overall infographic dark to add to the overall cave feeling. Additionally, the colors were selected to stand out on the dark background. 
+I made my graphic with a combination of {ggplot2} and Affinity design. All text was added in Affinity to better manipulate fonts and spacing. The font was chosen to evoke a sense of being in a cave with hard edges being a focal point. I chose to make the overall infographic dark to add to the overall cave feeling. The colors for each plot was selected to stand out on the dark background. 
 
 # Map and distribution plots
 
  ![Bat distribution graphic](final_viz/bat-dist-graphic.png)
  
-My favorite graphic from my infographic is the map sandwiched between the two distribution plots. The original graphic of the distribution plots and the map were made using ggplot. The top distribution plot shows the distribution of cave and karst bats based on longitude location. This distribution plot correlates with the points on the map. Each point on the map depicts the location of individual bat observations. The distribution plot on the bottom shows the distribution of caves and karsts used by bats that are threatened by dense populations and urban areas. I made the distribution plots look like karsts and added a bat to further amplify the bat visual. I love this graphic form because it depicts a large amount of information in a relatively small amount of space. 
+My favorite graphic from my infographic is the map sandwiched between the two distribution plots. The original graphic of the distribution plots and the map were made using {ggplot2}. The top distribution plot shows the distribution of cave and karst bats based on longitude location. This distribution plot correlates with the points on the map. Each point on the map depicts the location of individual bat observations. The distribution plot on the bottom shows the distribution of caves and karsts used by bats that are threatened by dense populations and urban areas. I made the distribution plots look like karsts and added a bat to further amplify the bat visual. I love this graphic form because it depicts a large amount of information in a relatively small amount of space. 
 
 The distribution of cave and karst bats based on longitude location and the points on the map showing the individual observations of cave and karst bats are shown in the same color to denote that they are the same values depicted in different formats. The text was added in Affinity to manipulate the spacing and fonts. The arrow was also added in Affinity to better display what the points on the map show. 
 
@@ -38,9 +38,9 @@ My subheading discussing possible research gaps is intended to inform on the pos
 # Bat ecosystem visualization
 ![Bat ecosystem graphic](final_viz/bat-ecosystem-graphic.png)
 
-The importance of bats that use caves and karsts at some point of their life cycle is that they bring nutrients from other ecosystems into caves and karsts. This is vital for the health of the cave and karst ecosystems. The ecosystem use visual was made to look like bats flying into a cave. I also chose this visual form because the values are so divergent between the ecosystems. Making the plot a circular plot allows you to easily see all of the information reducing eye movement. 
+The importance of bats that use caves and karsts at some point of their life cycle is that they bring nutrients from other ecosystems into caves and karsts. This is vital for the health of the cave and karst ecosystems. The ecosystem use visual was made to look like bats flying into a cave. I also chose this visual form because the values are so divergent between the ecosystems. Making the plot a circular plot allows you to easily see all of the information, while reducing eye movement. 
 
-Each bar is in a color that correlates with the ecosystem they were observed in. The length of each bar shows the number of observations in each ecosystem as does the size of the bats. I made the original visual in `ggplot` and added the bats in Affinity. 
+Each bar is in a color that correlates with the ecosystem they were observed in. The length of each bar shows the number of observations in each ecosystem as does the size of the bats. I made the original visual in {ggplot2} and added the bats in Affinity. 
 
 # Bat trends population graphic 
 ![Bat population trends graphic](final_viz/bat-pop-trends-graphic.png)
@@ -51,7 +51,7 @@ Finally, I made a barplot that shows population trends for bats. I divided the b
  
  
 # Explore the code
-Below is the code to make all of the elements of the infographic visual. This code gives the output in the ggplot form and can be manipulated in Affinity to recreate the infographic.
+Below is the code to make all of the elements of the infographic visual. This code gives the output in the {ggplot2} form and can be manipulated in Affinity to recreate the infographic.
 
 ```{r}
 #| message: false

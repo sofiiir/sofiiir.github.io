@@ -44,11 +44,12 @@ Each bar is in a color that correlates with the ecosystem they were observed in.
 
 # Bat trends population graphic 
 ![Bat population trends graphic showing that most bats are non-threatened. However, bats may simply be non-threatened due to being in unknown population trends.](final_viz/bat-pop-trends-graphic.png)
-Finally, I made a barplot that shows population trends for bats. I divided the bat populations into those that are non-threatened, threatened, and data deficient. Bat population trends are then categorized as increasing, stable, decreasing, and unknown. I left in the populations that do not have enough data to know either their population status or their trends because it further exhibits research gaps. I also left blank bars to show that some population statuses do not have bats that are part certain population trends. For example, there are no threatened bat populations with increasing population sizes. Faceted bar plots are the best visual for this data because the scales are so different between the different population trends. Stylistically, I rotated the axis so readers don't need to tilt their heads to read the axis. 
+
+Finally, I made a barplot that shows population trends for bats. I divided the bat populations into those that are non-threatened, threatened, and data deficient. Bat population trends are then categorized as increasing, stable, decreasing, and unknown. I left in the populations that do not have enough data to know either their population status or their trends because it further exhibits research gaps. I also left blank bars to show that some population statuses do not have bats exhibiting certain population trends. For example, there are no threatened bat populations with increasing population sizes. 
+
+Faceted bar plots are the best visual for this data because the scales are so different between the population trends. Stylistically, I rotated the axis so readers don't need to tilt their heads to read the axis text. 
 
 
-
- 
  
 # Explore the code
 Below is the code to make all of the elements of the infographic visual. This code gives the output in the {ggplot2} form and can be manipulated in Affinity to recreate the infographic.

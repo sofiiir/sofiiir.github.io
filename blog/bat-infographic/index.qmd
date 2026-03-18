@@ -23,7 +23,7 @@ You can explore the [full repository](https://github.com/sofiiir/eds240-infograp
  
 ## Design Elements
 
-I made my graphic with a combination of {ggplot2} and Affinity design. All text was added in Affinity to better manipulate fonts and spacing. The font was chosen to evoke a sense of being in a cave with hard edges being a focal point. I chose to make the overall infographic dark to add to the overall cave feeling. The colors for each plot was selected to stand out on the dark background. 
+I made my graphic with a combination of {ggplot2} and Affinity design. All text was added in Affinity to better manipulate fonts and spacing. The font was chosen to evoke a sense of being in a cave with hard edges being a focal point. I chose to make the overall infographic dark to add to the overall cave feeling. The colors for each plot were selected to stand out on the dark background. 
 
 # Map and distribution plots
 

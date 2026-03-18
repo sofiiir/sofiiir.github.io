@@ -19,7 +19,7 @@ Bats are keystone species for caves and karsts acting as sources of nutrient res
 
 You can explore the [full repository](https://github.com/sofiiir/eds240-infographic) and code used to create this infographic.
 
- ![Bat Infographic exploring DarkCideS 1.0 data.](final_viz/bat_infographic.png)
+ ![Bat infographic exploring DarkCideS 1.0 data.](final_viz/bat_infographic.png)
  
 ## Design Elements
 
@@ -27,7 +27,7 @@ I made my graphic with a combination of {ggplot2} and Affinity design. All text 
 
 # Map and distribution plots
 
- ![Bat distribution graphic](final_viz/bat-dist-graphic.png)
+ ![Bat distribution graphic showing that most bat observations are centered in South America, Europe, and East Asia. A second distribution is included in this visual that shows where dense populations threaten cave and karst habitats. Caves and karsts in South America, Europe, and East Asia are threatened by densely populated and urban areas.](final_viz/bat-dist-graphic.png)
  
 My favorite graphic from my infographic is the map sandwiched between the two distribution plots. The original graphic of the distribution plots and the map were made using {ggplot2}. The top distribution plot shows the distribution of cave and karst bats by longitudinal location. This distribution plot correlates with the points on the map. Each point on the map depicts the location of individual bat observations. The distribution plot on the bottom shows the distribution of cave and karst habitats classified as threatened by densely populated urban areas by longitudinal location. I made the distribution plots look like karsts and added a bat to further amplify the bat visual. I love this graphic form, because it depicts a large amount of information in a relatively small amount of space. 
 
@@ -36,14 +36,14 @@ The distribution of cave and karst bats by longitudinal location and the points 
 My subheading discussing possible research gaps is intended to inform on the possible gaps in the data and show where resources can be deployed to gain a better understanding of bats globally.
 
 # Bat ecosystem visualization
-![Bat ecosystem graphic](final_viz/bat-ecosystem-graphic.png)
+![Bat ecosystem graphic showing that cave and karst bats are most often found in forest and cave ecosystems.](final_viz/bat-ecosystem-graphic.png)
 
 The importance of bats that use caves and karsts at some point of their life cycle is that they bring nutrients from other ecosystems into caves and karsts. This is vital for the health of the cave and karst ecosystems. The ecosystem visual was made to look like bats flying into a cave. I also chose this visual form because the values are so divergent between the ecosystems. Making the plot a circular plot allows you to easily see all of the information, while reducing eye movement. 
 
 Each bar is in a color that correlates with the ecosystem they were observed in. The length of each bar shows the number of observations in each ecosystem as does the size of the bats. I made the original visual in {ggplot2} and added the bats in Affinity. 
 
 # Bat trends population graphic 
-![Bat population trends graphic](final_viz/bat-pop-trends-graphic.png)
+![Bat population trends graphic showing that most bats are non-threatened. However, bats may simply be non-threatened due to being in unknown population trends.](final_viz/bat-pop-trends-graphic.png)
 Finally, I made a barplot that shows population trends for bats. I divided the bat populations into those that are non-threatened, threatened, and data deficient. Bat population trends are then categorized as increasing, stable, decreasing, and unknown. I left in the populations that do not have enough data to know either their population status or their trends because it further exhibits research gaps. I also left blank bars to show that some population statuses do not have bats that are part certain population trends. For example, there are no threatened bat populations with increasing population sizes. Faceted bar plots are the best visual for this data because the scales are so different between the different population trends. Stylistically, I rotated the axis so readers don't need to tilt their heads to read the axis. 
 
 

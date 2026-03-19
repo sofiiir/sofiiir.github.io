@@ -416,8 +416,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="fit-the-gam-for-the-bpue" class="level2">
 <h2 class="anchored" data-anchor-id="fit-the-gam-for-the-bpue">Fit the <code>gam()</code> for the bpue</h2>
-<p><code>Tweedie()</code> explanation. https://stat.ethz.ch/R-manual/R-devel/library/mgcv/html/Tweedie.html</p>
+<p><code>Tweedie()</code> explanation.</p>
 <p>Tweedie distributions are a family of probability distributions, often used as distributions for generalized linear models like the one we are using here. They are categorized as high number of zero observations with a positively skewed distribution, like we saw above.</p>
+<p>For more information on the <code>Tweedie()</code> distribution check out the <a href="https://stat.ethz.ch/R-manual/R-devel/library/mgcv/html/Tweedie.html">R documentation</a></p>
 <section id="what-is-a-gam" class="level4">
 <h4 class="anchored" data-anchor-id="what-is-a-gam">What is a <code>gam()</code>?</h4>
 <p><code>gam()</code> is a generalized additive model. The GAM allows for more model flexibility and non-linear relationships. Our data do not follow a linear relationship, so <code>gam()</code> is a better choice than <code>glm()</code>.</p>
@@ -1185,13 +1186,13 @@ Turtle BPUE Confidence Intervals
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">Illuminated</td>
-<td style="text-align: right;">0.0324033</td>
-<td style="text-align: right;">9.644755</td>
+<td style="text-align: right;">0.0318063</td>
+<td style="text-align: right;">9.600731</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Control</td>
-<td style="text-align: right;">0.0730576</td>
-<td style="text-align: right;">19.837722</td>
+<td style="text-align: right;">0.0705635</td>
+<td style="text-align: right;">19.432963</td>
 </tr>
 </tbody>
 </table>
@@ -1220,13 +1221,13 @@ CPUE Confidence Intervals
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">Illuminated</td>
-<td style="text-align: right;">0.5814135</td>
-<td style="text-align: right;">2.488005</td>
+<td style="text-align: right;">0.5805343</td>
+<td style="text-align: right;">2.465141</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Control</td>
-<td style="text-align: right;">0.4997080</td>
-<td style="text-align: right;">2.209780</td>
+<td style="text-align: right;">0.5011528</td>
+<td style="text-align: right;">2.202186</td>
 </tr>
 </tbody>
 </table>
@@ -1249,11 +1250,11 @@ CPUE Confidence Intervals
 <section id="references" class="level1">
 <h1>References</h1>
 <ul>
-<li><p>Jones, A. 2020, November 21. Tweedie distributions. Andy Jones. https://andrewcharlesjones.github.io/journal/tweedie.html</p></li>
-<li><p>Senko, J., 2021, June 30. OSF. https://osf.io/fmxby/files/u2y8e</p></li>
+<li><p>Jones, A. 2020, November 21. Tweedie distributions. Andy Jones. <a href="https://andrewcharlesjones.github.io/journal/tweedie.html">https://andrewcharlesjones.github.io/journal/tweedie.html</a></p></li>
+<li><p>Senko, J., 2021, June 30. OSF. <a href="https://osf.io/fmxby/files/u2y8e">https://osf.io/fmxby/files/u2y8e</a></p></li>
 <li><p>Senko, J. F., J. Wang, K. M. Burgher, et al.&nbsp;2025. “Harnessing Solar Energy to Reduce Sea Turtle Bycatch.” Conservation Letters 18, no. 5:e13151.</p></li>
-<li><p>Simpson, G. (2020, July 20). Introduction to Generalized Additive Models with R and mgcv. YouTube. https://www.youtube.com/watch?v=sgw4cu8hrZM</p></li>
-<li><p>Wood, S. N. (n.d.). GAM Tweedie families. R-manual. https://stat.ethz.ch/R-manual/R-devel/library/mgcv/html/Tweedie.html</p></li>
+<li><p>Simpson, G. (2020, July 20). Introduction to Generalized Additive Models with R and mgcv. YouTube. <a href="https://www.youtube.com/watch?v=sgw4cu8hrZM">https://www.youtube.com/watch?v=sgw4cu8hrZM</a></p></li>
+<li><p>Wood, S. N. (n.d.). GAM Tweedie families. R-manual. <a href="https://stat.ethz.ch/R-manual/R-devel/library/mgcv/html/Tweedie.html">https://stat.ethz.ch/R-manual/R-devel/library/mgcv/html/Tweedie.html</a></p></li>
 </ul>
 
 

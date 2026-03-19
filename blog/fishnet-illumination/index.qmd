@@ -154,9 +154,11 @@ Our entire BPUE data set follow a tweedie distribution: zero-inflated and positi
 
 ## Fit the `gam()` for the bpue
 
-`Tweedie()` explanation. https://stat.ethz.ch/R-manual/R-devel/library/mgcv/html/Tweedie.html
+`Tweedie()` explanation. 
 
 Tweedie distributions are a family of probability distributions, often used as distributions for generalized linear models like the one we are using here. They are categorized as high number of zero observations with a positively skewed distribution, like we saw above.
+
+For more information on the `Tweedie()` distribution check out the [R documentation](https://stat.ethz.ch/R-manual/R-devel/library/mgcv/html/Tweedie.html)
 
 #### What is a `gam()`?
 
@@ -776,12 +778,12 @@ The authors found a 63% reduction in sea turtle bycatch with illuminated nets, h
 
 # References
 
--  Jones, A. 2020, November 21. Tweedie distributions. Andy Jones. https://andrewcharlesjones.github.io/journal/tweedie.html 
+-  Jones, A. 2020, November 21. Tweedie distributions. Andy Jones. [https://andrewcharlesjones.github.io/journal/tweedie.html](https://andrewcharlesjones.github.io/journal/tweedie.html) 
 
--   Senko, J., 2021, June 30. OSF. https://osf.io/fmxby/files/u2y8e
+-   Senko, J., 2021, June 30. OSF. [https://osf.io/fmxby/files/u2y8e](https://osf.io/fmxby/files/u2y8e)
 
 -   Senko, J. F., J. Wang, K. M. Burgher, et al. 2025. “Harnessing Solar Energy to Reduce Sea Turtle Bycatch.” Conservation Letters 18, no. 5:e13151.
 
-- Simpson, G. (2020, July 20). Introduction to Generalized Additive Models with R and mgcv. YouTube. https://www.youtube.com/watch?v=sgw4cu8hrZM 
+- Simpson, G. (2020, July 20). Introduction to Generalized Additive Models with R and mgcv. YouTube. [https://www.youtube.com/watch?v=sgw4cu8hrZM](https://www.youtube.com/watch?v=sgw4cu8hrZM) 
 
--  Wood, S. N. (n.d.). GAM Tweedie families. R-manual. https://stat.ethz.ch/R-manual/R-devel/library/mgcv/html/Tweedie.html 
+-  Wood, S. N. (n.d.). GAM Tweedie families. R-manual. [https://stat.ethz.ch/R-manual/R-devel/library/mgcv/html/Tweedie.html](https://stat.ethz.ch/R-manual/R-devel/library/mgcv/html/Tweedie.html) 

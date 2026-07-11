@@ -18,4 +18,25 @@ about:
       href: sofiarodas@bren.ucsb.edu
 ---
 
-Hi! I'm Sofia! I'm pursuing a Masters of Environmental Data Science at the Bren School of Environmental Science & Management. Previously, I worked as a field biologist and I am excited to broaden my scope of work to include more in depth data analysis. My career goal is to analyze multifaceted environmental problems while combating environmental justice issues. I am most interested in marine conservation, toxins reduction, and equitable environmental resources for all. 
+Hi! I'm Sofia! I recently graduated with a Masters of Environmental Data Science from the Bren School of Environmental Science & Management. I have experience working in field biology, environmental policy, and marine conservation. I'm excited to tackle conservation and sustainability issues that combine my diverse skills and areas of interest. My career goal is to analyze multifaceted environmental problems while combating environmental justice issues. I am most interested in marine conservation, toxins reduction, and equitable environmental resources for all. 
+
+::: panel-tabset
+
+### Education
+
+**Master, Environmental Data Science** (June 2026) \| Bren School of Environmental Science & Management \| University of California, Santa Barbara (UCSB)
+
+**Bachelor of Art, Environmental Studies, minor in Hispanic Studies** (June 2026) \| Vassar College, Poughkeepsie NY 
+
+
+### Data Science Projects
+
+**Master's Capstone Project** (2026) \| Analyzed Electric Grid Constraints on Equitable Energy Transition Across California Investor Owned Utilities (IOUs)  
+
+**Master’s Database Management Course Project (2026)** (2026) \| RDBMS Construction of Alaskan Salmon Database based on Alaska salmon data from 1922 to 2017 
+
+**Master’s Statistics Course Project ** (2026) \| Evaluate How GDP Influences Coastline Protection based on Ecosystems by running a beta regression
+
+
+
+:::

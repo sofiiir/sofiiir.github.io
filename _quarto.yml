@@ -6,10 +6,10 @@ website:
   title: "Sofia Rodas"
   # favicon: images/favicon.png
   navbar:
-    # title: false
-    # logo: images/logo.png
-    # logo-alt: "description"
-    right:
+     title: false
+     logo: images/simple_logo.png
+     logo-alt: "Sofia Rodas with swiggly lines around it"
+     right:
       - href: index.qmd
         text: Home
       - about.qmd

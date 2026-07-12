@@ -31,7 +31,6 @@ I recently graduated with a Masters of Environmental Data Science from the Bren 
 
 
 ::: {#second-column}
-| 
 |
 :::{.panel-tabset}
 ### Education 

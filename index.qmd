@@ -1,5 +1,5 @@
 ---
-title: "Sofia Rodas"
+title: ""
 image: sofia-cropped.JPEG
 about: 
   template: jolla
@@ -18,11 +18,23 @@ about:
       href: sofiarodas@bren.ucsb.edu
 ---
 
-Hi! I'm Sofia! I recently graduated with a Masters of Environmental Data Science from the Bren School of Environmental Science & Management. I have experience working in field biology, environmental policy, and marine conservation. I'm excited to tackle conservation and sustainability issues that combine my diverse skills and areas of interest. My career goal is to analyze multifaceted environmental problems while combating environmental justice issues. I am most interested in marine conservation, toxins reduction, and equitable environmental resources for all. 
+## Hi! I'm Sofia! 
 
-::: panel-tabset
+:::: {layout-ncol=2}
 
-### Education
+:::{#first-column}
+
+
+
+I recently graduated with a Masters of Environmental Data Science from the Bren School of Environmental Science & Management. I have experience working in field biology, environmental policy, and marine conservation. I'm excited to tackle conservation and sustainability issues that combine my diverse skills and areas of interest. My career goal is to analyze multifaceted environmental problems while combating environmental justice issues. I am most interested in marine conservation, toxins reduction, and equitable environmental resources for all. 
+:::
+
+
+::: {#second-column}
+| 
+|
+:::{.panel-tabset}
+### Education 
 
 **Master, Environmental Data Science** (June 2026) \| Bren School of Environmental Science & Management \| University of California, Santa Barbara (UCSB)
 
@@ -36,7 +48,6 @@ Hi! I'm Sofia! I recently graduated with a Masters of Environmental Data Science
 **Master’s Database Management Course Project (2026)** (2026) \| RDBMS Construction of Alaskan Salmon Database based on Alaska salmon data from 1922 to 2017 
 
 **Master’s Statistics Course Project ** (2026) \| Evaluate How GDP Influences Coastline Protection based on Ecosystems by running a beta regression
-
-
-
 :::
+:::
+::::

@@ -7,13 +7,14 @@
 $bebas: "Bebas Neue", sans-serif;
 
 //colors
-$linen : #FFEDDF;
+$linen : #FBF4EE;
 $rose : #C17C74;
 $green : #648767;
-$moss : #AABFBA;
+$moss : #ECE4E6;
 $rosewood : #640D14;
 $black : #000000;
-//$moss : #5F7470;
+//$moss : #AABFBA;
+//$linen : #FFEDDF;
 
 // define quarto variables
 $body-bg: $moss;
@@ -28,8 +29,8 @@ h1, h2, h3, h4 {
   font-family: $bebas;
 }
 
-.navbar-brand img{
-  height: 40px;
+.navbar-brand-logo{
+  max-height: 40px;
   width: auto;
 }
 

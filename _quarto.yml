@@ -4,10 +4,10 @@ project:
 
 website:
   title: "Sofia Rodas"
-  # favicon: images/favicon.png
+  favicon: images/simple_logo_dark.png
   navbar:
      title: false
-     logo: images/simple_logo.png
+     logo: images/simple_logo_dark.png
      logo-alt: "Sofia Rodas with swiggly lines around it"
      right:
       - href: index.qmd
@@ -27,8 +27,8 @@ website:
 format:
   html:
     theme: styles.scss
-      - journal
-      - brand
+      #- journal
+      #- brand
     toc: true
     page-layout: full
     mainfont: Dosis

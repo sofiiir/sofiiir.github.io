@@ -7,29 +7,33 @@
 $bebas: "Bebas Neue", sans-serif;
 
 //colors
-$linen : #FFEDDF
-$rose : #C17C74
-$green : #648767
-$moss : #5F7470
-$rosewood : #640D14
+$linen : #FFEDDF;
+$rose : #C17C74;
+$green : #648767;
+$moss : #AABFBA;
+$rosewood : #640D14;
+$black : #000000;
+//$moss : #5F7470;
 
 // define quarto variables
 $body-bg: $moss;
-$navbar-bg: $linen
-$navbar-fg: $rosewood
-$navbar-hl: $rose
+$navbar-bg: $linen;
+$navbar-fg: $rosewood;
+$navbar-hl: $rose;
+$nav-tabs-link-inactive: $rosewood;
+$nav-tabs-link-active: $black;
 
 /*-- scss:rules --*/
 h1, h2, h3, h4 {
   font-family: $bebas;
 }
 
-/*.nav-brand imag{
-  max-height: 40px;
+.nav-brand imag{
+  max-height: 300px;
   width: auto;
 }
 
-h1, h2 {
+/*h1, h2 {
   letter-spacing: 5px;
   font-weight: 800;
 }

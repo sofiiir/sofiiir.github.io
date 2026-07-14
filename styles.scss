@@ -13,16 +13,20 @@ $green : #648767;
 $moss : #ECE4E6;
 $rosewood : #640D14;
 $black : #000000;
+
+//$moss : #ECE4E6;
 //$moss : #AABFBA;
 //$linen : #FFEDDF;
 
 // define quarto variables
 $body-bg: $moss;
 $navbar-bg: $linen;
-$navbar-fg: $rosewood;
-$navbar-hl: $rose;
-$nav-tabs-link-inactive: $rosewood;
-$nav-tabs-link-active: $black;
+$navbar-fg: $rose;
+$navbar-hl: $rosewood;
+$nav-link-color: $rose;
+
+
+
 
 /*-- scss:rules --*/
 h1, h2, h3, h4 {
@@ -30,7 +34,7 @@ h1, h2, h3, h4 {
 }
 
 .navbar-logo{
-  max-height: 130px;
+  max-height: 120px;
   width: auto;
 }
 

@@ -39,14 +39,14 @@ I recently graduated with a Masters of Environmental Data Science from the Bren 
 
 **Bachelor of Art, Environmental Studies, minor in Hispanic Studies** (June 2026) \| Vassar College, Poughkeepsie NY 
 
-**Williams-Mystic, Maritime Studies program** (Spring 2019) \| Mystic Ct
+**Maritime Studies Program** (Spring 2019) \| Williams-Mystic, Mystic Ct
 
 
 ### Data Science Projects
 
 **Master's Capstone Project** (2026) \| Analyzed Electric Grid Constraints on Equitable Energy Transition Across California Investor Owned Utilities (IOUs)  
 
-**Master’s Database Management Course Project (2026)** (2026) \| RDBMS Construction of Alaskan Salmon Database based on Alaska salmon data from 1922 to 2017 
+**Master’s Database Management Course Project** (2026) \| RDBMS Construction of Alaskan Salmon Database based on Alaska salmon data from 1922 to 2017 
 
 **Master’s Statistics Course Project ** (2026) \| Evaluate How GDP Influences Coastline Protection based on Ecosystems by running a beta regression
 :::

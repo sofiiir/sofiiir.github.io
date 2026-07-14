@@ -10,6 +10,6 @@ format: html
 
 <h1>Studies of interest:</h1>
 
-[iea Gender and Energy Data Explorer](https://www.iea.org/data-and-statistics/data-tools/gender-and-energy-data-explorer)
+[Internation Energy Agency (IEA) Gender and Energy Data Explorer](https://www.iea.org/data-and-statistics/data-tools/gender-and-energy-data-explorer)
 
 [Urban Displacement Project](https://www.urbandisplacement.org/)

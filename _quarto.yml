@@ -14,8 +14,6 @@ website:
         text: Home
       - about.qmd
       - blog.qmd
-      - href: resources.qmd
-        text: Resources
       - href: RodasSofia_Resume.pdf
         text: Resume
       - icon: square-github

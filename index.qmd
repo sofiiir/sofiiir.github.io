@@ -1,6 +1,6 @@
 ---
 title: ""
-image: sofia-cropped.JPEG
+image: 2026headshot_copy.JPG
 about: 
   template: jolla
   image-shape: round
